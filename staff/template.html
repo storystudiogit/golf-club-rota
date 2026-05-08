@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Schedule</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a3a2a;
+    --green-mid: #2d5a3d;
+    --green-light: #e8f0eb;
+    --gold: #c9a84c;
+    --cream: #f9f6f0;
+    --text: #1a1a1a;
+    --muted: #6b7c6e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  header {
+    background: var(--green);
+    color: white;
+    padding: 2rem 2rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  header .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--cream);
+  }
+  header .week {
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    color: #a0b8a8;
+    letter-spacing: 0.06em;
+  }
+  .summary-bar {
+    background: var(--green-mid);
+    padding: 0.8rem 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .summary-item { color: var(--cream); font-size: 0.7rem; letter-spacing: 0.06em; }
+  .summary-item span { color: var(--gold); font-size: 1.1rem; font-weight: 500; margin-right: 0.3rem; }
+  main { padding: 1.5rem 2rem 3rem; }
+  .day-card {
+    background: white;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+    border: 1px solid #e8e4de;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .day-header {
+    background: var(--green);
+    color: var(--cream);
+    padding: 0.6rem 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .day-hours { color: var(--gold); font-size: 0.75rem; }
+  .shift-row {
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #f0ece6;
+    gap: 1rem;
+  }
+  .shift-row:last-child { border-bottom: none; }
+  .shift-time {
+    font-size: 0.65rem;
+    color: var(--muted);
+    min-width: 110px;
+    letter-spacing: 0.03em;
+  }
+  .shift-job {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.8rem;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .shift-off {
+    font-size: 0.7rem;
+    color: #ccc;
+    letter-spacing: 0.04em;
+  }
+  .shift-hours {
+    margin-left: auto;
+    font-size: 0.65rem;
+    color: var(--muted);
+  }
+  .day-off .day-header { background: #888; }
+  .day-off-label {
+    padding: 1rem;
+    color: #bbb;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  #loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  #error {
+    display: none;
+    text-align: center;
+    padding: 4rem;
+    color: #c0392b;
+    font-size: 0.8rem;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .back-link:hover { color: var(--green); }
+  footer {
+    padding: 1rem 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.62rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Your Schedule</div>
+  <h1 id="staff-name">—</h1>
+  <div class="week" id="week-label">—</div>
+</header>
+
+<div class="summary-bar">
+  <div class="summary-item"><span id="total-hours">0</span>hrs this week</div>
+  <div class="summary-item"><span id="working-days">0</span>days working</div>
+</div>
+
+<main>
+  <div id="loading">Loading your schedule...</div>
+  <div id="error">Could not load schedule data.</div>
+  <div id="content" style="display:none">
+    <a class="back-link" href="../index.html">← Full Rota</a>
+    <div id="days-container"></div>
+  </div>
+</main>
+
+<footer id="footer"></footer>
+
+<script>
+const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const SHIFTS = ['06:00-12:00','12:00-17:00','17:00-22:00'];
+const SHIFT_HRS = {'06:00-12:00':6,'12:00-17:00':5,'17:00-22:00':5};
+
+function jobColour(job) {
+  const map = {
+    'BAR':'#FFC7CE','BAR #2':'#FFCCAA','GREEN FEES':'#C6EFCE',
+    'GREEN FEES #2':'#B8E4B8','JUNGLE FALLS':'#FFEB9C',
+    'RANGE':'#BDD7EE','SITE GENERAL':'#E2CFFF','STARTER':'#FCE4D6'
+  };
+  return map[job] || '#f0f0f0';
+}
+
+// Get staff name from URL: staff/caz.html → CAZ
+const pathParts = window.location.pathname.split('/');
+const filename = pathParts[pathParts.length - 1].replace('.html','');
+const staffName = filename.replace(/-/g,' ').toUpperCase();
+
+document.getElementById('staff-name').textContent = staffName;
+document.title = staffName + ' — Schedule';
+
+async function load() {
+  try {
+    const res = await fetch('../data.json?v=' + Date.now());
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    render(data, staffName);
+  } catch(e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+  }
+}
+
+function render(data, name) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+  document.getElementById('week-label').textContent = data.weekLabel || '';
+  document.getElementById('footer').textContent = 'Last published: ' + (data.lastUpdated || '');
+
+  // Build per-day, per-shift view for this staff member
+  let totalHours = 0;
+  let workingDays = 0;
+
+  const container = document.getElementById('days-container');
+
+  DAYS.forEach(day => {
+    let dayHours = 0;
+    const shifts = [];
+
+    SHIFTS.forEach(shift => {
+      let assignedJob = null;
+      Object.entries(data.rota || {}).forEach(([job, jobData]) => {
+        const assigned = jobData[shift] && jobData[shift][day] ? jobData[shift][day] : [];
+        if (assigned.includes(name)) assignedJob = job;
+      });
+      shifts.push({ shift, job: assignedJob });
+      if (assignedJob) dayHours += SHIFT_HRS[shift] || 0;
+    });
+
+    const isDayOff = dayHours === 0;
+    if (!isDayOff) workingDays++;
+    totalHours += dayHours;
+
+    const card = document.createElement('div');
+    card.className = 'day-card' + (isDayOff ? ' day-off' : '');
+
+    const header = document.createElement('div');
+    header.className = 'day-header';
+    header.innerHTML = `<span>${day}</span>${!isDayOff ? `<span class="day-hours">${dayHours}h</span>` : ''}`;
+    card.appendChild(header);
+
+    if (isDayOff) {
+      const offLabel = document.createElement('div');
+      offLabel.className = 'day-off-label';
+      offLabel.textContent = 'Day off';
+      card.appendChild(offLabel);
+    } else {
+      shifts.forEach(({ shift, job }) => {
+        const row = document.createElement('div');
+        row.className = 'shift-row';
+        const timeEl = document.createElement('div');
+        timeEl.className = 'shift-time';
+        timeEl.textContent = shift;
+        row.appendChild(timeEl);
+
+        if (job) {
+          const jobEl = document.createElement('div');
+          jobEl.className = 'shift-job';
+          jobEl.style.background = jobColour(job);
+          jobEl.textContent = job;
+          row.appendChild(jobEl);
+          const hrsEl = document.createElement('div');
+          hrsEl.className = 'shift-hours';
+          hrsEl.textContent = SHIFT_HRS[shift] + 'h';
+          row.appendChild(hrsEl);
+        } else {
+          const offEl = document.createElement('div');
+          offEl.className = 'shift-off';
+          offEl.textContent = '—';
+          row.appendChild(offEl);
+        }
+        card.appendChild(row);
+      });
+    }
+
+    container.appendChild(card);
+  });
+
+  document.getElementById('total-hours').textContent = totalHours;
+  document.getElementById('working-days').textContent = workingDays;
+}
+
+load();
+</script>
+</body>
+</html>

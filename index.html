@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golf Club Rota</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a3a2a;
+    --green-mid: #2d5a3d;
+    --green-light: #e8f0eb;
+    --gold: #c9a84c;
+    --cream: #f9f6f0;
+    --text: #1a1a1a;
+    --muted: #6b7c6e;
+    --BAR: #FFC7CE;
+    --BAR2: #FFCCAA;
+    --GREENFEES: #C6EFCE;
+    --GREENFEES2: #B8E4B8;
+    --JUNGLEFALLS: #FFEB9C;
+    --RANGE: #BDD7EE;
+    --SITEGENERAL: #E2CFFF;
+    --STARTER: #FCE4D6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  header {
+    background: var(--green);
+    color: white;
+    padding: 2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 3px solid var(--gold);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+  }
+  header .meta {
+    font-size: 0.75rem;
+    color: var(--gold);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .week-label {
+    background: var(--green-mid);
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.6rem 2.5rem;
+  }
+  main { padding: 2rem 2.5rem; }
+  .rota-table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    min-width: 780px;
+  }
+  thead th {
+    background: var(--green);
+    color: var(--cream);
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+  }
+  thead th:first-child { text-align: left; }
+  thead th:nth-child(2) { text-align: left; }
+  .job-header td {
+    background: var(--green-light);
+    color: var(--green);
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    border-top: 2px solid var(--green-mid);
+  }
+  tbody tr { border-bottom: 1px solid #e0ddd8; }
+  tbody td {
+    padding: 0.55rem 0.8rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+  tbody td:nth-child(2) { text-align: left; color: var(--muted); font-size: 0.65rem; }
+  .staff-chip {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    margin: 1px;
+  }
+  .empty { color: #ccc; font-size: 0.6rem; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+  .legend-swatch {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  #loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+  }
+  #error {
+    display: none;
+    text-align: center;
+    padding: 4rem;
+    color: #c0392b;
+    font-size: 0.8rem;
+  }
+  .staff-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .staff-link {
+    background: var(--green);
+    color: var(--gold);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+    transition: background 0.15s;
+  }
+  .staff-link:hover { background: var(--green-mid); }
+  footer {
+    margin-top: 3rem;
+    padding: 1.5rem 2.5rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Rota Entry</h1>
+    <div style="font-size:0.7rem;color:#a0b8a8;margin-top:0.3rem;letter-spacing:0.06em;">MANAGER VIEW</div>
+  </div>
+  <div class="meta">
+    <div id="week-display">—</div>
+    <div id="last-updated">—</div>
+  </div>
+</header>
+
+<div class="week-label" id="week-label">Loading...</div>
+
+<main>
+  <div id="loading">Loading rota data...</div>
+  <div id="error">Failed to load rota data. Check the data.json file exists.</div>
+  <div id="content" style="display:none">
+
+    <p class="section-label">Staff Quick Links</p>
+    <div class="staff-links" id="staff-links"></div>
+
+    <p class="section-label" style="margin-top:2rem;">Job Legend</p>
+    <div class="legend" id="legend"></div>
+
+    <p class="section-label">Weekly Schedule</p>
+    <div class="rota-table-wrap">
+      <table id="rota-table">
+        <thead>
+          <tr>
+            <th style="width:140px">Job</th>
+            <th style="width:100px">Shift</th>
+            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+          </tr>
+        </thead>
+        <tbody id="rota-body"></tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+
+<footer id="footer"></footer>
+
+<script>
+const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const SHIFTS = ['06:00-12:00','12:00-17:00','17:00-22:00'];
+
+function jobColour(job) {
+  const map = {
+    'BAR':'#FFC7CE','BAR #2':'#FFCCAA','GREEN FEES':'#C6EFCE',
+    'GREEN FEES #2':'#B8E4B8','JUNGLE FALLS':'#FFEB9C',
+    'RANGE':'#BDD7EE','SITE GENERAL':'#E2CFFF','STARTER':'#FCE4D6'
+  };
+  return map[job] || '#f0f0f0';
+}
+
+async function load() {
+  try {
+    const res = await fetch('data.json?v=' + Date.now());
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    render(data);
+  } catch(e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+  }
+}
+
+function render(data) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+
+  // Header
+  document.getElementById('week-display').textContent = data.weekLabel || '';
+  document.getElementById('last-updated').textContent = 'Updated ' + (data.lastUpdated || '');
+  document.getElementById('week-label').textContent = data.weekLabel || '';
+
+  // Staff links
+  const staffLinksEl = document.getElementById('staff-links');
+  (data.staff || []).forEach(name => {
+    const a = document.createElement('a');
+    a.className = 'staff-link';
+    a.href = 'staff/' + name.toLowerCase().replace(/\s+/g,'-') + '.html';
+    a.textContent = name;
+    staffLinksEl.appendChild(a);
+  });
+
+  // Legend
+  const legendEl = document.getElementById('legend');
+  const jobs = Object.keys(data.rota || {});
+  jobs.forEach(job => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<div class="legend-swatch" style="background:${jobColour(job)}"></div><span>${job}</span>`;
+    legendEl.appendChild(item);
+  });
+
+  // Rota table
+  const tbody = document.getElementById('rota-body');
+  jobs.forEach(job => {
+    const colour = jobColour(job);
+    SHIFTS.forEach((shift, si) => {
+      const tr = document.createElement('tr');
+      if (si === 0) {
+        const jobTd = document.createElement('td');
+        jobTd.rowSpan = 3;
+        jobTd.textContent = job;
+        jobTd.style.cssText = `background:${colour};font-weight:500;font-size:0.68rem;letter-spacing:0.04em;text-align:left;border-left:3px solid rgba(0,0,0,0.08)`;
+        tr.appendChild(jobTd);
+      }
+      const shiftTd = document.createElement('td');
+      shiftTd.textContent = shift;
+      shiftTd.style.cssText = `background:${colour}44;`;
+      tr.appendChild(shiftTd);
+
+      DAYS.forEach(day => {
+        const td = document.createElement('td');
+        const assigned = (data.rota[job] && data.rota[job][shift] && data.rota[job][shift][day]) || [];
+        if (assigned.length) {
+          assigned.forEach(name => {
+            const chip = document.createElement('span');
+            chip.className = 'staff-chip';
+            chip.textContent = name;
+            td.appendChild(chip);
+          });
+        } else {
+          td.innerHTML = '<span class="empty">—</span>';
+        }
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  });
+
+  // Footer
+  document.getElementById('footer').textContent = 'Last published: ' + (data.lastUpdated || 'unknown');
+}
+
+load();
+</script>
+</body>
+</html>
