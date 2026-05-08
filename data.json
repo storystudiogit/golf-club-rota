@@ -1,6 +1,6 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "08/05/2026 16:13",
+  "lastUpdated": "08/05/2026 16:35",
   "staff": [
     "LEE",
     "CAZ",
@@ -18,13 +18,27 @@
   "rota": {
     "BAR": {
       "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "WILLIAM"
+        ],
+        "Tue": [
+          "WILLIAM"
+        ],
+        "Wed": [
+          "WILLIAM"
+        ],
+        "Thu": [
+          "WILLIAM"
+        ],
+        "Fri": [
+          "WILLIAM"
+        ],
+        "Sat": [
+          "WILLIAM"
+        ],
+        "Sun": [
+          "WILLIAM"
+        ]
       },
       "12:00-17:00": {
         "Mon": [],
@@ -76,13 +90,27 @@
     },
     "GREEN FEES": {
       "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "WILLIAM"
+        ],
+        "Tue": [
+          "WILLIAM"
+        ],
+        "Wed": [
+          "WILLIAM"
+        ],
+        "Thu": [
+          "WILLIAM"
+        ],
+        "Fri": [
+          "WILLIAM"
+        ],
+        "Sat": [
+          "WILLIAM"
+        ],
+        "Sun": [
+          "WILLIAM"
+        ]
       },
       "12:00-17:00": {
         "Mon": [],
