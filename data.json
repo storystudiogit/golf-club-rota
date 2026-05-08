@@ -1,47 +1,252 @@
 {
-  "weekLabel": "Week of 5 May 2025",
-  "lastUpdated": "05/05/2025 09:00",
-  "staff": ["LEE","CAZ","NELS","WILLIAM","JF","JOSH","KIERAN","HANNAH","OLLIE","BOB","PAUL","HUGH"],
+  "weekLabel": "Setup",
+  "lastUpdated": "08/05/2026 16:13",
+  "staff": [
+    "LEE",
+    "CAZ",
+    "NELS",
+    "WILLIAM",
+    "JF",
+    "JOSH",
+    "KIERAN",
+    "HANNAH",
+    "OLLIE",
+    "BOB",
+    "PAUL",
+    "HUGH"
+  ],
   "rota": {
     "BAR": {
-      "06:00-12:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "12:00-17:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "17:00-22:00": { "Mon":["KIERAN"], "Tue":["KIERAN"], "Wed":["KIERAN"], "Thu":["KIERAN"], "Fri":["KIERAN"], "Sat":["KIERAN"], "Sun":["KIERAN"] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "BAR #2": {
-      "06:00-12:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "12:00-17:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "17:00-22:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "GREEN FEES": {
-      "06:00-12:00": { "Mon":["HUGH"], "Tue":["HUGH"], "Wed":["HUGH"], "Thu":["HUGH"], "Fri":["HUGH"], "Sat":["HUGH"], "Sun":["HUGH"] },
-      "12:00-17:00": { "Mon":["WILLIAM"], "Tue":["WILLIAM"], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "17:00-22:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "GREEN FEES #2": {
-      "06:00-12:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "12:00-17:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "17:00-22:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "JUNGLE FALLS": {
-      "06:00-12:00": { "Mon":["HANNAH"], "Tue":["HANNAH"], "Wed":["HANNAH"], "Thu":["HANNAH"], "Fri":["HANNAH"], "Sat":["HANNAH"], "Sun":["HANNAH"] },
-      "12:00-17:00": { "Mon":["HANNAH"], "Tue":["HANNAH"], "Wed":["HANNAH"], "Thu":["HANNAH"], "Fri":["HANNAH"], "Sat":["HANNAH"], "Sun":["HANNAH"] },
-      "17:00-22:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "RANGE": {
-      "06:00-12:00": { "Mon":["CAZ"], "Tue":["CAZ"], "Wed":["CAZ"], "Thu":["CAZ"], "Fri":["CAZ"], "Sat":["CAZ"], "Sun":["CAZ"] },
-      "12:00-17:00": { "Mon":["CAZ"], "Tue":["CAZ"], "Wed":["CAZ"], "Thu":["CAZ"], "Fri":["CAZ"], "Sat":["CAZ"], "Sun":["CAZ"] },
-      "17:00-22:00": { "Mon":["WILLIAM"], "Tue":["WILLIAM"], "Wed":["WILLIAM"], "Thu":["WILLIAM"], "Fri":["WILLIAM"], "Sat":["WILLIAM"], "Sun":["WILLIAM"] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "SITE GENERAL": {
-      "06:00-12:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "12:00-17:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] },
-      "17:00-22:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     },
     "STARTER": {
-      "06:00-12:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":["PAUL"], "Sun":["PAUL"] },
-      "12:00-17:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":["PAUL"], "Sun":["PAUL"] },
-      "17:00-22:00": { "Mon":[], "Tue":[], "Wed":[], "Thu":[], "Fri":[], "Sat":[], "Sun":[] }
+      "06:00-12:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "12:00-17:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      },
+      "17:00-22:00": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
     }
   }
 }
