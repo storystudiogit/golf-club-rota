@@ -1,6 +1,6 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "12/05/2026 13:51",
+  "lastUpdated": "12/05/2026 13:59",
   "staff": [
     "LEE",
     "CAZ",
@@ -65,11 +65,21 @@
         "Sun": []
       },
       "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
+        "Mon": [
+          "KIERAN"
+        ],
+        "Tue": [
+          "KIERAN"
+        ],
+        "Wed": [
+          "KIERAN"
+        ],
+        "Thu": [
+          "KIERAN"
+        ],
+        "Fri": [
+          "KIERAN"
+        ],
         "Sat": [],
         "Sun": []
       },
@@ -86,22 +96,26 @@
     "GREEN FEES": {
       "06:00-12:00": {
         "Mon": [
-          "WILLIAM"
+          "HUGH"
         ],
         "Tue": [
-          "WILLIAM"
+          "HUGH"
         ],
         "Wed": [
-          "WILLIAM"
+          "HUGH"
         ],
         "Thu": [
-          "WILLIAM"
+          "HUGH"
         ],
         "Fri": [
-          "WILLIAM"
+          "HUGH"
         ],
-        "Sat": [],
-        "Sun": []
+        "Sat": [
+          "HUGH"
+        ],
+        "Sun": [
+          "HUGH"
+        ]
       },
       "12:00-17:00": {
         "Mon": [
@@ -163,21 +177,45 @@
     },
     "JUNGLE FALLS": {
       "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
         "Sun": []
       },
       "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
         "Sun": []
       },
       "17:00-22:00": {
