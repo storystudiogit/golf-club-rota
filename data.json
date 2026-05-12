@@ -1,6 +1,6 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "12/05/2026 13:47",
+  "lastUpdated": "12/05/2026 13:48",
   "staff": [
     "LEE",
     "CAZ",
@@ -37,10 +37,18 @@
         "Sun": []
       },
       "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
+        "Mon": [
+          "NELS"
+        ],
+        "Tue": [
+          "NELS"
+        ],
+        "Wed": [
+          "NELS"
+        ],
+        "Thu": [
+          "NELS"
+        ],
         "Fri": [],
         "Sat": [],
         "Sun": []
