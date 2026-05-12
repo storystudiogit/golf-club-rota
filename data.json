@@ -1,6 +1,6 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "12/05/2026 13:48",
+  "lastUpdated": "12/05/2026 13:49",
   "staff": [
     "LEE",
     "CAZ",
@@ -85,20 +85,40 @@
     },
     "GREEN FEES": {
       "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
+        "Mon": [
+          "WILLIAM"
+        ],
+        "Tue": [
+          "WILLIAM"
+        ],
+        "Wed": [
+          "WILLIAM"
+        ],
+        "Thu": [
+          "WILLIAM"
+        ],
+        "Fri": [
+          "WILLIAM"
+        ],
         "Sat": [],
         "Sun": []
       },
       "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
+        "Mon": [
+          "WILLIAM"
+        ],
+        "Tue": [
+          "WILLIAM"
+        ],
+        "Wed": [
+          "WILLIAM"
+        ],
+        "Thu": [
+          "WILLIAM"
+        ],
+        "Fri": [
+          "WILLIAM"
+        ],
         "Sat": [],
         "Sun": []
       },
