@@ -1,6 +1,6 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "24/05/2026 14:04",
+  "lastUpdated": "24/05/2026 14:48",
   "staff": [
     "LEE",
     "CAZ",
@@ -39,152 +39,240 @@
         "Sun": []
       },
       "17:00-22:00": {
-        "Mon": [],
+        "Mon": [
+          "HANNAH"
+        ],
         "Tue": [
-          "NELS"
+          "HANNAH"
         ],
         "Wed": [
-          "NELS"
+          "HANNAH"
         ],
         "Thu": [
-          "NELS"
+          "HANNAH"
         ],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       }
     },
     "BAR #2": {
       "06:00-12:00": {
         "Mon": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Tue": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Wed": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Thu": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Fri": [
-          "WILLIAM"
+          "HANNAH"
         ],
-        "Sat": [],
-        "Sun": []
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "12:00-17:00": {
         "Mon": [
-          "KIERAN"
+          "HANNAH"
         ],
         "Tue": [
-          "KIERAN"
+          "HANNAH"
         ],
         "Wed": [
-          "KIERAN"
+          "HANNAH"
         ],
         "Thu": [
-          "KIERAN"
+          "HANNAH"
         ],
         "Fri": [
-          "KIERAN"
+          "HANNAH"
         ],
-        "Sat": [],
-        "Sun": []
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "17:00-22:00": {
         "Mon": [
-          "KIERAN"
+          "HANNAH"
         ],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       }
     },
     "GREEN FEES": {
       "06:00-12:00": {
         "Mon": [
-          "CAZ"
+          "HANNAH"
         ],
         "Tue": [
-          "HUGH"
+          "HANNAH"
         ],
         "Wed": [
-          "HUGH"
+          "HANNAH"
         ],
         "Thu": [
-          "HUGH"
+          "HANNAH"
         ],
         "Fri": [
-          "HUGH"
+          "HANNAH"
         ],
         "Sat": [
-          "HUGH"
+          "HANNAH"
         ],
         "Sun": [
-          "HUGH"
+          "HANNAH"
         ]
       },
       "12:00-17:00": {
         "Mon": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Tue": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Wed": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Thu": [
-          "WILLIAM"
+          "HANNAH"
         ],
         "Fri": [
-          "WILLIAM"
+          "HANNAH"
         ],
-        "Sat": [],
-        "Sun": []
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       }
     },
     "GREEN FEES #2": {
       "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       }
     },
     "JUNGLE FALLS": {
@@ -207,7 +295,9 @@
         "Sat": [
           "HANNAH"
         ],
-        "Sun": []
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "12:00-17:00": {
         "Mon": [
@@ -228,112 +318,174 @@
         "Sat": [
           "HANNAH"
         ],
-        "Sun": []
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       }
     },
     "RANGE": {
       "06:00-12:00": {
         "Mon": [
-          "CAZ"
+          "HANNAH"
         ],
         "Tue": [
-          "S SPICER"
+          "HANNAH"
         ],
         "Wed": [
-          "S SPICER"
+          "HANNAH"
         ],
         "Thu": [
-          "S SPICER"
+          "HANNAH"
         ],
         "Fri": [
-          "S SPICER"
+          "HANNAH"
         ],
         "Sat": [
-          "S SPICER"
+          "HANNAH"
         ],
         "Sun": [
-          "S SPICER"
+          "HANNAH"
         ]
       },
       "12:00-17:00": {
         "Mon": [
-          "S SEXTON"
+          "HANNAH"
         ],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
+        "Tue": [
+          "HANNAH"
+        ],
         "Wed": [
-          "CAZ"
+          "HANNAH"
         ],
         "Thu": [
-          "CAZ"
+          "HANNAH"
         ],
         "Fri": [
-          "CAZ"
+          "HANNAH"
         ],
         "Sat": [
-          "CAZ"
+          "HANNAH"
         ],
         "Sun": [
-          "WILLIAM"
+          "HANNAH"
+        ]
+      },
+      "17:00-22:00": {
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
         ]
       }
     },
     "SITE GENERAL": {
       "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "12:00-17:00": {
         "Mon": [
-          "LEE"
+          "HANNAH"
         ],
         "Tue": [
-          "LEE"
+          "HANNAH"
         ],
         "Wed": [
-          "LEE"
+          "HANNAH"
         ],
         "Thu": [
-          "LEE"
+          "HANNAH"
         ],
         "Fri": [
-          "LEE"
+          "HANNAH"
         ],
         "Sat": [
-          "LEE"
+          "HANNAH"
         ],
-        "Sun": []
+        "Sun": [
+          "HANNAH"
+        ]
       },
       "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": [
+          "HANNAH"
+        ],
+        "Tue": [
+          "HANNAH"
+        ],
+        "Wed": [
+          "HANNAH"
+        ],
+        "Thu": [
+          "HANNAH"
+        ],
+        "Fri": [
+          "HANNAH"
+        ],
+        "Sat": [
+          "HANNAH"
+        ],
+        "Sun": [
+          "HANNAH"
+        ]
       }
     },
     "STARTER": {
