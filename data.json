@@ -1,6 +1,6 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "24/05/2026 14:55",
+  "lastUpdated": "24/05/2026 15:46",
   "staff": [
     "LEE",
     "CAZ",
@@ -116,20 +116,40 @@
         ]
       },
       "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
+        "Mon": [
+          "NELS"
+        ],
+        "Tue": [
+          "NELS"
+        ],
+        "Wed": [
+          "NELS"
+        ],
+        "Thu": [
+          "NELS"
+        ],
+        "Fri": [
+          "NELS"
+        ],
         "Sat": [],
         "Sun": []
       },
       "17:00-22:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
+        "Mon": [
+          "NELS"
+        ],
+        "Tue": [
+          "NELS"
+        ],
+        "Wed": [
+          "NELS"
+        ],
+        "Thu": [
+          "NELS"
+        ],
+        "Fri": [
+          "NELS"
+        ],
         "Sat": [],
         "Sun": []
       }
