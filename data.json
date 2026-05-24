@@ -1,6 +1,7 @@
 {
-  "weekLabel": "Setup",
-  "lastUpdated": "24/05/2026 16:14",
+  "weekLabel": "Week commencing Monday 25 May 2026",
+  "weekSlug": "2026-05-25",
+  "lastUpdated": "24/05/2026 16:51",
   "staff": [
     "LEE",
     "CAZ",
@@ -22,9 +23,41 @@
     "MONTY",
     "ELLEN"
   ],
-  "rota": {
-    "BAR": {
-      "06:00-12:00": {
+  "days": [
+    {
+      "key": "Mon",
+      "label": "Mon 25 May"
+    },
+    {
+      "key": "Tue",
+      "label": "Tue 26 May"
+    },
+    {
+      "key": "Wed",
+      "label": "Wed 27 May"
+    },
+    {
+      "key": "Thu",
+      "label": "Thu 28 May"
+    },
+    {
+      "key": "Fri",
+      "label": "Fri 29 May"
+    },
+    {
+      "key": "Sat",
+      "label": "Sat 30 May"
+    },
+    {
+      "key": "Sun",
+      "label": "Sun 31 May"
+    }
+  ],
+  "rows": [
+    {
+      "job": "BAR",
+      "shift": "06:00-14:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -32,17 +65,12 @@
         "Fri": [],
         "Sat": [],
         "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+      }
+    },
+    {
+      "job": "BAR",
+      "shift": "14:00-22:00",
+      "assignments": {
         "Mon": [
           "NELS"
         ],
@@ -66,26 +94,37 @@
         ]
       }
     },
-    "BAR #2": {
-      "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+    {
+      "job": "BAR",
+      "shift": "17:00-22:00",
+      "assignments": {
+        "Mon": [
+          "NELS"
+        ],
+        "Tue": [
+          "NELS"
+        ],
+        "Wed": [
+          "NELS"
+        ],
+        "Thu": [
+          "NELS"
+        ],
+        "Fri": [
+          "NELS"
+        ],
+        "Sat": [
+          "NELS"
+        ],
+        "Sun": [
+          "NELS"
+        ]
+      }
+    },
+    {
+      "job": "BAR #2",
+      "shift": "06:00-12:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -95,26 +134,10 @@
         "Sun": []
       }
     },
-    "GREEN FEES": {
-      "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+    {
+      "job": "BAR #2",
+      "shift": "12:00-17:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -124,26 +147,10 @@
         "Sun": []
       }
     },
-    "GREEN FEES #2": {
-      "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+    {
+      "job": "BAR #2",
+      "shift": "17:00-22:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -153,26 +160,10 @@
         "Sun": []
       }
     },
-    "JUNGLE FALLS": {
-      "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+    {
+      "job": "GREEN FEES",
+      "shift": "06:00-12:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -182,26 +173,10 @@
         "Sun": []
       }
     },
-    "RANGE": {
-      "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+    {
+      "job": "GREEN FEES",
+      "shift": "12:00-17:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -211,26 +186,10 @@
         "Sun": []
       }
     },
-    "SITE GENERAL": {
-      "06:00-12:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "12:00-17:00": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      },
-      "17:00-22:00": {
+    {
+      "job": "GREEN FEES",
+      "shift": "17:00-22:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -240,8 +199,10 @@
         "Sun": []
       }
     },
-    "STARTER": {
-      "06:00-12:00": {
+    {
+      "job": "GREEN FEES #2",
+      "shift": "06:00-12:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -249,8 +210,12 @@
         "Fri": [],
         "Sat": [],
         "Sun": []
-      },
-      "12:00-17:00": {
+      }
+    },
+    {
+      "job": "GREEN FEES #2",
+      "shift": "12:00-17:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -258,8 +223,168 @@
         "Fri": [],
         "Sat": [],
         "Sun": []
-      },
-      "17:00-22:00": {
+      }
+    },
+    {
+      "job": "GREEN FEES #2",
+      "shift": "17:00-22:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "JUNGLE FALLS",
+      "shift": "06:00-12:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "JUNGLE FALLS",
+      "shift": "12:00-17:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "JUNGLE FALLS",
+      "shift": "17:00-22:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "RANGE",
+      "shift": "06:00-12:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "RANGE",
+      "shift": "12:00-17:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "RANGE",
+      "shift": "17:00-22:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "SITE GENERAL",
+      "shift": "06:00-12:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "SITE GENERAL",
+      "shift": "12:00-17:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "SITE GENERAL",
+      "shift": "17:00-22:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "STARTER",
+      "shift": "06:00-12:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "STARTER",
+      "shift": "12:00-17:00",
+      "assignments": {
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
+      }
+    },
+    {
+      "job": "STARTER",
+      "shift": "17:00-22:00",
+      "assignments": {
         "Mon": [],
         "Tue": [],
         "Wed": [],
@@ -269,5 +394,5 @@
         "Sun": []
       }
     }
-  }
+  ]
 }
