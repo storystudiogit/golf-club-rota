@@ -1,12 +1,12 @@
 {
   "weekLabel": "Setup",
-  "lastUpdated": "24/05/2026 15:50",
+  "lastUpdated": "24/05/2026 16:14",
   "staff": [
     "LEE",
     "CAZ",
     "NELS",
     "WILLIAM",
-    "JF",
+    "DAVE R",
     "JOSH",
     "KIERAN",
     "HANNAH",
@@ -16,7 +16,11 @@
     "HUGH",
     "BILLY",
     "S SPICER",
-    "S SEXTON"
+    "S SEXTON",
+    "LITSA",
+    "NATALIE",
+    "MONTY",
+    "ELLEN"
   ],
   "rota": {
     "BAR": {
@@ -93,63 +97,29 @@
     },
     "GREEN FEES": {
       "06:00-12:00": {
-        "Mon": [
-          "HUGH"
-        ],
-        "Tue": [
-          "HUGH"
-        ],
-        "Wed": [
-          "HUGH"
-        ],
-        "Thu": [
-          "HUGH"
-        ],
-        "Fri": [
-          "HUGH"
-        ],
-        "Sat": [
-          "JOSH"
-        ],
-        "Sun": [
-          "JOSH"
-        ]
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
+        "Sat": [],
+        "Sun": []
       },
       "12:00-17:00": {
-        "Mon": [
-          "NELS"
-        ],
-        "Tue": [
-          "NELS"
-        ],
-        "Wed": [
-          "NELS"
-        ],
-        "Thu": [
-          "NELS"
-        ],
-        "Fri": [
-          "NELS"
-        ],
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
         "Sat": [],
         "Sun": []
       },
       "17:00-22:00": {
-        "Mon": [
-          "NELS"
-        ],
-        "Tue": [
-          "NELS"
-        ],
-        "Wed": [
-          "NELS"
-        ],
-        "Thu": [
-          "NELS"
-        ],
-        "Fri": [
-          "NELS"
-        ],
+        "Mon": [],
+        "Tue": [],
+        "Wed": [],
+        "Thu": [],
+        "Fri": [],
         "Sat": [],
         "Sun": []
       }
