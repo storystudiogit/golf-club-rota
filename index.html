@@ -1,1 +1,281 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Golf Club Rota</title><style>body{margin:0;background:#f5f1e9;font-family:Arial,sans-serif;color:#171717}header{background:#082619;color:white;padding:34px 42px;border-bottom:8px solid #c7a448}h1{margin:0;font-size:58px;line-height:1;font-weight:900}.week{margin-top:14px;font-size:24px;font-weight:800}main{padding:28px 32px}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}.card{background:#fffdf7;border:3px solid #123d2a;border-radius:16px;padding:16px;box-shadow:0 6px 0 rgba(8,38,25,.16)}.label{font-size:12px;font-weight:900;color:#667368;text-transform:uppercase;letter-spacing:.12em}.value{font-size:26px;font-weight:900;color:#082619;margin-top:8px}.board{background:#fffdf7;border:5px solid #082619;border-radius:18px;overflow-x:auto;box-shadow:0 10px 0 rgba(8,38,25,.16)}table{border-collapse:collapse;width:100%;min-width:1050px;table-layout:fixed}th{background:#082619;color:white;padding:15px 8px;font-size:15px;text-transform:uppercase}td{border:2px solid #d9d4c7;padding:12px 8px;text-align:center;vertical-align:middle;background:white;font-size:15px}td.job{text-align:left;font-weight:900;text-transform:uppercase;background:#e9e7df;border-right:5px solid #082619}td strong{display:inline-block;background:#123d2a;color:white;border-radius:8px;padding:7px 10px;font-size:14px;text-transform:uppercase}td span{display:inline-block;margin-top:6px;font-weight:900;color:#082619}td small{display:inline-block;margin-top:4px;color:#667368;font-weight:900}.empty{color:#b9b4aa;font-size:22px;font-weight:900}.notes{text-align:left;color:#667368;font-weight:700}footer{margin-top:18px;color:#667368;font-size:13px;text-align:right;font-weight:700}@media(max-width:900px){h1{font-size:42px}.summary{grid-template-columns:1fr}main{padding:18px}header{padding:26px 22px}}</style></head><body><header><div style="color:#c7a448;font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase">Published rota</div><h1>Golf Club Rota</h1><div class="week">Week commencing Monday 25 May 2026</div></header><main><section class="summary"><div class="card"><div class="label">Week</div><div class="value">2026-05-25</div></div><div class="card"><div class="label">Total hours</div><div class="value">30.75h</div></div><div class="card"><div class="label">Staff used</div><div class="value">2</div></div></section><section class="board"><table><thead><tr><th>Job</th><th>Mon 25 May</th><th>Tue 26 May</th><th>Wed 27 May</th><th>Thu 28 May</th><th>Fri 29 May</th><th>Sat 30 May</th><th>Sun 31 May</th><th>Notes</th></tr></thead><tbody><tr><td class="job">BAR</td><td><strong>NATALIE</strong><br><span>12:00-22:15</span><br><small>10.25h</small></td><td><strong>NATALIE</strong><br><span>12:00-22:15</span><br><small>10.25h</small></td><td><strong>LITSA</strong><br><span>12:00-22:15</span><br><small>10.25h</small></td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">BAR #2</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">GREEN FEES</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">GREEN FEES #2</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">JUNGLE FALLS</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">RANGE</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">SITE GENERAL</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">STARTER</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr></tbody></table></section><footer>Last updated 26/05/2026 12:38:31</footer></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golf Club Rota</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f5f1e9;
+      color: #171717;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      background: #082619;
+      color: white;
+      padding: 34px 42px;
+      border-bottom: 8px solid #c7a448;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .week {
+      margin-top: 14px;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    main {
+      padding: 28px 32px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: #fffdf7;
+      border: 3px solid #123d2a;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 6px 0 rgba(8, 38, 25, .16);
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 900;
+      color: #667368;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .value {
+      font-size: 26px;
+      font-weight: 900;
+      color: #082619;
+      margin-top: 8px;
+    }
+
+    .board {
+      background: #fffdf7;
+      border: 5px solid #082619;
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: 0 10px 0 rgba(8, 38, 25, .16);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 1050px;
+      table-layout: fixed;
+    }
+
+    th {
+      background: #082619;
+      color: white;
+      padding: 15px 8px;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    td {
+      border: 2px solid #d9d4c7;
+      padding: 12px 8px;
+      text-align: center;
+      vertical-align: middle;
+      background: white;
+      font-size: 15px;
+    }
+
+    td.job {
+      text-align: left;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: #e9e7df;
+      border-right: 5px solid #082619;
+    }
+
+    td strong {
+      display: inline-block;
+      background: #123d2a;
+      color: white;
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    td span {
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 900;
+      color: #082619;
+    }
+
+    td small {
+      display: inline-block;
+      margin-top: 4px;
+      color: #667368;
+      font-weight: 900;
+    }
+
+    .empty {
+      color: #b9b4aa;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .notes {
+      text-align: left;
+      color: #667368;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: #667368;
+      font-size: 13px;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 42px; }
+      .summary { grid-template-columns: 1fr; }
+      main { padding: 18px; }
+      header { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="color:#c7a448;font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase" id="status">Rota</div>
+    <h1>Golf Club Rota</h1>
+    <div class="week" id="week">Loading rota…</div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <div class="card">
+        <div class="label">Week</div>
+        <div class="value" id="weekSlug">–</div>
+      </div>
+      <div class="card">
+        <div class="label">Total hours</div>
+        <div class="value" id="totalHours">–</div>
+      </div>
+      <div class="card">
+        <div class="label">Staff used</div>
+        <div class="value" id="staffUsed">–</div>
+      </div>
+    </section>
+
+    <section class="board">
+      <table>
+        <thead>
+          <tr id="headRow">
+            <th>Job</th>
+          </tr>
+        </thead>
+        <tbody id="rotaBody"></tbody>
+      </table>
+    </section>
+
+    <footer id="footer"></footer>
+  </main>
+
+  <script>
+    fetch('data.json?v=' + Date.now())
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('status').textContent = (data.status || 'Published') + ' rota';
+        document.getElementById('week').textContent = data.weekLabel || 'Golf Club Rota';
+        document.getElementById('weekSlug').textContent = data.weekSlug || '–';
+        document.getElementById('totalHours').textContent = ((data.totals && data.totals.totalHours) || 0) + 'h';
+        document.getElementById('staffUsed').textContent = (data.totals && data.totals.staffUsed) || 0;
+        document.getElementById('footer').textContent = 'Last updated ' + (data.lastUpdated || '');
+
+        const days = data.days || [
+          { key: 'Mon', label: 'Mon' },
+          { key: 'Tue', label: 'Tue' },
+          { key: 'Wed', label: 'Wed' },
+          { key: 'Thu', label: 'Thu' },
+          { key: 'Fri', label: 'Fri' },
+          { key: 'Sat', label: 'Sat' },
+          { key: 'Sun', label: 'Sun' }
+        ];
+
+        const headRow = document.getElementById('headRow');
+
+        days.forEach(day => {
+          const th = document.createElement('th');
+          th.textContent = day.label || day.key;
+          headRow.appendChild(th);
+        });
+
+        const notesHead = document.createElement('th');
+        notesHead.textContent = 'Notes';
+        headRow.appendChild(notesHead);
+
+        const body = document.getElementById('rotaBody');
+        const jobs = data.jobs || [];
+
+        jobs.forEach(job => {
+          const tr = document.createElement('tr');
+
+          const jobCell = document.createElement('td');
+          jobCell.className = 'job';
+          jobCell.textContent = job.job || '';
+          tr.appendChild(jobCell);
+
+          days.forEach(day => {
+            const td = document.createElement('td');
+            const assignment = job.assignments && job.assignments[day.key];
+
+            if (assignment && assignment.staff && assignment.time) {
+              td.innerHTML =
+                '<strong>' + escapeHtml(assignment.staff) + '</strong><br>' +
+                '<span>' + escapeHtml(assignment.time) + '</span><br>' +
+                '<small>' + escapeHtml(assignment.hours || 0) + 'h</small>';
+            } else {
+              td.innerHTML = '<span class="empty">–</span>';
+            }
+
+            tr.appendChild(td);
+          });
+
+          const notes = document.createElement('td');
+          notes.className = 'notes';
+          notes.textContent = job.notes || '';
+          tr.appendChild(notes);
+
+          body.appendChild(tr);
+        });
+      })
+      .catch(error => {
+        document.getElementById('week').textContent = 'Could not load rota data';
+        console.error(error);
+      });
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>
