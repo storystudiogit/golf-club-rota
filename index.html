@@ -31,6 +31,7 @@
 
     html {
       background: var(--cream);
+      scroll-behavior: smooth;
     }
 
     body {
@@ -79,19 +80,25 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
-    .summary-card {
+    .summary-card,
+    .staff-nav,
+    .staff-card {
       background: var(--paper);
       border: 3px solid var(--green);
       border-radius: 18px;
-      padding: 18px 20px;
-      min-height: 94px;
-      box-shadow: 0 6px 0 rgba(8, 38, 25, .18);
+      box-shadow: 0 6px 0 rgba(8, 38, 25, .16);
     }
 
-    .summary-label {
+    .summary-card {
+      padding: 18px 20px;
+      min-height: 94px;
+    }
+
+    .summary-label,
+    .section-label {
       color: var(--muted);
       font-size: 13px;
       font-weight: 900;
@@ -105,6 +112,34 @@
       font-size: 27px;
       line-height: 1;
       font-weight: 900;
+    }
+
+    .staff-nav {
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+
+    .staff-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .staff-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--green-dark);
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 0 rgba(0,0,0,.18);
     }
 
     .rota-board {
@@ -125,43 +160,34 @@
     thead th {
       background: var(--green-dark);
       color: white;
-      padding: 18px 12px;
-      font-size: 18px;
+      padding: 16px 10px;
+      font-size: 16px;
       line-height: 1.05;
       font-weight: 900;
       text-transform: uppercase;
       border-right: 3px solid rgba(255,255,255,.18);
     }
 
-    thead th span {
-      display: block;
-      margin-top: 4px;
-      color: var(--gold);
-      font-size: 15px;
-      font-weight: 900;
-    }
-
     th.job-head {
-      width: 160px;
+      width: 150px;
     }
 
-    th.shift-head {
-      width: 128px;
+    th.notes-head {
+      width: 170px;
     }
 
     tbody td {
-      min-height: 64px;
-      padding: 12px;
+      padding: 12px 8px;
       border: 2px solid #d9d4c7;
       vertical-align: middle;
       text-align: center;
       background: white;
-      font-size: 17px;
+      font-size: 15px;
     }
 
     td.job {
       text-align: left;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.05;
       font-weight: 900;
       text-transform: uppercase;
@@ -170,72 +196,148 @@
       color: #111;
     }
 
-    td.shift {
-      font-size: 16px;
-      font-weight: 900;
-      background: rgba(255,255,255,.45);
-      color: #1d1d1d;
+    .assignment {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
 
-    tr.group-start td {
-      border-top: 7px solid var(--green-dark);
-    }
-
-    .job-bar {
-      background: var(--bar) !important;
-    }
-
-    .job-bar-2 {
-      background: var(--bar2) !important;
-    }
-
-    .job-green-fees {
-      background: var(--greenfees) !important;
-    }
-
-    .job-green-fees-2 {
-      background: var(--greenfees2) !important;
-    }
-
-    .job-jungle-falls {
-      background: var(--jungle) !important;
-    }
-
-    .job-range {
-      background: var(--range) !important;
-    }
-
-    .job-site-general {
-      background: var(--site) !important;
-    }
-
-    .job-starter {
-      background: var(--starter) !important;
-    }
-
-    .chip {
+    .staff-chip {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 94px;
-      min-height: 40px;
-      margin: 3px;
-      padding: 9px 14px;
-      border-radius: 10px;
+      min-width: 82px;
+      min-height: 32px;
+      padding: 7px 10px;
+      border-radius: 9px;
       background: var(--green);
       color: white;
-      font-size: 17px;
+      font-size: 14px;
       line-height: 1;
       font-weight: 900;
       letter-spacing: .04em;
       text-transform: uppercase;
-      box-shadow: 0 4px 0 rgba(0,0,0,.18);
+      box-shadow: 0 3px 0 rgba(0,0,0,.18);
+    }
+
+    .time-chip {
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .hours-chip {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
     }
 
     .empty {
       color: #b9b4aa;
-      font-size: 25px;
+      font-size: 24px;
       font-weight: 900;
+    }
+
+    .notes {
+      color: var(--muted);
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .job-bar { background: var(--bar) !important; }
+    .job-bar-2 { background: var(--bar2) !important; }
+    .job-green-fees { background: var(--greenfees) !important; }
+    .job-green-fees-2 { background: var(--greenfees2) !important; }
+    .job-jungle-falls { background: var(--jungle) !important; }
+    .job-range { background: var(--range) !important; }
+    .job-site-general { background: var(--site) !important; }
+    .job-starter { background: var(--starter) !important; }
+
+    .staff-views {
+      margin-top: 42px;
+    }
+
+    .staff-views h2 {
+      margin: 0 0 20px;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--green-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .staff-card {
+      overflow: hidden;
+      scroll-margin-top: 18px;
+    }
+
+    .staff-card-header {
+      background: var(--green-dark);
+      color: white;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .staff-name {
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .staff-total {
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .staff-day {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 14px;
+      padding: 14px 18px;
+      border-top: 2px solid #ded8ca;
+      align-items: start;
+    }
+
+    .staff-day-name {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .staff-shift {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: var(--green);
+      color: white;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .staff-off {
+      color: #a59f94;
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
     .footer {
@@ -263,22 +365,8 @@
         min-width: 980px;
       }
 
-      thead th {
-        font-size: 15px;
-        padding: 14px 8px;
-      }
-
-      thead th span {
-        font-size: 13px;
-      }
-
-      tbody td {
-        padding: 10px 8px;
-      }
-
-      .chip {
-        min-width: 72px;
-        font-size: 15px;
+      .staff-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -287,28 +375,19 @@
         background: white;
       }
 
-      .hero {
-        padding: 24px 28px;
-      }
-
-      .page {
-        padding: 18px;
-      }
-
-      .summary {
+      .summary,
+      .staff-nav {
         display: none;
       }
 
-      .rota-board {
+      .rota-board,
+      .staff-card {
         box-shadow: none;
         border-radius: 0;
       }
 
-      table {
-        min-width: 0;
-      }
-
-      .chip {
+      .staff-chip,
+      .staff-button {
         box-shadow: none;
       }
     }
@@ -317,26 +396,33 @@
 
 <body>
   <header class="hero">
-    <div class="eyebrow">Published rota</div>
+    <div class="eyebrow">Draft rota</div>
     <h1>Golf Club Rota</h1>
-    <div class="week">Week commencing Monday 25 May 2026</div>
+    <div class="week">Week commencing Thursday 1 January 1970</div>
   </header>
 
   <main class="page">
     <section class="summary" aria-label="Rota summary">
       <div class="summary-card">
         <div class="summary-label">Week</div>
-        <div class="summary-value">2026-05-25</div>
+        <div class="summary-value">1970-01-01</div>
       </div>
 
       <div class="summary-card">
-        <div class="summary-label">Filled shifts</div>
-        <div class="summary-value">14</div>
+        <div class="summary-label">Total hours</div>
+        <div class="summary-value">30.75h</div>
       </div>
 
       <div class="summary-card">
         <div class="summary-label">Staff used</div>
-        <div class="summary-value">1</div>
+        <div class="summary-value">2</div>
+      </div>
+    </section>
+
+    <section class="staff-nav" aria-label="Staff quick links">
+      <div class="section-label">Staff views</div>
+      <div class="staff-buttons">
+        <a class="staff-button" href="#staff-litsa">LITSA</a><a class="staff-button" href="#staff-natalie">NATALIE</a>
       </div>
     </section>
 
@@ -345,162 +431,182 @@
         <thead>
           <tr>
             <th class="job-head">Job</th>
-            <th class="shift-head">Shift</th>
-            <th>Mon<span>25 May</span></th><th>Tue<span>26 May</span></th><th>Wed<span>27 May</span></th><th>Thu<span>28 May</span></th><th>Fri<span>29 May</span></th><th>Sat<span>30 May</span></th><th>Sun<span>31 May</span></th>
+            <th>Mon 1 Jan</th><th>Tue 2 Jan</th><th>Wed 3 Jan</th><th>Thu 4 Jan</th><th>Fri 5 Jan</th><th>Sat 6 Jan</th><th>Sun 7 Jan</th>
+            <th class="notes-head">Notes</th>
           </tr>
         </thead>
-
         <tbody>
           
-        <tr class="group-start">
-          <td class="job job-bar" rowspan="3">BAR</td>
-          <td class="shift job-bar">06:00-14:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
+        <tr>
+          <td class="job job-bar">BAR</td>
           
-          <td class="shift job-bar">14:00-22:00</td>
-          <td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td>
+          <td>
+            <div class="assignment">
+              <div class="staff-chip">NATALIE</div>
+              <div class="time-chip">12:00-22:15</div>
+              <div class="hours-chip">10.25h</div>
+            </div>
+          </td>
+        
+          <td>
+            <div class="assignment">
+              <div class="staff-chip">NATALIE</div>
+              <div class="time-chip">12:00-22:15</div>
+              <div class="hours-chip">10.25h</div>
+            </div>
+          </td>
+        
+          <td>
+            <div class="assignment">
+              <div class="staff-chip">LITSA</div>
+              <div class="time-chip">12:00-22:15</div>
+              <div class="hours-chip">10.25h</div>
+            </div>
+          </td>
+        <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="">
-          
-          <td class="shift job-bar">17:00-22:00</td>
-          <td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td><td><span class="chip">NELS</span></td>
-        </tr>
-      
-        <tr class="group-start">
-          <td class="job job-bar-2" rowspan="3">BAR #2</td>
-          <td class="shift job-bar-2">06:00-12:00</td>
+        <tr>
+          <td class="job job-bar-2">BAR #2</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="">
-          
-          <td class="shift job-bar-2">12:00-17:00</td>
+        <tr>
+          <td class="job job-green-fees">GREEN FEES</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="">
-          
-          <td class="shift job-bar-2">17:00-22:00</td>
+        <tr>
+          <td class="job job-green-fees-2">GREEN FEES #2</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="group-start">
-          <td class="job job-green-fees" rowspan="3">GREEN FEES</td>
-          <td class="shift job-green-fees">06:00-12:00</td>
+        <tr>
+          <td class="job job-jungle-falls">JUNGLE FALLS</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="">
-          
-          <td class="shift job-green-fees">12:00-17:00</td>
+        <tr>
+          <td class="job job-range">RANGE</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="">
-          
-          <td class="shift job-green-fees">17:00-22:00</td>
+        <tr>
+          <td class="job job-site-general">SITE GENERAL</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
-        <tr class="group-start">
-          <td class="job job-green-fees-2" rowspan="3">GREEN FEES #2</td>
-          <td class="shift job-green-fees-2">06:00-12:00</td>
+        <tr>
+          <td class="job job-starter">STARTER</td>
           <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-green-fees-2">12:00-17:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-green-fees-2">17:00-22:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="group-start">
-          <td class="job job-jungle-falls" rowspan="3">JUNGLE FALLS</td>
-          <td class="shift job-jungle-falls">06:00-12:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-jungle-falls">12:00-17:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-jungle-falls">17:00-22:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="group-start">
-          <td class="job job-range" rowspan="3">RANGE</td>
-          <td class="shift job-range">06:00-12:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-range">12:00-17:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-range">17:00-22:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="group-start">
-          <td class="job job-site-general" rowspan="3">SITE GENERAL</td>
-          <td class="shift job-site-general">06:00-12:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-site-general">12:00-17:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-site-general">17:00-22:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="group-start">
-          <td class="job job-starter" rowspan="3">STARTER</td>
-          <td class="shift job-starter">06:00-12:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-starter">12:00-17:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
-        </tr>
-      
-        <tr class="">
-          
-          <td class="shift job-starter">17:00-22:00</td>
-          <td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td><td><span class="empty">–</span></td>
+          <td class="notes"></td>
         </tr>
       
         </tbody>
       </table>
     </section>
 
-    <div class="footer">Last updated 24/05/2026 17:01</div>
+    <section class="staff-views">
+      <h2>Individual Staff Views</h2>
+      <div class="staff-grid">
+        
+    <article class="staff-card" id="staff-litsa">
+      <div class="staff-card-header">
+        <div class="staff-name">LITSA</div>
+        <div class="staff-total">10.25h</div>
+      </div>
+      
+      <div class="staff-day">
+        <div class="staff-day-name">Mon 1 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Tue 2 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Wed 3 Jan</div>
+        <div><span class="staff-shift">12:00-22:15 · BAR · 10.25h</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Thu 4 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Fri 5 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Sat 6 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Sun 7 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+    </article>
+  
+    <article class="staff-card" id="staff-natalie">
+      <div class="staff-card-header">
+        <div class="staff-name">NATALIE</div>
+        <div class="staff-total">20.5h</div>
+      </div>
+      
+      <div class="staff-day">
+        <div class="staff-day-name">Mon 1 Jan</div>
+        <div><span class="staff-shift">12:00-22:15 · BAR · 10.25h</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Tue 2 Jan</div>
+        <div><span class="staff-shift">12:00-22:15 · BAR · 10.25h</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Wed 3 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Thu 4 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Fri 5 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Sat 6 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+      <div class="staff-day">
+        <div class="staff-day-name">Sun 7 Jan</div>
+        <div><span class="staff-off">OFF</span></div>
+      </div>
+    
+    </article>
+  
+      </div>
+    </section>
+
+    <div class="footer">Last updated 26/05/2026 12:07</div>
   </main>
 </body>
 </html>
