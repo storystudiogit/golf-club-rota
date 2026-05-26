@@ -3,7 +3,7 @@
   "weekLabel": "Week commencing Monday 25 May 2026",
   "weekSlug": "2026-05-25",
   "status": "Ready to publish",
-  "lastUpdated": "26/05/2026 14:55:41",
+  "lastUpdated": "26/05/2026 15:30:47",
   "days": [
     {
       "key": "Mon",
@@ -132,9 +132,9 @@
           "hours": 0
         },
         "Wed": {
-          "staff": "",
-          "time": "",
-          "hours": 0
+          "staff": "HUGH",
+          "time": "06:00-14:00",
+          "hours": 8
         },
         "Thu": {
           "staff": "",
@@ -173,9 +173,9 @@
           "hours": 10.25
         },
         "Wed": {
-          "staff": "",
-          "time": "",
-          "hours": 0
+          "staff": "WILLIAM",
+          "time": "14:00-21:00",
+          "hours": 7
         },
         "Thu": {
           "staff": "",
@@ -365,19 +365,21 @@
     }
   ],
   "totals": {
-    "totalHours": 18.75,
-    "staffUsed": 4,
+    "totalHours": 33.75,
+    "staffUsed": 6,
     "staffTotals": {
       "NATALIE": 5,
       "LITSA": 2,
+      "HUGH": 8,
       "KIERAN": 1.5,
-      "CAZ": 10.25
+      "CAZ": 10.25,
+      "WILLIAM": 7
     },
     "jobTotals": {
       "BAR": 7,
       "BAR #2": 0,
-      "GREEN FEES": 0,
-      "GREEN FEES #2": 11.75,
+      "GREEN FEES": 8,
+      "GREEN FEES #2": 18.75,
       "JUNGLE FALLS": 0,
       "RANGE": 0,
       "SITE GENERAL": 0,
