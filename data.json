@@ -1,7 +1,8 @@
 {
-  "weekLabel": "Week commencing Monday 25 May 2026",
-  "weekSlug": "2026-05-25",
-  "lastUpdated": "24/05/2026 17:01",
+  "weekLabel": "Week commencing Thursday 1 January 1970",
+  "weekSlug": "1970-01-01",
+  "status": "Draft",
+  "lastUpdated": "26/05/2026 12:07",
   "staff": [
     "LEE",
     "CAZ",
@@ -21,378 +22,385 @@
     "LITSA",
     "NATALIE",
     "MONTY",
-    "ELLEN"
+    "ELLEN",
+    "CLEANER"
   ],
   "days": [
     {
       "key": "Mon",
-      "label": "Mon 25 May"
+      "label": "Mon 1 Jan"
     },
     {
       "key": "Tue",
-      "label": "Tue 26 May"
+      "label": "Tue 2 Jan"
     },
     {
       "key": "Wed",
-      "label": "Wed 27 May"
+      "label": "Wed 3 Jan"
     },
     {
       "key": "Thu",
-      "label": "Thu 28 May"
+      "label": "Thu 4 Jan"
     },
     {
       "key": "Fri",
-      "label": "Fri 29 May"
+      "label": "Fri 5 Jan"
     },
     {
       "key": "Sat",
-      "label": "Sat 30 May"
+      "label": "Sat 6 Jan"
     },
     {
       "key": "Sun",
-      "label": "Sun 31 May"
+      "label": "Sun 7 Jan"
     }
   ],
-  "rows": [
+  "jobs": [
     {
       "job": "BAR",
-      "shift": "06:00-14:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "BAR",
-      "shift": "14:00-22:00",
-      "assignments": {
-        "Mon": [
-          "NELS"
-        ],
-        "Tue": [
-          "NELS"
-        ],
-        "Wed": [
-          "NELS"
-        ],
-        "Thu": [
-          "NELS"
-        ],
-        "Fri": [
-          "NELS"
-        ],
-        "Sat": [
-          "NELS"
-        ],
-        "Sun": [
-          "NELS"
-        ]
-      }
-    },
-    {
-      "job": "BAR",
-      "shift": "17:00-22:00",
-      "assignments": {
-        "Mon": [
-          "NELS"
-        ],
-        "Tue": [
-          "NELS"
-        ],
-        "Wed": [
-          "NELS"
-        ],
-        "Thu": [
-          "NELS"
-        ],
-        "Fri": [
-          "NELS"
-        ],
-        "Sat": [
-          "NELS"
-        ],
-        "Sun": [
-          "NELS"
-        ]
+        "Mon": {
+          "staff": "NATALIE",
+          "time": "12:00-22:15",
+          "hours": 10.25
+        },
+        "Tue": {
+          "staff": "NATALIE",
+          "time": "12:00-22:15",
+          "hours": 10.25
+        },
+        "Wed": {
+          "staff": "LITSA",
+          "time": "12:00-22:15",
+          "hours": 10.25
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "BAR #2",
-      "shift": "06:00-12:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "BAR #2",
-      "shift": "12:00-17:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "BAR #2",
-      "shift": "17:00-22:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "GREEN FEES",
-      "shift": "06:00-12:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "GREEN FEES",
-      "shift": "12:00-17:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "GREEN FEES",
-      "shift": "17:00-22:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "GREEN FEES #2",
-      "shift": "06:00-12:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "GREEN FEES #2",
-      "shift": "12:00-17:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "GREEN FEES #2",
-      "shift": "17:00-22:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "JUNGLE FALLS",
-      "shift": "06:00-12:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "JUNGLE FALLS",
-      "shift": "12:00-17:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "JUNGLE FALLS",
-      "shift": "17:00-22:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "RANGE",
-      "shift": "06:00-12:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "RANGE",
-      "shift": "12:00-17:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "RANGE",
-      "shift": "17:00-22:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "SITE GENERAL",
-      "shift": "06:00-12:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "SITE GENERAL",
-      "shift": "12:00-17:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "SITE GENERAL",
-      "shift": "17:00-22:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     },
     {
       "job": "STARTER",
-      "shift": "06:00-12:00",
+      "notes": "",
       "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "STARTER",
-      "shift": "12:00-17:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
-      }
-    },
-    {
-      "job": "STARTER",
-      "shift": "17:00-22:00",
-      "assignments": {
-        "Mon": [],
-        "Tue": [],
-        "Wed": [],
-        "Thu": [],
-        "Fri": [],
-        "Sat": [],
-        "Sun": []
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
       }
     }
-  ]
+  ],
+  "totals": {
+    "totalHours": 30.75,
+    "staffTotals": {
+      "NATALIE": 20.5,
+      "LITSA": 10.25
+    },
+    "jobTotals": {
+      "BAR": 30.75,
+      "BAR #2": 0,
+      "GREEN FEES": 0,
+      "GREEN FEES #2": 0,
+      "JUNGLE FALLS": 0,
+      "RANGE": 0,
+      "SITE GENERAL": 0,
+      "STARTER": 0
+    },
+    "staffUsed": 2
+  }
 }
