@@ -1,1 +1,434 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Golf Club Rota</title><style>body{margin:0;background:#f5f1e9;font-family:Arial,sans-serif;color:#171717}header{background:#082619;color:white;padding:34px 42px;border-bottom:8px solid #c7a448}h1{margin:0;font-size:58px;line-height:1;font-weight:900}.week{margin-top:14px;font-size:24px;font-weight:800}main{padding:28px 32px}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}.card{background:#fffdf7;border:3px solid #123d2a;border-radius:16px;padding:16px;box-shadow:0 6px 0 rgba(8,38,25,.16)}.label{font-size:12px;font-weight:900;color:#667368;text-transform:uppercase;letter-spacing:.12em}.value{font-size:26px;font-weight:900;color:#082619;margin-top:8px}.board{background:#fffdf7;border:5px solid #082619;border-radius:18px;overflow-x:auto;box-shadow:0 10px 0 rgba(8,38,25,.16)}table{border-collapse:collapse;width:100%;min-width:1050px;table-layout:fixed}th{background:#082619;color:white;padding:15px 8px;font-size:15px;text-transform:uppercase}td{border:2px solid #d9d4c7;padding:12px 8px;text-align:center;vertical-align:middle;background:white;font-size:15px}td.job{text-align:left;font-weight:900;text-transform:uppercase;background:#e9e7df;border-right:5px solid #082619}td strong{display:inline-block;background:#123d2a;color:white;border-radius:8px;padding:7px 10px;font-size:14px;text-transform:uppercase}td span{display:inline-block;margin-top:6px;font-weight:900;color:#082619}td small{display:inline-block;margin-top:4px;color:#667368;font-weight:900}.empty{color:#b9b4aa;font-size:22px;font-weight:900}.notes{text-align:left;color:#667368;font-weight:700}footer{margin-top:18px;color:#667368;font-size:13px;text-align:right;font-weight:700}@media(max-width:900px){h1{font-size:42px}.summary{grid-template-columns:1fr}main{padding:18px}header{padding:26px 22px}}</style></head><body><header><div style="color:#c7a448;font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase">Ready to publish rota</div><h1>Golf Club Rota</h1><div class="week">Week commencing Monday 25 May 2026</div></header><main><section class="summary"><div class="card"><div class="label">Week</div><div class="value">2026-05-25</div></div><div class="card"><div class="label">Total hours</div><div class="value">18.75h</div></div><div class="card"><div class="label">Staff used</div><div class="value">4</div></div></section><section class="board"><table><thead><tr><th>Job</th><th>Mon 25 May</th><th>Tue 26 May</th><th>Wed 27 May</th><th>Thu 28 May</th><th>Fri 29 May</th><th>Sat 30 May</th><th>Sun 31 May</th><th>Notes</th></tr></thead><tbody><tr><td class="job">BAR</td><td><strong>NATALIE</strong><br><span>06:00-08:00</span><br><small>2h</small></td><td><strong>NATALIE</strong><br><span>06:00-09:00</span><br><small>3h</small></td><td><strong>LITSA</strong><br><span>06:00-08:00</span><br><small>2h</small></td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">BAR #2</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">GREEN FEES</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">GREEN FEES #2</td><td><strong>KIERAN</strong><br><span>06:00-07:30</span><br><small>1.5h</small></td><td><strong>CAZ</strong><br><span>12:00-22:15</span><br><small>10.25h</small></td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">JUNGLE FALLS</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">RANGE</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">SITE GENERAL</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr><tr><td class="job">STARTER</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td><td class="notes"></td></tr></tbody></table></section><footer>Last updated 26/05/2026 14:55:41</footer></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golf Club Rota · Week commencing Mon 25 May 2026</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7dee8;
+      --panel: #ffffff;
+      --bg: #f5f7fb;
+      --accent: #184e77;
+      --accent-soft: #e8f1f8;
+      --good: #e8f6ee;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.35;
+    }
+
+    header {
+      padding: 32px 24px 20px;
+      background: linear-gradient(135deg, #12324d, #184e77);
+      color: white;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      opacity: .82;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1;
+    }
+
+    .subhead {
+      margin: 12px 0 0;
+      font-size: 18px;
+      opacity: .9;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 22px auto;
+    }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, .06);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 30px;
+    }
+
+    main {
+      padding: 0 0 44px;
+    }
+
+    .table-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, .06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    thead th {
+      background: #eef3f8;
+      color: #27364a;
+      font-size: 13px;
+      text-align: left;
+      padding: 13px 10px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    thead th:first-child {
+      width: 140px;
+    }
+
+    thead th:last-child {
+      width: 90px;
+    }
+
+    tbody th {
+      text-align: left;
+      padding: 14px 10px;
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      background: #fbfcfe;
+      vertical-align: top;
+    }
+
+    td {
+      padding: 10px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      vertical-align: top;
+      min-height: 72px;
+    }
+
+    .shift {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 9px 10px;
+    }
+
+    .shift strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .shift span {
+      display: block;
+      margin-top: 3px;
+      font-size: 13px;
+      color: #344054;
+    }
+
+    .shift small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .empty {
+      color: #b4bdc9;
+    }
+
+    .hours-total {
+      font-weight: 800;
+      text-align: center;
+      background: var(--good);
+    }
+
+    .staff-panel {
+      margin-top: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, .06);
+    }
+
+    .staff-panel h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .staff-panel ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .staff-panel li {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fbfcfe;
+    }
+
+    .mobile-view {
+      display: none;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 12px;
+      padding: 20px 0 0;
+    }
+
+    @media (max-width: 840px) {
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      .desktop-view {
+        display: none;
+      }
+
+      .mobile-view {
+        display: grid;
+        gap: 14px;
+      }
+
+      .day-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 8px 24px rgba(23, 32, 51, .06);
+      }
+
+      .day-card h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+      }
+
+      .day-card ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .day-card li {
+        padding: 12px;
+        border-radius: 12px;
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+      }
+
+      .day-card .job-name,
+      .day-card .person,
+      .day-card .time {
+        display: block;
+      }
+
+      .day-card .job-name {
+        font-weight: 800;
+      }
+
+      .day-card .person {
+        margin-top: 3px;
+      }
+
+      .day-card .time {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .empty-mobile {
+        color: var(--muted);
+        background: #fbfcfe !important;
+        border-left-color: #cbd5e1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Golf Club Rota</p>
+      <h1>Week commencing Mon 25 May 2026</h1>
+      <p class="subhead">Current public rota generated from the Google Sheets Rota Board.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="summary" aria-label="Rota summary">
+      <div class="metric"><span>Total scheduled hours</span><strong>18.75</strong></div>
+      <div class="metric"><span>Staff scheduled</span><strong>4</strong></div>
+      <div class="metric"><span>Jobs with cover</span><strong>2</strong></div>
+    </section>
+
+    <section class="desktop-view table-panel" aria-label="Weekly rota table">
+      <table>
+        <thead>
+          <tr>
+            <th>Job</th>
+            <th>Mon 25 May</th><th>Tue 26 May</th><th>Wed 27 May</th><th>Thu 28 May</th><th>Fri 29 May</th><th>Sat 30 May</th><th>Sun 31 May</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>BAR</th><td>
+    <div class="shift">
+      <strong>NATALIE</strong>
+      <span>06:00-08:00</span>
+      <small>2 hrs</small>
+    </div>
+    </td><td>
+    <div class="shift">
+      <strong>NATALIE</strong>
+      <span>06:00-09:00</span>
+      <small>3 hrs</small>
+    </div>
+    </td><td>
+    <div class="shift">
+      <strong>LITSA</strong>
+      <span>06:00-08:00</span>
+      <small>2 hrs</small>
+    </div>
+    </td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>7</td></tr><tr><th>BAR #2</th><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>0</td></tr><tr><th>GREEN FEES</th><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>0</td></tr><tr><th>GREEN FEES #2</th><td>
+    <div class="shift">
+      <strong>KIERAN</strong>
+      <span>06:00-07:30</span>
+      <small>1.5 hrs</small>
+    </div>
+    </td><td>
+    <div class="shift">
+      <strong>CAZ</strong>
+      <span>12:00-22:15</span>
+      <small>10.25 hrs</small>
+    </div>
+    </td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>11.75</td></tr><tr><th>JUNGLE FALLS</th><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>0</td></tr><tr><th>RANGE</th><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>0</td></tr><tr><th>SITE GENERAL</th><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>0</td></tr><tr><th>STARTER</th><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td class='hours-total'>0</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mobile-view" aria-label="Daily rota cards">
+      
+    <section class="day-card">
+      <h2>Mon 25 May</h2>
+      <ul>
+            <li>
+              <span class="job-name">BAR</span>
+              <span class="person">NATALIE</span>
+              <span class="time">06:00-08:00 · 2 hrs</span>
+            </li>
+            
+            <li>
+              <span class="job-name">GREEN FEES #2</span>
+              <span class="person">KIERAN</span>
+              <span class="time">06:00-07:30 · 1.5 hrs</span>
+            </li>
+            </ul>
+    </section>
+    
+    <section class="day-card">
+      <h2>Tue 26 May</h2>
+      <ul>
+            <li>
+              <span class="job-name">BAR</span>
+              <span class="person">NATALIE</span>
+              <span class="time">06:00-09:00 · 3 hrs</span>
+            </li>
+            
+            <li>
+              <span class="job-name">GREEN FEES #2</span>
+              <span class="person">CAZ</span>
+              <span class="time">12:00-22:15 · 10.25 hrs</span>
+            </li>
+            </ul>
+    </section>
+    
+    <section class="day-card">
+      <h2>Wed 27 May</h2>
+      <ul>
+            <li>
+              <span class="job-name">BAR</span>
+              <span class="person">LITSA</span>
+              <span class="time">06:00-08:00 · 2 hrs</span>
+            </li>
+            </ul>
+    </section>
+    
+    <section class="day-card">
+      <h2>Thu 28 May</h2>
+      <ul><li class="empty-mobile">No shifts listed</li></ul>
+    </section>
+    
+    <section class="day-card">
+      <h2>Fri 29 May</h2>
+      <ul><li class="empty-mobile">No shifts listed</li></ul>
+    </section>
+    
+    <section class="day-card">
+      <h2>Sat 30 May</h2>
+      <ul><li class="empty-mobile">No shifts listed</li></ul>
+    </section>
+    
+    <section class="day-card">
+      <h2>Sun 31 May</h2>
+      <ul><li class="empty-mobile">No shifts listed</li></ul>
+    </section>
+    
+    </section>
+
+    <section class="staff-panel" aria-label="Staff hours summary">
+      <h2>Staff hours</h2>
+      <ul><li><span>CAZ</span><strong>10.25 hrs</strong></li><li><span>KIERAN</span><strong>1.5 hrs</strong></li><li><span>LITSA</span><strong>2 hrs</strong></li><li><span>NATALIE</span><strong>5 hrs</strong></li></ul>
+    </section>
+
+    <footer>
+      Last updated from the rota workbook. If this page looks out of date, commit a fresh index.html to GitHub.
+    </footer>
+  </main>
+</body>
+</html>
