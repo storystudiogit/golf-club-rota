@@ -2,8 +2,8 @@
   "generatedBy": "EMERGENCY Rota Board publisher",
   "weekLabel": "Week commencing Monday 25 May 2026",
   "weekSlug": "2026-05-25",
-  "status": "Published",
-  "lastUpdated": "26/05/2026 12:38:31",
+  "status": "Ready to publish",
+  "lastUpdated": "26/05/2026 14:55:41",
   "days": [
     {
       "key": "Mon",
@@ -41,18 +41,18 @@
       "assignments": {
         "Mon": {
           "staff": "NATALIE",
-          "time": "12:00-22:15",
-          "hours": 10.25
+          "time": "06:00-08:00",
+          "hours": 2
         },
         "Tue": {
           "staff": "NATALIE",
-          "time": "12:00-22:15",
-          "hours": 10.25
+          "time": "06:00-09:00",
+          "hours": 3
         },
         "Wed": {
           "staff": "LITSA",
-          "time": "12:00-22:15",
-          "hours": 10.25
+          "time": "06:00-08:00",
+          "hours": 2
         },
         "Thu": {
           "staff": "",
@@ -163,14 +163,14 @@
       "notes": "",
       "assignments": {
         "Mon": {
-          "staff": "",
-          "time": "",
-          "hours": 0
+          "staff": "KIERAN",
+          "time": "06:00-07:30",
+          "hours": 1.5
         },
         "Tue": {
-          "staff": "",
-          "time": "",
-          "hours": 0
+          "staff": "CAZ",
+          "time": "12:00-22:15",
+          "hours": 10.25
         },
         "Wed": {
           "staff": "",
@@ -365,17 +365,19 @@
     }
   ],
   "totals": {
-    "totalHours": 30.75,
-    "staffUsed": 2,
+    "totalHours": 18.75,
+    "staffUsed": 4,
     "staffTotals": {
-      "NATALIE": 20.5,
-      "LITSA": 10.25
+      "NATALIE": 5,
+      "LITSA": 2,
+      "KIERAN": 1.5,
+      "CAZ": 10.25
     },
     "jobTotals": {
-      "BAR": 30.75,
+      "BAR": 7,
       "BAR #2": 0,
       "GREEN FEES": 0,
-      "GREEN FEES #2": 0,
+      "GREEN FEES #2": 11.75,
       "JUNGLE FALLS": 0,
       "RANGE": 0,
       "SITE GENERAL": 0,
