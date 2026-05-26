@@ -82,9 +82,9 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 0}
 </header>
 <main class="wrap">
   <section class="summary" aria-label="Rota summary">
-    <div class="metric"><span>Total scheduled hours</span><strong>49.75</strong></div>
-    <div class="metric"><span>Staff scheduled</span><strong>7</strong></div>
-    <div class="metric"><span>Jobs with cover</span><strong>4</strong></div>
+    <div class="metric"><span>Total scheduled hours</span><strong>52.75</strong></div>
+    <div class="metric"><span>Staff scheduled</span><strong>8</strong></div>
+    <div class="metric"><span>Jobs with cover</span><strong>5</strong></div>
   </section>
 
   <section class="staff-hours-panel" aria-label="Individual staff hours">
@@ -99,6 +99,8 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 0}
       CAZ <span>10.25 hrs</span>
     </button><button class="staff-filter" type="button" data-staff="hugh">
       HUGH <span>8 hrs</span>
+    </button><button class="staff-filter" type="button" data-staff="josh">
+      JOSH <span>3 hrs</span>
     </button><button class="staff-filter" type="button" data-staff="kieran">
       KIERAN <span>1.5 hrs</span>
     </button><button class="staff-filter" type="button" data-staff="litsa">
@@ -129,6 +131,16 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 0}
       <strong>Wed 27 May</strong>
       <span>GREEN FEES</span>
       <em>06:00-14:00 · 8 hrs</em>
+    </li></ul>
+    </section><section class="staff-card" id="staff-josh" hidden>
+      <div>
+        <h3>JOSH</h3>
+        <p>3 total hours</p>
+      </div>
+      <ul><li>
+      <strong>Mon 25 May</strong>
+      <span>BAR #2</span>
+      <em>06:00-09:00 · 3 hrs</em>
     </li></ul>
     </section><section class="staff-card" id="staff-kieran" hidden>
       <div>
@@ -218,8 +230,12 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 0}
       <td class="hours-total">7</td>
     </tr><tr>
       <th>BAR #2</th>
-      <td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td>
-      <td class="hours-total">0</td>
+      <td><div class="shift">
+      <strong>JOSH</strong>
+      <span>06:00-09:00</span>
+      <small>3 hrs</small>
+    </div></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><span class="empty">—</span></td>
+      <td class="hours-total">3</td>
     </tr><tr>
       <th>GREEN FEES</th>
       <td><span class="empty">—</span></td><td><span class="empty">—</span></td><td><div class="shift">
@@ -284,6 +300,10 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 0}
           <span class="person">NATALIE</span>
           <span class="time">06:00-08:00  · 2 hrs</span>
         </li><li>
+          <span class="job-name">BAR #2</span>
+          <span class="person">JOSH</span>
+          <span class="time">06:00-09:00 · 3 hrs</span>
+        </li><li>
           <span class="job-name">GREEN FEES #2</span>
           <span class="person">KIERAN</span>
           <span class="time">06:00-07:30 · 1.5 hrs</span>
@@ -345,6 +365,9 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 0}
   </li><li>
     <span>HUGH</span>
     <strong>8 hrs</strong>
+  </li><li>
+    <span>JOSH</span>
+    <strong>3 hrs</strong>
   </li><li>
     <span>KIERAN</span>
     <strong>1.5 hrs</strong>
