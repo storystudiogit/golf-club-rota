@@ -3,7 +3,7 @@
   "weekLabel": "Week commencing Monday 25 May 2026",
   "weekSlug": "2026-05-25",
   "status": "Ready to publish",
-  "lastUpdated": "26/05/2026 15:30:47",
+  "lastUpdated": "26/05/2026 15:48:04",
   "days": [
     {
       "key": "Mon",
@@ -245,14 +245,14 @@
       "notes": "",
       "assignments": {
         "Mon": {
-          "staff": "",
-          "time": "",
-          "hours": 0
+          "staff": "S SPICER",
+          "time": "06:00-14:00",
+          "hours": 8
         },
         "Tue": {
-          "staff": "",
-          "time": "",
-          "hours": 0
+          "staff": "S SPICER",
+          "time": "06:00-14:00",
+          "hours": 8
         },
         "Wed": {
           "staff": "",
@@ -362,18 +362,60 @@
           "hours": 0
         }
       }
+    },
+    {
+      "job": "MANAGER",
+      "notes": "",
+      "assignments": {
+        "Mon": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Tue": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Wed": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Thu": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Fri": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sat": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        },
+        "Sun": {
+          "staff": "",
+          "time": "",
+          "hours": 0
+        }
+      }
     }
   ],
   "totals": {
-    "totalHours": 33.75,
-    "staffUsed": 6,
+    "totalHours": 49.75,
+    "staffUsed": 7,
     "staffTotals": {
       "NATALIE": 5,
       "LITSA": 2,
       "HUGH": 8,
       "KIERAN": 1.5,
       "CAZ": 10.25,
-      "WILLIAM": 7
+      "WILLIAM": 7,
+      "S SPICER": 16
     },
     "jobTotals": {
       "BAR": 7,
@@ -381,9 +423,10 @@
       "GREEN FEES": 8,
       "GREEN FEES #2": 18.75,
       "JUNGLE FALLS": 0,
-      "RANGE": 0,
+      "RANGE": 16,
       "SITE GENERAL": 0,
-      "STARTER": 0
+      "STARTER": 0,
+      "MANAGER": 0
     }
   }
 }
