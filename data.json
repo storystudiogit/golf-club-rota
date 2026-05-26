@@ -1,58 +1,37 @@
 {
-  "weekLabel": "Week commencing Thursday 1 January 1970",
-  "weekSlug": "1970-01-01",
-  "status": "Draft",
-  "lastUpdated": "26/05/2026 12:16",
-  "staff": [
-    "LEE",
-    "CAZ",
-    "NELS",
-    "WILLIAM",
-    "DAVE R",
-    "JOSH",
-    "KIERAN",
-    "HANNAH",
-    "OLLIE",
-    "BOB",
-    "PAUL",
-    "HUGH",
-    "BILLY",
-    "S SPICER",
-    "S SEXTON",
-    "LITSA",
-    "NATALIE",
-    "MONTY",
-    "ELLEN",
-    "CLEANER"
-  ],
+  "generatedBy": "Rota Board publisher v2",
+  "weekLabel": "Week commencing Monday 25 May 2026",
+  "weekSlug": "2026-05-25",
+  "status": "Published",
+  "lastUpdated": "26/05/2026 12:26:12",
   "days": [
     {
       "key": "Mon",
-      "label": "Mon 1 Jan"
+      "label": "Mon 25 May"
     },
     {
       "key": "Tue",
-      "label": "Tue 2 Jan"
+      "label": "Tue 26 May"
     },
     {
       "key": "Wed",
-      "label": "Wed 3 Jan"
+      "label": "Wed 27 May"
     },
     {
       "key": "Thu",
-      "label": "Thu 4 Jan"
+      "label": "Thu 28 May"
     },
     {
       "key": "Fri",
-      "label": "Fri 5 Jan"
+      "label": "Fri 29 May"
     },
     {
       "key": "Sat",
-      "label": "Sat 6 Jan"
+      "label": "Sat 30 May"
     },
     {
       "key": "Sun",
-      "label": "Sun 7 Jan"
+      "label": "Sun 31 May"
     }
   ],
   "jobs": [
@@ -387,6 +366,7 @@
   ],
   "totals": {
     "totalHours": 30.75,
+    "staffUsed": 2,
     "staffTotals": {
       "NATALIE": 20.5,
       "LITSA": 10.25
@@ -400,7 +380,6 @@
       "RANGE": 0,
       "SITE GENERAL": 0,
       "STARTER": 0
-    },
-    "staffUsed": 2
+    }
   }
 }
