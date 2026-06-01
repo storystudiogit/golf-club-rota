@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GOLF CLUB ROTA - Week commencing Monday 1 June 2026</title>
+  <title>Golf Club Rota - Week commencing Monday 25 May 2026</title>
   <style>
     :root {
       --bg: #f5f7fb;
@@ -29,7 +29,7 @@
     }
 
     .page {
-      max-width: 860px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -39,13 +39,13 @@
 
     h1 {
       margin: 0 0 6px;
-      font-size: 26px;
+      font-size: 28px;
       line-height: 1.1;
       letter-spacing: 0.02em;
     }
 
     .week {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 6px;
@@ -64,54 +64,141 @@
       text-decoration: underline;
     }
 
-    .day-card {
+    .staff-tools {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 14px;
-      margin: 0 0 16px;
+      margin: 18px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
 
-    .day-card h2 {
-      margin: 0 0 12px;
-      font-size: 19px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .shift-header,
-    .shift {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .shift-header {
-      padding: 8px 10px;
-      margin-bottom: 4px;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 12px;
+    .staff-tools label {
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      font-size: 14px;
+    }
+
+    .staff-tools select,
+    .staff-tools button {
+      font: inherit;
+      font-size: 14px;
+      border: 1px solid var(--border);
       border-radius: 10px;
+      background: white;
+      color: var(--text);
+      padding: 9px 10px;
     }
 
-    .shift {
-      padding: 10px;
-      border-bottom: 1px solid var(--soft);
-      font-size: 15px;
+    .staff-tools button {
+      cursor: pointer;
+      font-weight: 700;
     }
 
-    .shift:last-child {
-      border-bottom: 0;
+    .staff-help {
+      flex-basis: 100%;
+      font-size: 12px;
+      color: var(--muted);
     }
 
-    .job {
+    body[data-staff-view="on"] tbody tr.hide-for-staff {
+      display: none;
+    }
+
+    body[data-staff-view="on"] td.staff:not(.selected-staff) {
+      color: #c5cad3;
+      font-weight: 400;
+    }
+
+    .selected-staff,
+    .selected-staff-time {
+      background: #fff7d6;
+      color: var(--text);
       font-weight: 800;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--soft);
+      border-right: 1px solid var(--soft);
+      padding: 9px 8px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    thead th {
+      background: var(--soft);
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    tbody th.job {
+      position: sticky;
+      left: 0;
+      background: #ffffff;
+      z-index: 2;
+      font-weight: 800;
+      min-width: 150px;
+    }
+
+    thead th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      background: var(--soft);
     }
 
     .staff {
@@ -123,57 +210,98 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .no-shifts {
-      padding: 12px 10px;
-      color: var(--muted);
-      font-style: italic;
+    .empty {
+      color: #c5cad3;
+      background: #fafbfc;
     }
 
     footer {
-      margin: 22px 0 8px;
+      margin: 18px 0 8px;
       font-size: 12px;
       color: var(--muted);
       text-align: center;
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 700px) {
       body {
         padding: 12px;
       }
 
       h1 {
-        font-size: 23px;
+        font-size: 24px;
       }
 
-      .day-card {
-        border-radius: 16px;
-        padding: 12px;
+      .staff-tools {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 18px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .staff-tools label {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .staff-tools select,
+    .staff-tools button {
+      font: inherit;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      color: var(--text);
+      padding: 9px 10px;
+    }
+
+    .staff-tools button {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .staff-help {
+      flex-basis: 100%;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    body[data-staff-view="on"] tbody tr.hide-for-staff {
+      display: none;
+    }
+
+    body[data-staff-view="on"] td.staff:not(.selected-staff) {
+      color: #c5cad3;
+      font-weight: 400;
+    }
+
+    .selected-staff,
+    .selected-staff-time {
+      background: #fff7d6;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
       }
 
-      .shift-header {
-        display: none;
+      .stat-value {
+        font-size: 24px;
       }
 
-      .shift {
-        display: block;
-        padding: 12px 4px;
+      table {
+        font-size: 13px;
       }
 
-      .job {
-        font-size: 14px;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        margin-bottom: 3px;
-      }
-
-      .staff {
-        font-size: 18px;
-        margin-bottom: 2px;
-      }
-
-      .time {
-        font-size: 15px;
+      th,
+      td {
+        padding: 8px 7px;
       }
     }
 
@@ -182,13 +310,14 @@
         background: white;
       }
 
-      .day-card {
-        break-inside: avoid;
-        box-shadow: none;
-      }
-
+      .stats-grid,
+      .staff-tools,
       .archive-link {
         display: none;
+      }
+
+      .table-wrap {
+        box-shadow: none;
       }
     }
   </style>
@@ -196,327 +325,469 @@
 <body>
   <main class="page">
     <header>
-      <h1>GOLF CLUB ROTA</h1>
-      <div class="week">Week commencing Monday 1 June 2026</div>
-      <div class="updated">Last updated: Monday 1 June 2026, 14:14</div>
+      <h1>Golf Club Rota</h1>
+      <div class="week">Week commencing Monday 25 May 2026</div>
+      <div class="updated">Last updated: Monday 1 June 2026, 14:27</div>
       <a class="archive-link" href="archive.html">View previous rotas</a>
     </header>
 
-    
-      <section class="day-card">
-        <h2>Monday 1 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
+    <section class="staff-tools" aria-label="Staff view tools">
+      <label for="staffSelect">Staff view</label>
+      <select id="staffSelect">
+        <option value="">Show full rota</option>
         
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">LEE</div>
-          <div class="time">06:00-14:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">HUGH</div>
-          <div class="time">05:30-14:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">KIERAN</div>
-          <div class="time">14:00-22:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">NATALIE</div>
-          <div class="time">12:00-22:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">BAR 2</div>
-          <div class="staff">WILLIAM</div>
-          <div class="time">12:00-22:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">MANAGER</div>
-          <div class="staff">KIERAN</div>
-          <div class="time"></div>
-        </div>
-      
-      </section>
-    
+    <option value="BOBBY">BOBBY</option>
+  
+    <option value="CAZ">CAZ</option>
+  
+    <option value="DAVID C">DAVID C</option>
+  
+    <option value="ELLEN">ELLEN</option>
+  
+    <option value="HUGH">HUGH</option>
+  
+    <option value="JOSH">JOSH</option>
+  
+    <option value="KIERAN">KIERAN</option>
+  
+    <option value="LEE">LEE</option>
+  
+    <option value="LITSA">LITSA</option>
+  
+    <option value="NATALIE">NATALIE</option>
+  
+    <option value="NELS">NELS</option>
+  
+    <option value="PAUL">PAUL</option>
+  
+    <option value="S SEXTON">S SEXTON</option>
+  
+    <option value="S SPICER">S SPICER</option>
+  
+    <option value="WILLIAM">WILLIAM</option>
+  
+      </select>
+      <button type="button" id="copyStaffLink">Copy staff link</button>
+      <button type="button" id="resetStaffView">Reset</button>
+      <div class="staff-help">Choose a staff member to highlight their shifts and copy a direct link.</div>
+    </section>
 
-      <section class="day-card">
-        <h2>Tuesday 2 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
-        
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">LEE</div>
-          <div class="time">06:00-12:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">HUGH</div>
-          <div class="time">05:30-14:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">WILLIAM</div>
-          <div class="time">14:00-22:00</div>
-        </div>
-      
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">LITSA</div>
-          <div class="time">12:00-22:00</div>
-        </div>
-      
-      </section>
-    
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total scheduled hours</div>
+        <div class="stat-value">275</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Staff listed</div>
+        <div class="stat-value">15</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Jobs with cover</div>
+        <div class="stat-value">9</div>
+      </div>
+    </section>
 
-      <section class="day-card">
-        <h2>Wednesday 3 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Job</th>
+            
+    <th colspan="2">Mon 25 May</th>
+  
+    <th colspan="2">Tue 26 May</th>
+  
+    <th colspan="2">Wed 27 May</th>
+  
+    <th colspan="2">Thu 28 May</th>
+  
+    <th colspan="2">Fri 29 May</th>
+  
+    <th colspan="2">Sat 30 May</th>
+  
+    <th colspan="2">Sun 31 May</th>
+  
+          </tr>
+          <tr>
+            
+    <th>Staff</th>
+    <th>Time</th>
+  
+    <th>Staff</th>
+    <th>Time</th>
+  
+    <th>Staff</th>
+    <th>Time</th>
+  
+    <th>Staff</th>
+    <th>Time</th>
+  
+    <th>Staff</th>
+    <th>Time</th>
+  
+    <th>Staff</th>
+    <th>Time</th>
+  
+    <th>Staff</th>
+    <th>Time</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          
+      <tr>
+        <th class="job">SITE &amp; RANGE</th>
         
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">LEE</div>
-          <div class="time">06:00-14:00</div>
-        </div>
+        <td class="staff" data-staff="LEE">LEE</td>
+        <td class="time">06:00-14:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">S SPICER</div>
-          <div class="time">05:30-14:00</div>
-        </div>
+        <td class="staff" data-staff="LEE">LEE</td>
+        <td class="time">06:00-12:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">KIERAN</div>
-          <div class="time">14:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="LEE">LEE</td>
+        <td class="time">06:00-14:00</td>
       
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">LITSA</div>
-          <div class="time">14:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="LEE">LEE</td>
+        <td class="time">06:00-14:00</td>
       
-        <div class="shift">
-          <div class="job">MANAGER</div>
-          <div class="staff">KIERAN</div>
-          <div class="time"></div>
-        </div>
+        <td class="staff" data-staff="DAVID C">DAVID C</td>
+        <td class="time">06:00-07:30</td>
       
-      </section>
+        <td class="staff" data-staff="NELS">NELS</td>
+        <td class="time">06:00-09:00</td>
+      
+        <td class="staff" data-staff="NELS">NELS</td>
+        <td class="time">06:00-09:00</td>
+      
+      </tr>
     
-
-      <section class="day-card">
-        <h2>Thursday 4 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
+      <tr>
+        <th class="job">STARTER</th>
         
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">LEE</div>
-          <div class="time">06:00-14:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">HUGH</div>
-          <div class="time">05:30-14:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">S SPICER</div>
-          <div class="time">14:00-22:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">LITSA</div>
-          <div class="time">12:00-22:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-      </section>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="staff" data-staff="PAUL">PAUL</td>
+        <td class="time">05:30-14:30</td>
+      
+        <td class="staff" data-staff="PAUL">PAUL</td>
+        <td class="time">05:30-14:30</td>
+      
+      </tr>
     
-
-      <section class="day-card">
-        <h2>Friday 5 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
+      <tr>
+        <th class="job">GREEN FEES 1</th>
         
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">DAVID C</div>
-          <div class="time">06:00-07:30</div>
-        </div>
+        <td class="staff" data-staff="HUGH">HUGH</td>
+        <td class="time">05:30-14:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">S SPICER</div>
-          <div class="time">05:30-14:00</div>
-        </div>
+        <td class="staff" data-staff="HUGH">HUGH</td>
+        <td class="time">05:30-14:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">JOSH</div>
-          <div class="time">14:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="S SPICER">S SPICER</td>
+        <td class="time">05:30-14:00</td>
       
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">LITSA</div>
-          <div class="time">12:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="HUGH">HUGH</td>
+        <td class="time">05:30-14:00</td>
       
-        <div class="shift">
-          <div class="job">MANAGER</div>
-          <div class="staff">CAZ</div>
-          <div class="time"></div>
-        </div>
+        <td class="staff" data-staff="S SPICER">S SPICER</td>
+        <td class="time">05:30-14:00</td>
       
-      </section>
+        <td class="staff" data-staff="JOSH">JOSH</td>
+        <td class="time">05:30-14:00</td>
+      
+        <td class="staff" data-staff="BOBBY">BOBBY</td>
+        <td class="time">05:30-14:00</td>
+      
+      </tr>
     
-
-      <section class="day-card">
-        <h2>Saturday 6 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
+      <tr>
+        <th class="job">GREEN FEES 2</th>
         
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">NELS</div>
-          <div class="time">06:00-09:00</div>
-        </div>
+        <td class="staff" data-staff="KIERAN">KIERAN</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">STARTER</div>
-          <div class="staff">PAUL</div>
-          <div class="time">05:30-14:30</div>
-        </div>
+        <td class="staff" data-staff="WILLIAM">WILLIAM</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">JOSH</div>
-          <div class="time">05:30-14:00</div>
-        </div>
+        <td class="staff" data-staff="KIERAN">KIERAN</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">CAZ</div>
-          <div class="time">14:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="S SPICER">S SPICER</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 3</div>
-          <div class="staff">S SEXTON</div>
-          <div class="time">08:00-18:00</div>
-        </div>
+        <td class="staff" data-staff="JOSH">JOSH</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">NATALIE</div>
-          <div class="time">12:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="CAZ">CAZ</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">BAR 3</div>
-          <div class="staff">ELLEN</div>
-          <div class="time">12:00-18:00</div>
-        </div>
+        <td class="staff" data-staff="CAZ">CAZ</td>
+        <td class="time">14:00-22:00</td>
       
-        <div class="shift">
-          <div class="job">MANAGER</div>
-          <div class="staff">CAZ</div>
-          <div class="time"></div>
-        </div>
-      
-      </section>
+      </tr>
     
-
-      <section class="day-card">
-        <h2>Sunday 7 June</h2>
-        <div class="shift-header">
-          <div>Job</div>
-          <div>Staff</div>
-          <div>Time</div>
-        </div>
+      <tr>
+        <th class="job">GREEN FEES 3</th>
         
-        <div class="shift">
-          <div class="job">SITE &amp; RANGE</div>
-          <div class="staff">NELS</div>
-          <div class="time">06:00-09:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">STARTER</div>
-          <div class="staff">PAUL</div>
-          <div class="time">05:30-14:30</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 1</div>
-          <div class="staff">BOBBY</div>
-          <div class="time">05:30-14:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 2</div>
-          <div class="staff">CAZ</div>
-          <div class="time">14:00-22:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">GREEN FEES 3</div>
-          <div class="staff">S SEXTON</div>
-          <div class="time">08:00-18:00</div>
-        </div>
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
       
-        <div class="shift">
-          <div class="job">BAR 1</div>
-          <div class="staff">NATALIE</div>
-          <div class="time">12:00-22:00</div>
-        </div>
+        <td class="staff" data-staff="S SEXTON">S SEXTON</td>
+        <td class="time">08:00-18:00</td>
       
-        <div class="shift">
-          <div class="job">MANAGER</div>
-          <div class="staff">CAZ</div>
-          <div class="time"></div>
-        </div>
+        <td class="staff" data-staff="S SEXTON">S SEXTON</td>
+        <td class="time">08:00-18:00</td>
       
-      </section>
+      </tr>
     
+      <tr>
+        <th class="job">BAR 1</th>
+        
+        <td class="staff" data-staff="NATALIE">NATALIE</td>
+        <td class="time">12:00-22:00</td>
+      
+        <td class="staff" data-staff="LITSA">LITSA</td>
+        <td class="time">12:00-22:00</td>
+      
+        <td class="staff" data-staff="LITSA">LITSA</td>
+        <td class="time">14:00-22:00</td>
+      
+        <td class="staff" data-staff="LITSA">LITSA</td>
+        <td class="time">12:00-22:00</td>
+      
+        <td class="staff" data-staff="LITSA">LITSA</td>
+        <td class="time">12:00-22:00</td>
+      
+        <td class="staff" data-staff="NATALIE">NATALIE</td>
+        <td class="time">12:00-22:00</td>
+      
+        <td class="staff" data-staff="NATALIE">NATALIE</td>
+        <td class="time">12:00-22:00</td>
+      
+      </tr>
+    
+      <tr>
+        <th class="job">BAR 2</th>
+        
+        <td class="staff" data-staff="WILLIAM">WILLIAM</td>
+        <td class="time">12:00-22:00</td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+      </tr>
+    
+      <tr>
+        <th class="job">BAR 3</th>
+        
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="staff" data-staff="ELLEN">ELLEN</td>
+        <td class="time">12:00-18:00</td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+      </tr>
+    
+      <tr>
+        <th class="job">MANAGER</th>
+        
+        <td class="staff" data-staff="KIERAN">KIERAN</td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="staff" data-staff="KIERAN">KIERAN</td>
+        <td class="empty"></td>
+      
+        <td class="empty" data-staff=""></td>
+        <td class="empty"></td>
+      
+        <td class="staff" data-staff="CAZ">CAZ</td>
+        <td class="empty"></td>
+      
+        <td class="staff" data-staff="CAZ">CAZ</td>
+        <td class="empty"></td>
+      
+        <td class="staff" data-staff="CAZ">CAZ</td>
+        <td class="empty"></td>
+      
+      </tr>
+    
+        </tbody>
+      </table>
+    </section>
 
     <footer>
       Please check your shift before travelling.
     </footer>
   </main>
+
+  <script>
+    (function () {
+      var select = document.getElementById('staffSelect');
+      var copyButton = document.getElementById('copyStaffLink');
+      var resetButton = document.getElementById('resetStaffView');
+
+      function normalise(value) {
+        return String(value || '').trim().toLowerCase();
+      }
+
+      function applyStaffView(staffName) {
+        var selected = normalise(staffName);
+        var rows = document.querySelectorAll('tbody tr');
+
+        document.body.setAttribute('data-staff-view', selected ? 'on' : 'off');
+
+        rows.forEach(function (row) {
+          var hasMatch = false;
+          var staffCells = row.querySelectorAll('td[data-staff]');
+
+          staffCells.forEach(function (cell) {
+            var isMatch = selected && normalise(cell.getAttribute('data-staff')) === selected;
+            var timeCell = cell.nextElementSibling;
+
+            cell.classList.toggle('selected-staff', Boolean(isMatch));
+
+            if (timeCell) {
+              timeCell.classList.toggle('selected-staff-time', Boolean(isMatch));
+            }
+
+            if (isMatch) {
+              hasMatch = true;
+            }
+          });
+
+          row.classList.toggle('hide-for-staff', Boolean(selected && !hasMatch));
+        });
+      }
+
+      function currentStaffUrl() {
+        var url = new URL(window.location.href);
+        var staffName = select.value;
+
+        if (staffName) {
+          url.searchParams.set('staff', staffName);
+        } else {
+          url.searchParams.delete('staff');
+        }
+
+        return url.toString();
+      }
+
+      function updateUrl() {
+        var url = currentStaffUrl();
+        window.history.replaceState(null, '', url);
+        return url;
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+
+        var temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        return Promise.resolve();
+      }
+
+      select.addEventListener('change', function () {
+        applyStaffView(select.value);
+        updateUrl();
+      });
+
+      copyButton.addEventListener('click', function () {
+        var url = updateUrl();
+
+        copyText(url).then(function () {
+          var original = copyButton.textContent;
+          copyButton.textContent = 'Copied';
+          setTimeout(function () {
+            copyButton.textContent = original;
+          }, 1600);
+        });
+      });
+
+      resetButton.addEventListener('click', function () {
+        select.value = '';
+        applyStaffView('');
+        updateUrl();
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var initialStaff = params.get('staff');
+
+      if (initialStaff) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (normalise(select.options[i].value) === normalise(initialStaff)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+
+        applyStaffView(select.value);
+      }
+    })();
+  </script>
+
 </body>
 </html>
