@@ -119,36 +119,6 @@
       box-shadow: inset 0 0 0 1px rgba(180, 83, 9, 0.18);
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin: 18px 0;
-    }
-
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
     .table-wrap {
       overflow-x: auto;
       background: var(--card);
@@ -327,10 +297,6 @@
         grid-template-columns: 1fr;
       }
 
-      .stat-value {
-        font-size: 24px;
-      }
-
       table {
         font-size: 13px;
       }
@@ -360,7 +326,6 @@
         background: white;
       }
 
-      .stats-grid,
       .staff-tools,
       .archive-link {
         display: none;
@@ -377,7 +342,7 @@
     <header>
       <h1>Golf Club Rota</h1>
       <div class="week">Week commencing Monday 25 May 2026</div>
-      <div class="updated">Last updated: Monday 1 June 2026, 14:35</div>
+      <div class="updated">Last updated: Monday 1 June 2026, 15:05</div>
       <a class="archive-link" href="archive.html">View previous rotas</a>
     </header>
 
@@ -422,26 +387,11 @@
       <div class="staff-help">Choose a staff member to highlight their shifts and copy a direct link.</div>
     </section>
 
-    <section class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-label">Total scheduled hours</div>
-        <div class="stat-value">275</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Staff listed</div>
-        <div class="stat-value">15</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Jobs with cover</div>
-        <div class="stat-value">9</div>
-      </div>
-    </section>
-
     <section class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th rowspan="2">Job</th>
+            <th>Job</th>
             
     <th colspan="2">Mon 25 May</th>
   
@@ -456,30 +406,6 @@
     <th colspan="2">Sat 30 May</th>
   
     <th colspan="2">Sun 31 May</th>
-  
-          </tr>
-          <tr>
-            
-    <th>Staff</th>
-    <th>Time</th>
-  
-    <th>Staff</th>
-    <th>Time</th>
-  
-    <th>Staff</th>
-    <th>Time</th>
-  
-    <th>Staff</th>
-    <th>Time</th>
-  
-    <th>Staff</th>
-    <th>Time</th>
-  
-    <th>Staff</th>
-    <th>Time</th>
-  
-    <th>Staff</th>
-    <th>Time</th>
   
           </tr>
         </thead>
