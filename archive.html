@@ -78,5 +78,117 @@
     </ul>
     <a class="back" href="index.html">Back to current rota</a>
   </main>
+
+  <script>
+    (function () {
+      var select = document.getElementById('staffSelect');
+      var copyButton = document.getElementById('copyStaffLink');
+      var resetButton = document.getElementById('resetStaffView');
+
+      function normalise(value) {
+        return String(value || '').trim().toLowerCase();
+      }
+
+      function applyStaffView(staffName) {
+        var selected = normalise(staffName);
+        var rows = document.querySelectorAll('tbody tr');
+
+        document.body.setAttribute('data-staff-view', selected ? 'on' : 'off');
+
+        rows.forEach(function (row) {
+          var hasMatch = false;
+          var staffCells = row.querySelectorAll('td[data-staff]');
+
+          staffCells.forEach(function (cell) {
+            var isMatch = selected && normalise(cell.getAttribute('data-staff')) === selected;
+            var timeCell = cell.nextElementSibling;
+
+            cell.classList.toggle('selected-staff', Boolean(isMatch));
+
+            if (timeCell) {
+              timeCell.classList.toggle('selected-staff-time', Boolean(isMatch));
+            }
+
+            if (isMatch) {
+              hasMatch = true;
+            }
+          });
+
+          row.classList.toggle('hide-for-staff', Boolean(selected && !hasMatch));
+        });
+      }
+
+      function currentStaffUrl() {
+        var url = new URL(window.location.href);
+        var staffName = select.value;
+
+        if (staffName) {
+          url.searchParams.set('staff', staffName);
+        } else {
+          url.searchParams.delete('staff');
+        }
+
+        return url.toString();
+      }
+
+      function updateUrl() {
+        var url = currentStaffUrl();
+        window.history.replaceState(null, '', url);
+        return url;
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+
+        var temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        return Promise.resolve();
+      }
+
+      select.addEventListener('change', function () {
+        applyStaffView(select.value);
+        updateUrl();
+      });
+
+      copyButton.addEventListener('click', function () {
+        var url = updateUrl();
+
+        copyText(url).then(function () {
+          var original = copyButton.textContent;
+          copyButton.textContent = 'Copied';
+          setTimeout(function () {
+            copyButton.textContent = original;
+          }, 1600);
+        });
+      });
+
+      resetButton.addEventListener('click', function () {
+        select.value = '';
+        applyStaffView('');
+        updateUrl();
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var initialStaff = params.get('staff');
+
+      if (initialStaff) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (normalise(select.options[i].value) === normalise(initialStaff)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+
+        applyStaffView(select.value);
+      }
+    })();
+  </script>
+
 </body>
 </html>
