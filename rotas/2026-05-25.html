@@ -59,7 +59,7 @@
     .archive-link {
       display: inline-block;
       margin-top: 10px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--accent);
       text-decoration: underline;
     }
@@ -108,16 +108,15 @@
       display: none;
     }
 
-    body[data-staff-view="on"] td.staff:not(.selected-staff) {
-      color: #c5cad3;
-      font-weight: 400;
+    body[data-staff-view="on"] .shift-cell:not(.selected-staff) .shift-card {
+      opacity: 0.28;
+      filter: grayscale(0.4);
     }
 
-    .selected-staff,
-    .selected-staff-time {
+    .selected-staff .shift-card {
       background: #fff7d6;
-      color: var(--text);
-      font-weight: 800;
+      border-left-color: #b45309;
+      box-shadow: inset 0 0 0 1px rgba(180, 83, 9, 0.18);
     }
 
     .stats-grid {
@@ -160,7 +159,7 @@
 
     table {
       width: 100%;
-      min-width: 980px;
+      min-width: 1080px;
       border-collapse: collapse;
       font-size: 14px;
     }
@@ -169,7 +168,7 @@
     td {
       border-bottom: 1px solid var(--soft);
       border-right: 1px solid var(--soft);
-      padding: 9px 8px;
+      padding: 10px 10px;
       text-align: left;
       vertical-align: middle;
       white-space: nowrap;
@@ -201,18 +200,56 @@
       background: var(--soft);
     }
 
-    .staff {
-      font-weight: 700;
+    .shift-cell {
+      background: #ffffff;
+      min-width: 130px;
     }
 
-    .time {
-      color: var(--accent);
+    .shift-card {
+      display: block;
+      width: 100%;
+      min-height: 78px;
+      padding: 10px 12px;
+      background: #e8f0fb;
+      border-left: 5px solid #0f5f83;
+      border-radius: 12px;
+      box-shadow: inset 0 0 0 1px rgba(15, 95, 131, 0.06);
+    }
+
+    .shift-name {
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: #111827;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .shift-time {
+      color: #243447;
+      font-size: 14px;
       font-variant-numeric: tabular-nums;
+      margin-bottom: 3px;
+    }
+
+    .shift-hours {
+      color: #516174;
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .shift-empty {
+      color: #c5cad3;
+      background: #ffffff;
+      font-size: 20px;
+      text-align: left;
+      vertical-align: top;
+      padding-top: 16px;
     }
 
     .empty {
       color: #c5cad3;
-      background: #fafbfc;
+      background: #ffffff;
     }
 
     footer {
@@ -275,16 +312,15 @@
       display: none;
     }
 
-    body[data-staff-view="on"] td.staff:not(.selected-staff) {
-      color: #c5cad3;
-      font-weight: 400;
+    body[data-staff-view="on"] .shift-cell:not(.selected-staff) .shift-card {
+      opacity: 0.28;
+      filter: grayscale(0.4);
     }
 
-    .selected-staff,
-    .selected-staff-time {
+    .selected-staff .shift-card {
       background: #fff7d6;
-      color: var(--text);
-      font-weight: 800;
+      border-left-color: #b45309;
+      box-shadow: inset 0 0 0 1px rgba(180, 83, 9, 0.18);
     }
 
     .stats-grid {
@@ -302,6 +338,20 @@
       th,
       td {
         padding: 8px 7px;
+      }
+
+      .shift-card {
+        min-height: 72px;
+        padding: 9px 10px;
+      }
+
+      .shift-name,
+      .shift-time {
+        font-size: 13px;
+      }
+
+      .shift-hours {
+        font-size: 12px;
       }
     }
 
@@ -327,7 +377,7 @@
     <header>
       <h1>Golf Club Rota</h1>
       <div class="week">Week commencing Monday 25 May 2026</div>
-      <div class="updated">Last updated: Monday 1 June 2026, 14:27</div>
+      <div class="updated">Last updated: Monday 1 June 2026, 14:35</div>
       <a class="archive-link" href="archive.html">View previous rotas</a>
     </header>
 
@@ -438,234 +488,357 @@
       <tr>
         <th class="job">SITE &amp; RANGE</th>
         
-        <td class="staff" data-staff="LEE">LEE</td>
-        <td class="time">06:00-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LEE">
+          <div class="shift-card">
+            <div class="shift-name">LEE</div>
+            <div class="shift-time">06:00-14:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LEE">LEE</td>
-        <td class="time">06:00-12:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LEE">
+          <div class="shift-card">
+            <div class="shift-name">LEE</div>
+            <div class="shift-time">06:00-12:00</div>
+            <div class="shift-hours">6 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LEE">LEE</td>
-        <td class="time">06:00-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LEE">
+          <div class="shift-card">
+            <div class="shift-name">LEE</div>
+            <div class="shift-time">06:00-14:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LEE">LEE</td>
-        <td class="time">06:00-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LEE">
+          <div class="shift-card">
+            <div class="shift-name">LEE</div>
+            <div class="shift-time">06:00-14:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="DAVID C">DAVID C</td>
-        <td class="time">06:00-07:30</td>
+        <td class="shift-cell" colspan="2" data-staff="DAVID C">
+          <div class="shift-card">
+            <div class="shift-name">DAVID C</div>
+            <div class="shift-time">06:00-07:30</div>
+            <div class="shift-hours">1.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="NELS">NELS</td>
-        <td class="time">06:00-09:00</td>
+        <td class="shift-cell" colspan="2" data-staff="NELS">
+          <div class="shift-card">
+            <div class="shift-name">NELS</div>
+            <div class="shift-time">06:00-09:00</div>
+            <div class="shift-hours">3 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="NELS">NELS</td>
-        <td class="time">06:00-09:00</td>
+        <td class="shift-cell" colspan="2" data-staff="NELS">
+          <div class="shift-card">
+            <div class="shift-name">NELS</div>
+            <div class="shift-time">06:00-09:00</div>
+            <div class="shift-hours">3 hrs</div>
+          </div>
+        </td>
       
       </tr>
     
       <tr>
         <th class="job">STARTER</th>
-        
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
+        <td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td>
+        <td class="shift-cell" colspan="2" data-staff="PAUL">
+          <div class="shift-card">
+            <div class="shift-name">PAUL</div>
+            <div class="shift-time">05:30-14:30</div>
+            <div class="shift-hours">9 hrs</div>
+          </div>
+        </td>
       
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="staff" data-staff="PAUL">PAUL</td>
-        <td class="time">05:30-14:30</td>
-      
-        <td class="staff" data-staff="PAUL">PAUL</td>
-        <td class="time">05:30-14:30</td>
+        <td class="shift-cell" colspan="2" data-staff="PAUL">
+          <div class="shift-card">
+            <div class="shift-name">PAUL</div>
+            <div class="shift-time">05:30-14:30</div>
+            <div class="shift-hours">9 hrs</div>
+          </div>
+        </td>
       
       </tr>
     
       <tr>
         <th class="job">GREEN FEES 1</th>
         
-        <td class="staff" data-staff="HUGH">HUGH</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="HUGH">
+          <div class="shift-card">
+            <div class="shift-name">HUGH</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="HUGH">HUGH</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="HUGH">
+          <div class="shift-card">
+            <div class="shift-name">HUGH</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="S SPICER">S SPICER</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="S SPICER">
+          <div class="shift-card">
+            <div class="shift-name">S SPICER</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="HUGH">HUGH</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="HUGH">
+          <div class="shift-card">
+            <div class="shift-name">HUGH</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="S SPICER">S SPICER</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="S SPICER">
+          <div class="shift-card">
+            <div class="shift-name">S SPICER</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="JOSH">JOSH</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="JOSH">
+          <div class="shift-card">
+            <div class="shift-name">JOSH</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="BOBBY">BOBBY</td>
-        <td class="time">05:30-14:00</td>
+        <td class="shift-cell" colspan="2" data-staff="BOBBY">
+          <div class="shift-card">
+            <div class="shift-name">BOBBY</div>
+            <div class="shift-time">05:30-14:00</div>
+            <div class="shift-hours">8.5 hrs</div>
+          </div>
+        </td>
       
       </tr>
     
       <tr>
         <th class="job">GREEN FEES 2</th>
         
-        <td class="staff" data-staff="KIERAN">KIERAN</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="KIERAN">
+          <div class="shift-card">
+            <div class="shift-name">KIERAN</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="WILLIAM">WILLIAM</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="WILLIAM">
+          <div class="shift-card">
+            <div class="shift-name">WILLIAM</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="KIERAN">KIERAN</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="KIERAN">
+          <div class="shift-card">
+            <div class="shift-name">KIERAN</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="S SPICER">S SPICER</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="S SPICER">
+          <div class="shift-card">
+            <div class="shift-name">S SPICER</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="JOSH">JOSH</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="JOSH">
+          <div class="shift-card">
+            <div class="shift-name">JOSH</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="CAZ">CAZ</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="CAZ">
+          <div class="shift-card">
+            <div class="shift-name">CAZ</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="CAZ">CAZ</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="CAZ">
+          <div class="shift-card">
+            <div class="shift-name">CAZ</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
       </tr>
     
       <tr>
         <th class="job">GREEN FEES 3</th>
-        
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
+        <td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td>
+        <td class="shift-cell" colspan="2" data-staff="S SEXTON">
+          <div class="shift-card">
+            <div class="shift-name">S SEXTON</div>
+            <div class="shift-time">08:00-18:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="staff" data-staff="S SEXTON">S SEXTON</td>
-        <td class="time">08:00-18:00</td>
-      
-        <td class="staff" data-staff="S SEXTON">S SEXTON</td>
-        <td class="time">08:00-18:00</td>
+        <td class="shift-cell" colspan="2" data-staff="S SEXTON">
+          <div class="shift-card">
+            <div class="shift-name">S SEXTON</div>
+            <div class="shift-time">08:00-18:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
       </tr>
     
       <tr>
         <th class="job">BAR 1</th>
         
-        <td class="staff" data-staff="NATALIE">NATALIE</td>
-        <td class="time">12:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="NATALIE">
+          <div class="shift-card">
+            <div class="shift-name">NATALIE</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LITSA">LITSA</td>
-        <td class="time">12:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LITSA">
+          <div class="shift-card">
+            <div class="shift-name">LITSA</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LITSA">LITSA</td>
-        <td class="time">14:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LITSA">
+          <div class="shift-card">
+            <div class="shift-name">LITSA</div>
+            <div class="shift-time">14:00-22:00</div>
+            <div class="shift-hours">8 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LITSA">LITSA</td>
-        <td class="time">12:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LITSA">
+          <div class="shift-card">
+            <div class="shift-name">LITSA</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="LITSA">LITSA</td>
-        <td class="time">12:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="LITSA">
+          <div class="shift-card">
+            <div class="shift-name">LITSA</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="NATALIE">NATALIE</td>
-        <td class="time">12:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="NATALIE">
+          <div class="shift-card">
+            <div class="shift-name">NATALIE</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="NATALIE">NATALIE</td>
-        <td class="time">12:00-22:00</td>
+        <td class="shift-cell" colspan="2" data-staff="NATALIE">
+          <div class="shift-card">
+            <div class="shift-name">NATALIE</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
       
       </tr>
     
       <tr>
         <th class="job">BAR 2</th>
         
-        <td class="staff" data-staff="WILLIAM">WILLIAM</td>
-        <td class="time">12:00-22:00</td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
+        <td class="shift-cell" colspan="2" data-staff="WILLIAM">
+          <div class="shift-card">
+            <div class="shift-name">WILLIAM</div>
+            <div class="shift-time">12:00-22:00</div>
+            <div class="shift-hours">10 hrs</div>
+          </div>
+        </td>
+      <td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td>
       </tr>
     
       <tr>
         <th class="job">BAR 3</th>
-        
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="staff" data-staff="ELLEN">ELLEN</td>
-        <td class="time">12:00-18:00</td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
+        <td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td><td class="empty shift-empty" colspan="2">—</td>
+        <td class="shift-cell" colspan="2" data-staff="ELLEN">
+          <div class="shift-card">
+            <div class="shift-name">ELLEN</div>
+            <div class="shift-time">12:00-18:00</div>
+            <div class="shift-hours">6 hrs</div>
+          </div>
+        </td>
+      <td class="empty shift-empty" colspan="2">—</td>
       </tr>
     
       <tr>
         <th class="job">MANAGER</th>
         
-        <td class="staff" data-staff="KIERAN">KIERAN</td>
-        <td class="empty"></td>
+        <td class="shift-cell" colspan="2" data-staff="KIERAN">
+          <div class="shift-card">
+            <div class="shift-name">KIERAN</div>
+            <div class="shift-time"></div>
+            <div class="shift-hours"></div>
+          </div>
+        </td>
+      <td class="empty shift-empty" colspan="2">—</td>
+        <td class="shift-cell" colspan="2" data-staff="KIERAN">
+          <div class="shift-card">
+            <div class="shift-name">KIERAN</div>
+            <div class="shift-time"></div>
+            <div class="shift-hours"></div>
+          </div>
+        </td>
+      <td class="empty shift-empty" colspan="2">—</td>
+        <td class="shift-cell" colspan="2" data-staff="CAZ">
+          <div class="shift-card">
+            <div class="shift-name">CAZ</div>
+            <div class="shift-time"></div>
+            <div class="shift-hours"></div>
+          </div>
+        </td>
       
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
+        <td class="shift-cell" colspan="2" data-staff="CAZ">
+          <div class="shift-card">
+            <div class="shift-name">CAZ</div>
+            <div class="shift-time"></div>
+            <div class="shift-hours"></div>
+          </div>
+        </td>
       
-        <td class="staff" data-staff="KIERAN">KIERAN</td>
-        <td class="empty"></td>
-      
-        <td class="empty" data-staff=""></td>
-        <td class="empty"></td>
-      
-        <td class="staff" data-staff="CAZ">CAZ</td>
-        <td class="empty"></td>
-      
-        <td class="staff" data-staff="CAZ">CAZ</td>
-        <td class="empty"></td>
-      
-        <td class="staff" data-staff="CAZ">CAZ</td>
-        <td class="empty"></td>
+        <td class="shift-cell" colspan="2" data-staff="CAZ">
+          <div class="shift-card">
+            <div class="shift-name">CAZ</div>
+            <div class="shift-time"></div>
+            <div class="shift-hours"></div>
+          </div>
+        </td>
       
       </tr>
     
@@ -700,13 +873,8 @@
 
           staffCells.forEach(function (cell) {
             var isMatch = selected && normalise(cell.getAttribute('data-staff')) === selected;
-            var timeCell = cell.nextElementSibling;
 
             cell.classList.toggle('selected-staff', Boolean(isMatch));
-
-            if (timeCell) {
-              timeCell.classList.toggle('selected-staff-time', Boolean(isMatch));
-            }
 
             if (isMatch) {
               hasMatch = true;
