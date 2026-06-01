@@ -68,10 +68,6 @@
     <ul>
       
       <li>
-        <a href="rotas/2026-06-01.html">Week commencing Monday 1 June 2026</a>
-      </li>
-    
-      <li>
         <a href="rotas/2026-05-25.html">Week commencing Monday 25 May 2026</a>
       </li>
     
@@ -101,13 +97,8 @@
 
           staffCells.forEach(function (cell) {
             var isMatch = selected && normalise(cell.getAttribute('data-staff')) === selected;
-            var timeCell = cell.nextElementSibling;
 
             cell.classList.toggle('selected-staff', Boolean(isMatch));
-
-            if (timeCell) {
-              timeCell.classList.toggle('selected-staff-time', Boolean(isMatch));
-            }
 
             if (isMatch) {
               hasMatch = true;
