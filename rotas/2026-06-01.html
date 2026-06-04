@@ -168,6 +168,127 @@
       align-items: center;
     }
 
+    .staff-summary {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+      margin: 12px 0;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .staff-summary-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .staff-summary-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .staff-summary h2 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .staff-total {
+      min-width: 96px;
+      text-align: right;
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 8px 10px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .staff-total span {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .staff-total small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 3px;
+    }
+
+    .staff-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .staff-day {
+      min-height: 92px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 7px 5px;
+      overflow: hidden;
+    }
+
+    .staff-day-label {
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .staff-day-empty {
+      color: #aeb6c2;
+      font-size: 18px;
+      line-height: 48px;
+      text-align: center;
+    }
+
+    .staff-shift {
+      background: #e8f0fb;
+      border-left: 4px solid var(--brand);
+      border-radius: 8px;
+      padding: 6px 5px;
+      margin-bottom: 5px;
+    }
+
+    .staff-shift-job {
+      font-size: 9px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    .staff-shift-time,
+    .staff-shift-hours {
+      font-size: 10px;
+      color: #243447;
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .staff-shift-hours {
+      color: #516174;
+      margin-top: 2px;
+    }
+
     .week-panel {
       display: none;
     }
@@ -265,6 +386,11 @@
     }
 
     .job-label {
+      display: block;
+      line-height: 1.15;
+    }
+
+    .job-label-line {
       display: block;
     }
 
@@ -429,18 +555,19 @@
 
       tbody th.job,
       thead th:first-child {
-        min-width: 112px;
-        max-width: 112px;
+        min-width: 82px;
+        max-width: 82px;
       }
 
       tbody th.job {
-        font-size: 11px;
-        line-height: 1.2;
+        font-size: 10px;
+        line-height: 1.15;
+        text-align: center;
       }
 
       .job-icon {
-        font-size: 17px;
-        margin-bottom: 5px;
+        font-size: 15px;
+        margin-bottom: 4px;
       }
 
       .shift-cell {
@@ -475,6 +602,65 @@
       .shift-empty {
         font-size: 16px;
       }
+
+      body[data-staff-view="on"] .week-panel.active .week-panel-heading,
+      body[data-staff-view="on"] .week-panel.active .table-wrap {
+        display: none;
+      }
+
+      body[data-staff-view="on"] .staff-summary {
+        display: block;
+      }
+
+      .staff-summary {
+        padding: 10px;
+        border-radius: 14px;
+      }
+
+      .staff-summary h2 {
+        font-size: 20px;
+      }
+
+      .staff-total {
+        min-width: 78px;
+        padding: 7px 8px;
+      }
+
+      .staff-total span {
+        font-size: 21px;
+      }
+
+      .staff-summary-grid {
+        gap: 4px;
+      }
+
+      .staff-day {
+        min-height: 86px;
+        padding: 6px 4px;
+        border-radius: 8px;
+      }
+
+      .staff-day-label {
+        font-size: 9px;
+        margin-bottom: 4px;
+      }
+
+      .staff-shift {
+        padding: 5px 4px;
+        border-left-width: 3px;
+        border-radius: 7px;
+      }
+
+      .staff-shift-job {
+        font-size: 8px;
+      }
+
+      .staff-shift-time,
+      .staff-shift-hours {
+        font-size: 9px;
+      }
+
+
     }
 
     @media (max-width: 430px) {
@@ -484,8 +670,8 @@
 
       tbody th.job,
       thead th:first-child {
-        min-width: 104px;
-        max-width: 104px;
+        min-width: 78px;
+        max-width: 78px;
       }
 
       .shift-cell {
@@ -531,7 +717,7 @@
         <h1>Golf Club Rota</h1>
       </div>
       <div class="updated-wrap">
-        <div class="updated">Last updated: Thursday 4 June 2026, 18:38</div>
+        <div class="updated">Last updated: Thursday 4 June 2026, 19:21</div>
         <a class="archive-link" href="archive.html">View previous rotas</a>
       </div>
     </header>
@@ -595,6 +781,20 @@
       <div class="staff-help">↔ Swipe sideways to see the full week</div>
     </section>
 
+    <section id="staffSummary" class="staff-summary" hidden>
+      <div class="staff-summary-head">
+        <div>
+          <div class="staff-summary-label">Staff week view</div>
+          <h2 id="staffSummaryName"></h2>
+        </div>
+        <div class="staff-total">
+          <span id="staffSummaryHours">0</span>
+          <small>weekly hours</small>
+        </div>
+      </div>
+      <div id="staffSummaryGrid" class="staff-summary-grid"></div>
+    </section>
+
     
       <section class="week-panel" data-week-panel="last">
         <div class="week-panel-heading">
@@ -650,7 +850,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">⚑</span>
-            <span class="job-label">SITE &amp; RANGE</span>
+            <span class="job-label"><span class="job-label-line">SITE &amp;</span><span class="job-label-line">RANGE</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -658,7 +858,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●</span>
-            <span class="job-label">STARTER</span>
+            <span class="job-label"><span class="job-label-line">STARTER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -666,7 +866,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 1</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 1</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -674,7 +874,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 2</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 2</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -682,7 +882,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 3</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -690,7 +890,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 1</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">1</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -698,7 +898,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 2</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">2</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -706,7 +906,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 3</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -714,7 +914,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">★</span>
-            <span class="job-label">MANAGER</span>
+            <span class="job-label"><span class="job-label-line">MANAGER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -778,7 +978,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">⚑</span>
-            <span class="job-label">SITE &amp; RANGE</span>
+            <span class="job-label"><span class="job-label-line">SITE &amp;</span><span class="job-label-line">RANGE</span></span>
           </th>
           
           <td class="shift-cell" data-staff="LEE">
@@ -842,7 +1042,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●</span>
-            <span class="job-label">STARTER</span>
+            <span class="job-label"><span class="job-label-line">STARTER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="PAUL">
@@ -866,7 +1066,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 1</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 1</span></span>
           </th>
           
           <td class="shift-cell" data-staff="HUGH">
@@ -930,7 +1130,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 2</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 2</span></span>
           </th>
           
           <td class="shift-cell" data-staff="KIERAN">
@@ -994,7 +1194,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 3</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="S SEXTON">
@@ -1018,7 +1218,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 1</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">1</span></span>
           </th>
           
           <td class="shift-cell" data-staff="NATALIE">
@@ -1082,7 +1282,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 2</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">2</span></span>
           </th>
           
           <td class="shift-cell" data-staff="WILLIAM">
@@ -1098,7 +1298,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 3</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="ELLEN">
@@ -1114,7 +1314,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">★</span>
-            <span class="job-label">MANAGER</span>
+            <span class="job-label"><span class="job-label-line">MANAGER</span></span>
           </th>
           
           <td class="shift-cell" data-staff="KIERAN">
@@ -1218,7 +1418,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">⚑</span>
-            <span class="job-label">SITE &amp; RANGE</span>
+            <span class="job-label"><span class="job-label-line">SITE &amp;</span><span class="job-label-line">RANGE</span></span>
           </th>
           
           <td class="shift-cell" data-staff="LEE">
@@ -1282,7 +1482,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●</span>
-            <span class="job-label">STARTER</span>
+            <span class="job-label"><span class="job-label-line">STARTER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="PAUL">
@@ -1306,7 +1506,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 1</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 1</span></span>
           </th>
           
           <td class="shift-cell" data-staff="HUGH">
@@ -1370,7 +1570,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 2</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 2</span></span>
           </th>
           
           <td class="shift-cell" data-staff="KIERAN">
@@ -1434,7 +1634,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">●●</span>
-            <span class="job-label">GREEN FEES 3</span>
+            <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="CAZ">
@@ -1458,7 +1658,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 1</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">1</span></span>
           </th>
           
           <td class="shift-cell" data-staff="NATALIE">
@@ -1522,7 +1722,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 2</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">2</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="ELLEN">
@@ -1538,7 +1738,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">▱</span>
-            <span class="job-label">BAR 3</span>
+            <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -1546,7 +1746,7 @@
         <tr>
           <th class="job">
             <span class="job-icon">★</span>
-            <span class="job-label">MANAGER</span>
+            <span class="job-label"><span class="job-label-line">MANAGER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
@@ -1569,6 +1769,10 @@
       var resetButton = document.getElementById('resetStaffView');
       var tabButtons = document.querySelectorAll('[data-week-tab]');
       var panels = document.querySelectorAll('[data-week-panel]');
+      var staffSummary = document.getElementById('staffSummary');
+      var staffSummaryName = document.getElementById('staffSummaryName');
+      var staffSummaryHours = document.getElementById('staffSummaryHours');
+      var staffSummaryGrid = document.getElementById('staffSummaryGrid');
 
       function normalise(value) {
         return String(value || '').trim().toLowerCase();
@@ -1628,6 +1832,95 @@
             row.classList.toggle('hide-for-staff', Boolean(selected && isActivePanel && !hasMatch));
           });
         });
+
+        updateStaffSummary(staffName);
+      }
+
+      function updateStaffSummary(staffName) {
+        var selected = normalise(staffName);
+        var activePanel = document.querySelector('.week-panel.active');
+
+        if (!selected || !activePanel) {
+          staffSummary.hidden = true;
+          staffSummaryGrid.innerHTML = '';
+          staffSummaryHours.textContent = '0';
+          staffSummaryName.textContent = '';
+          return;
+        }
+
+        staffSummary.hidden = false;
+        staffSummaryName.textContent = staffSelect.value;
+
+        var dayHeaders = Array.prototype.slice.call(activePanel.querySelectorAll('thead th')).slice(1);
+        var dayData = dayHeaders.map(function (header) {
+          var shortLabel = header.querySelector('.day-short');
+          return {
+            label: (shortLabel ? shortLabel.textContent : header.textContent).trim(),
+            shifts: []
+          };
+        });
+
+        var totalHours = 0;
+
+        activePanel.querySelectorAll('tbody tr').forEach(function (row) {
+          var jobEl = row.querySelector('.job-label');
+          var job = jobEl ? jobEl.textContent.trim().replace(/s+/g, ' ') : '';
+          var cells = row.querySelectorAll('td');
+
+          cells.forEach(function (cell, index) {
+            if (normalise(cell.getAttribute('data-staff')) !== selected) {
+              return;
+            }
+
+            var timeEl = cell.querySelector('.shift-time');
+            var hoursEl = cell.querySelector('.shift-hours');
+            var time = timeEl ? timeEl.textContent.trim() : '';
+            var hours = hoursEl ? hoursEl.textContent.trim() : '';
+            var hoursNumber = parseFloat(hours);
+
+            if (!isNaN(hoursNumber)) {
+              totalHours += hoursNumber;
+            }
+
+            if (dayData[index]) {
+              dayData[index].shifts.push({
+                job: job,
+                time: time,
+                hours: hours
+              });
+            }
+          });
+        });
+
+        staffSummaryHours.textContent = Number.isInteger(totalHours)
+          ? String(totalHours)
+          : totalHours.toFixed(1);
+
+        staffSummaryGrid.innerHTML = dayData.map(function (day) {
+          var shiftsHtml = day.shifts.length
+            ? day.shifts.map(function (shift) {
+                return '<div class="staff-shift">' +
+                  '<div class="staff-shift-job">' + escapeHtmlClient(shift.job) + '</div>' +
+                  '<div class="staff-shift-time">' + escapeHtmlClient(shift.time) + '</div>' +
+                  '<div class="staff-shift-hours">' + escapeHtmlClient(shift.hours) + '</div>' +
+                '</div>';
+              }).join('')
+            : '<div class="staff-day-empty">–</div>';
+
+          return '<div class="staff-day">' +
+            '<div class="staff-day-label">' + escapeHtmlClient(day.label.replace(/ /g, '<br>')) + '</div>' +
+            shiftsHtml +
+          '</div>';
+        }).join('').replace(/&lt;br&gt;/g, '<br>');
+      }
+
+      function escapeHtmlClient(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
       }
 
       function currentUrl() {
