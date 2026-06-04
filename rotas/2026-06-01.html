@@ -12,12 +12,19 @@
       --muted: #6b7280;
       --border: #d8e0ec;
       --soft: #eef2f7;
-      --accent: #1f2937;
+      --accent: #102a43;
       --brand: #0f5f83;
+      --brand-dark: #063b5a;
       --highlight: #fff7d6;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
 
     body {
       margin: 0;
@@ -33,70 +40,105 @@
       margin: 0 auto;
     }
 
-    header { margin-bottom: 18px; }
+    header {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1f7a3b, #0d5b2a);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
 
     h1 {
-      margin: 0 0 6px;
+      margin: 0;
       font-size: 28px;
       line-height: 1.1;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .updated {
       font-size: 13px;
       color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
     }
 
     .archive-link {
       display: inline-block;
-      margin-top: 10px;
-      font-size: 14px;
+      margin-top: 4px;
+      font-size: 13px;
       color: var(--accent);
       text-decoration: underline;
     }
 
     .week-tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 16px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin: 14px 0 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
 
     .week-tab {
-      border: 1px solid var(--border);
+      border: 0;
+      border-right: 1px solid var(--border);
       background: var(--card);
       color: var(--accent);
-      border-radius: 999px;
-      padding: 10px 14px;
+      padding: 11px 10px;
       font: inherit;
       font-size: 14px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .week-tab:last-child {
+      border-right: 0;
     }
 
     .week-tab.active {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--brand-dark);
       color: #ffffff;
     }
 
     .staff-tools {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      margin: 18px 0;
-      display: flex;
-      flex-wrap: wrap;
+      background: transparent;
+      margin: 12px 0 10px;
+      display: grid;
+      grid-template-columns: minmax(170px, 240px) minmax(160px, 220px) auto;
       gap: 10px;
       align-items: center;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
 
     .staff-tools label {
-      font-weight: 800;
-      font-size: 14px;
+      position: absolute;
+      left: -9999px;
     }
 
     .staff-tools select,
@@ -107,29 +149,42 @@
       border-radius: 10px;
       background: white;
       color: var(--text);
-      padding: 9px 10px;
+      padding: 10px 12px;
+      min-height: 44px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
     }
 
     .staff-tools button {
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .staff-help {
-      flex-basis: 100%;
-      font-size: 12px;
+      grid-column: 1 / -1;
+      font-size: 13px;
       color: var(--muted);
+      display: flex;
+      gap: 6px;
+      align-items: center;
     }
 
-    .week-panel { display: none; }
-    .week-panel.active { display: block; }
+    .week-panel {
+      display: none;
+    }
 
-    .week-panel-heading { margin: 8px 0 12px; }
+    .week-panel.active {
+      display: block;
+    }
+
+    .week-panel-heading {
+      margin: 8px 0 12px;
+    }
 
     .week-panel-heading h2 {
       margin: 0 0 4px;
       font-size: 22px;
       line-height: 1.15;
+      color: var(--accent);
     }
 
     .week-panel-heading div {
@@ -143,12 +198,14 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      -webkit-overflow-scrolling: touch;
     }
 
     table {
       width: 100%;
       min-width: 1080px;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       font-size: 14px;
     }
 
@@ -163,31 +220,52 @@
     }
 
     thead th {
+      position: sticky;
+      top: 0;
       background: var(--soft);
       color: var(--accent);
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       font-size: 12px;
       text-align: center;
+      z-index: 2;
+    }
+
+    .day-short {
+      display: none;
     }
 
     tbody th.job {
       position: sticky;
       left: 0;
       background: #ffffff;
-      z-index: 2;
-      font-weight: 800;
+      z-index: 3;
+      font-weight: 900;
       min-width: 150px;
       max-width: 190px;
       white-space: normal;
+      color: var(--accent);
     }
 
     thead th:first-child {
       position: sticky;
       left: 0;
-      z-index: 3;
+      z-index: 4;
       background: var(--soft);
+      min-width: 150px;
+    }
+
+    .job-icon {
+      display: block;
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 7px;
+      color: #536171;
+    }
+
+    .job-label {
+      display: block;
     }
 
     .shift-cell {
@@ -209,7 +287,7 @@
     .shift-name {
       font-weight: 900;
       font-size: 14px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.035em;
       color: #111827;
       margin-bottom: 4px;
       text-transform: uppercase;
@@ -220,6 +298,7 @@
       font-size: 14px;
       font-variant-numeric: tabular-nums;
       margin-bottom: 3px;
+      white-space: normal;
     }
 
     .shift-hours {
@@ -229,20 +308,21 @@
     }
 
     .shift-empty {
-      color: #c5cad3;
+      color: #aeb6c2;
       background: #ffffff;
       font-size: 20px;
-      text-align: left;
-      vertical-align: top;
-      padding-top: 16px;
+      text-align: center;
+      vertical-align: middle;
     }
 
     body[data-staff-view="on"] .shift-cell:not(.selected-staff) .shift-card {
-      opacity: 0.28;
-      filter: grayscale(0.4);
+      opacity: 0.22;
+      filter: grayscale(0.35);
     }
 
-    body[data-staff-view="on"] .week-panel.active tr.hide-for-staff { display: none; }
+    body[data-staff-view="on"] tr.hide-for-staff {
+      display: none;
+    }
 
     .selected-staff .shift-card {
       background: var(--highlight);
@@ -257,37 +337,203 @@
       text-align: center;
     }
 
-    @media (max-width: 700px) {
-      body { padding: 12px; }
-      h1 { font-size: 24px; }
-      .week-tabs { display: grid; grid-template-columns: 1fr; }
-      .week-tab { width: 100%; }
-      .staff-tools { display: block; }
-      .staff-tools label,
+    @media (max-width: 760px) {
+      body {
+        padding: 12px;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        font-size: 15px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+
+      .updated-wrap {
+        display: none;
+      }
+
+      .week-tabs {
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+
+      .week-tab {
+        font-size: 13px;
+        padding: 10px 6px;
+      }
+
+      .staff-tools {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
       .staff-tools select,
-      .staff-tools button { display: block; width: 100%; margin-bottom: 8px; }
-      table { font-size: 13px; }
-      th, td { padding: 8px 7px; }
-      .shift-card { min-height: 72px; padding: 9px 10px; }
-      .shift-name, .shift-time { font-size: 13px; }
-      .shift-hours { font-size: 12px; }
+      .staff-tools button {
+        font-size: 13px;
+        padding: 9px 10px;
+        min-height: 42px;
+      }
+
+      .staff-help {
+        grid-column: 1 / -1;
+        font-size: 12px;
+      }
+
+      .week-panel-heading {
+        margin-top: 8px;
+      }
+
+      .week-panel-heading h2 {
+        font-size: 20px;
+      }
+
+      .week-panel-heading div {
+        font-size: 13px;
+      }
+
+      .table-wrap {
+        border-radius: 14px;
+      }
+
+      table {
+        min-width: 760px;
+        font-size: 12px;
+      }
+
+      th,
+      td {
+        padding: 7px 6px;
+      }
+
+      thead th {
+        font-size: 11px;
+        line-height: 1.15;
+      }
+
+      .day-full {
+        display: none;
+      }
+
+      .day-short {
+        display: inline;
+      }
+
+      tbody th.job,
+      thead th:first-child {
+        min-width: 112px;
+        max-width: 112px;
+      }
+
+      tbody th.job {
+        font-size: 11px;
+        line-height: 1.2;
+      }
+
+      .job-icon {
+        font-size: 17px;
+        margin-bottom: 5px;
+      }
+
+      .shift-cell {
+        min-width: 86px;
+      }
+
+      .shift-card {
+        min-height: 72px;
+        padding: 8px 7px;
+        border-left-width: 4px;
+        border-radius: 10px;
+      }
+
+      .shift-name {
+        font-size: 11px;
+        line-height: 1.15;
+        letter-spacing: 0.015em;
+        margin-bottom: 4px;
+        overflow-wrap: anywhere;
+      }
+
+      .shift-time {
+        font-size: 11px;
+        line-height: 1.2;
+      }
+
+      .shift-hours {
+        font-size: 10px;
+        line-height: 1.2;
+      }
+
+      .shift-empty {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      table {
+        min-width: 720px;
+      }
+
+      tbody th.job,
+      thead th:first-child {
+        min-width: 104px;
+        max-width: 104px;
+      }
+
+      .shift-cell {
+        min-width: 82px;
+      }
+
+      .shift-card {
+        padding: 7px 6px;
+      }
     }
 
     @media print {
-      body { background: white; }
-      .staff-tools, .archive-link, .week-tabs { display: none; }
-      .week-panel { display: block; break-after: page; }
-      .week-panel:last-child { break-after: auto; }
-      .table-wrap { box-shadow: none; }
+      body {
+        background: white;
+      }
+
+      .staff-tools,
+      .archive-link,
+      .week-tabs {
+        display: none;
+      }
+
+      .week-panel {
+        display: block;
+        break-after: page;
+      }
+
+      .week-panel:last-child {
+        break-after: auto;
+      }
+
+      .table-wrap {
+        box-shadow: none;
+      }
     }
   </style>
 </head>
 <body data-staff-view="off">
   <main class="page">
     <header>
-      <h1>Golf Club Rota</h1>
-      <div class="updated">Last updated: Wednesday 3 June 2026, 20:31</div>
-      <a class="archive-link" href="archive.html">View previous rotas</a>
+      <div class="title-row">
+        <span class="logo-mark">⚑</span>
+        <h1>Golf Club Rota</h1>
+      </div>
+      <div class="updated-wrap">
+        <div class="updated">Last updated: Thursday 4 June 2026, 18:38</div>
+        <a class="archive-link" href="archive.html">View previous rotas</a>
+      </div>
     </header>
 
     <nav class="week-tabs" aria-label="Rota week selector">
@@ -315,8 +561,6 @@
   
     <option value="CAZ">CAZ</option>
   
-    <option value="Caz">Caz</option>
-  
     <option value="DAVID C">DAVID C</option>
   
     <option value="ELLEN">ELLEN</option>
@@ -326,8 +570,6 @@
     <option value="JOSH">JOSH</option>
   
     <option value="KIERAN">KIERAN</option>
-  
-    <option value="Kieran">Kieran</option>
   
     <option value="LEE">LEE</option>
   
@@ -350,7 +592,7 @@
       </select>
       <button type="button" id="copyStaffLink">Copy staff link</button>
       <button type="button" id="resetStaffView">Reset</button>
-      <div class="staff-help">Choose a week tab and staff member, then copy a direct link.</div>
+      <div class="staff-help">↔ Swipe sideways to see the full week</div>
     </section>
 
     
@@ -360,72 +602,120 @@
           <div>Week commencing Monday 25 May 2026</div>
         </div>
 
-        <section class="table-wrap">
+        <section class="table-wrap" aria-label="Last week rota table">
           <table>
             <thead>
               <tr>
                 <th>Job</th>
                 
-      <th>Mon 25 May</th>
+      <th>
+        <span class="day-full">Mon 25 May</span>
+        <span class="day-short">Mon 25</span>
+      </th>
     
-      <th>Tue 26 May</th>
+      <th>
+        <span class="day-full">Tue 26 May</span>
+        <span class="day-short">Tue 26</span>
+      </th>
     
-      <th>Wed 27 May</th>
+      <th>
+        <span class="day-full">Wed 27 May</span>
+        <span class="day-short">Wed 27</span>
+      </th>
     
-      <th>Thu 28 May</th>
+      <th>
+        <span class="day-full">Thu 28 May</span>
+        <span class="day-short">Thu 28</span>
+      </th>
     
-      <th>Fri 29 May</th>
+      <th>
+        <span class="day-full">Fri 29 May</span>
+        <span class="day-short">Fri 29</span>
+      </th>
     
-      <th>Sat 30 May</th>
+      <th>
+        <span class="day-full">Sat 30 May</span>
+        <span class="day-short">Sat 30</span>
+      </th>
     
-      <th>Sun 31 May</th>
+      <th>
+        <span class="day-full">Sun 31 May</span>
+        <span class="day-short">Sun 31</span>
+      </th>
     
               </tr>
             </thead>
             <tbody>
               
         <tr>
-          <th class="job">SITE &amp; RANGE</th>
+          <th class="job">
+            <span class="job-icon">⚑</span>
+            <span class="job-label">SITE &amp; RANGE</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">STARTER</th>
+          <th class="job">
+            <span class="job-icon">●</span>
+            <span class="job-label">STARTER</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 1</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 1</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 2</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 2</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 3</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 3</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">BAR 1</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 1</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">BAR 2</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 2</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">BAR 3</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 3</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">MANAGER</th>
+          <th class="job">
+            <span class="job-icon">★</span>
+            <span class="job-label">MANAGER</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
@@ -440,32 +730,56 @@
           <div>Week commencing Monday 1 June 2026</div>
         </div>
 
-        <section class="table-wrap">
+        <section class="table-wrap" aria-label="Current week rota table">
           <table>
             <thead>
               <tr>
                 <th>Job</th>
                 
-      <th>Mon 01 Jun</th>
+      <th>
+        <span class="day-full">Mon 01 Jun</span>
+        <span class="day-short">Mon 01</span>
+      </th>
     
-      <th>Tue 02 Jun</th>
+      <th>
+        <span class="day-full">Tue 02 Jun</span>
+        <span class="day-short">Tue 02</span>
+      </th>
     
-      <th>Wed 03 Jun</th>
+      <th>
+        <span class="day-full">Wed 03 Jun</span>
+        <span class="day-short">Wed 03</span>
+      </th>
     
-      <th>Thu 04 Jun</th>
+      <th>
+        <span class="day-full">Thu 04 Jun</span>
+        <span class="day-short">Thu 04</span>
+      </th>
     
-      <th>Fri 05 Jun</th>
+      <th>
+        <span class="day-full">Fri 05 Jun</span>
+        <span class="day-short">Fri 05</span>
+      </th>
     
-      <th>Sat 06 Jun</th>
+      <th>
+        <span class="day-full">Sat 06 Jun</span>
+        <span class="day-short">Sat 06</span>
+      </th>
     
-      <th>Sun 07 Jun</th>
+      <th>
+        <span class="day-full">Sun 07 Jun</span>
+        <span class="day-short">Sun 07</span>
+      </th>
     
               </tr>
             </thead>
             <tbody>
               
         <tr>
-          <th class="job">SITE &amp; RANGE</th>
+          <th class="job">
+            <span class="job-icon">⚑</span>
+            <span class="job-label">SITE &amp; RANGE</span>
+          </th>
           
           <td class="shift-cell" data-staff="LEE">
             <div class="shift-card">
@@ -526,7 +840,10 @@
         </tr>
       
         <tr>
-          <th class="job">STARTER</th>
+          <th class="job">
+            <span class="job-icon">●</span>
+            <span class="job-label">STARTER</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="PAUL">
             <div class="shift-card">
@@ -547,7 +864,10 @@
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 1</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 1</span>
+          </th>
           
           <td class="shift-cell" data-staff="HUGH">
             <div class="shift-card">
@@ -608,7 +928,10 @@
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 2</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 2</span>
+          </th>
           
           <td class="shift-cell" data-staff="KIERAN">
             <div class="shift-card">
@@ -669,7 +992,10 @@
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 3</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 3</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="S SEXTON">
             <div class="shift-card">
@@ -690,7 +1016,10 @@
         </tr>
       
         <tr>
-          <th class="job">BAR 1</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 1</span>
+          </th>
           
           <td class="shift-cell" data-staff="NATALIE">
             <div class="shift-card">
@@ -751,7 +1080,10 @@
         </tr>
       
         <tr>
-          <th class="job">BAR 2</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 2</span>
+          </th>
           
           <td class="shift-cell" data-staff="WILLIAM">
             <div class="shift-card">
@@ -764,7 +1096,10 @@
         </tr>
       
         <tr>
-          <th class="job">BAR 3</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 3</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="ELLEN">
             <div class="shift-card">
@@ -777,7 +1112,10 @@
         </tr>
       
         <tr>
-          <th class="job">MANAGER</th>
+          <th class="job">
+            <span class="job-icon">★</span>
+            <span class="job-label">MANAGER</span>
+          </th>
           
           <td class="shift-cell" data-staff="KIERAN">
             <div class="shift-card">
@@ -832,32 +1170,56 @@
           <div>Week commencing Monday 8 June 2026</div>
         </div>
 
-        <section class="table-wrap">
+        <section class="table-wrap" aria-label="Next week rota table">
           <table>
             <thead>
               <tr>
                 <th>Job</th>
                 
-      <th>Mon 08 Jun</th>
+      <th>
+        <span class="day-full">Mon 08 Jun</span>
+        <span class="day-short">Mon 08</span>
+      </th>
     
-      <th>Tue 09 Jun</th>
+      <th>
+        <span class="day-full">Tue 09 Jun</span>
+        <span class="day-short">Tue 09</span>
+      </th>
     
-      <th>Wed 10 Jun</th>
+      <th>
+        <span class="day-full">Wed 10 Jun</span>
+        <span class="day-short">Wed 10</span>
+      </th>
     
-      <th>Thu 11 Jun</th>
+      <th>
+        <span class="day-full">Thu 11 Jun</span>
+        <span class="day-short">Thu 11</span>
+      </th>
     
-      <th>Fri 12 Jun</th>
+      <th>
+        <span class="day-full">Fri 12 Jun</span>
+        <span class="day-short">Fri 12</span>
+      </th>
     
-      <th>Sat 13 Jun</th>
+      <th>
+        <span class="day-full">Sat 13 Jun</span>
+        <span class="day-short">Sat 13</span>
+      </th>
     
-      <th>Sun 14 Jun</th>
+      <th>
+        <span class="day-full">Sun 14 Jun</span>
+        <span class="day-short">Sun 14</span>
+      </th>
     
               </tr>
             </thead>
             <tbody>
               
         <tr>
-          <th class="job">SITE &amp; RANGE</th>
+          <th class="job">
+            <span class="job-icon">⚑</span>
+            <span class="job-label">SITE &amp; RANGE</span>
+          </th>
           
           <td class="shift-cell" data-staff="LEE">
             <div class="shift-card">
@@ -918,7 +1280,10 @@
         </tr>
       
         <tr>
-          <th class="job">STARTER</th>
+          <th class="job">
+            <span class="job-icon">●</span>
+            <span class="job-label">STARTER</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="PAUL">
             <div class="shift-card">
@@ -939,7 +1304,10 @@
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 1</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 1</span>
+          </th>
           
           <td class="shift-cell" data-staff="HUGH">
             <div class="shift-card">
@@ -1000,7 +1368,10 @@
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 2</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 2</span>
+          </th>
           
           <td class="shift-cell" data-staff="KIERAN">
             <div class="shift-card">
@@ -1061,7 +1432,10 @@
         </tr>
       
         <tr>
-          <th class="job">GREEN FEES 3</th>
+          <th class="job">
+            <span class="job-icon">●●</span>
+            <span class="job-label">GREEN FEES 3</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="CAZ">
             <div class="shift-card">
@@ -1082,7 +1456,10 @@
         </tr>
       
         <tr>
-          <th class="job">BAR 1</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 1</span>
+          </th>
           
           <td class="shift-cell" data-staff="NATALIE">
             <div class="shift-card">
@@ -1143,7 +1520,10 @@
         </tr>
       
         <tr>
-          <th class="job">BAR 2</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 2</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
           <td class="shift-cell" data-staff="ELLEN">
             <div class="shift-card">
@@ -1156,53 +1536,19 @@
         </tr>
       
         <tr>
-          <th class="job">BAR 3</th>
+          <th class="job">
+            <span class="job-icon">▱</span>
+            <span class="job-label">BAR 3</span>
+          </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
         <tr>
-          <th class="job">MANAGER</th>
-          
-          <td class="shift-cell" data-staff="Kieran">
-            <div class="shift-card">
-              <div class="shift-name">Kieran</div>
-              <div class="shift-time"></div>
-              <div class="shift-hours"></div>
-            </div>
-          </td>
-        <td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="Kieran">
-            <div class="shift-card">
-              <div class="shift-name">Kieran</div>
-              <div class="shift-time"></div>
-              <div class="shift-hours"></div>
-            </div>
-          </td>
-        <td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="CAZ">
-            <div class="shift-card">
-              <div class="shift-name">CAZ</div>
-              <div class="shift-time"></div>
-              <div class="shift-hours"></div>
-            </div>
-          </td>
-        
-          <td class="shift-cell" data-staff="CAZ">
-            <div class="shift-card">
-              <div class="shift-name">CAZ</div>
-              <div class="shift-time"></div>
-              <div class="shift-hours"></div>
-            </div>
-          </td>
-        
-          <td class="shift-cell" data-staff="Caz">
-            <div class="shift-card">
-              <div class="shift-name">Caz</div>
-              <div class="shift-time"></div>
-              <div class="shift-hours"></div>
-            </div>
-          </td>
-        
+          <th class="job">
+            <span class="job-icon">★</span>
+            <span class="job-label">MANAGER</span>
+          </th>
+          <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
         </tr>
       
             </tbody>
@@ -1211,7 +1557,9 @@
       </section>
     
 
-    <footer>Please check your shift before travelling.</footer>
+    <footer>
+      Please check your shift before travelling.
+    </footer>
   </main>
 
   <script>
@@ -1222,7 +1570,9 @@
       var tabButtons = document.querySelectorAll('[data-week-tab]');
       var panels = document.querySelectorAll('[data-week-panel]');
 
-      function normalise(value) { return String(value || '').trim().toLowerCase(); }
+      function normalise(value) {
+        return String(value || '').trim().toLowerCase();
+      }
 
       function getActiveWeek() {
         var active = document.querySelector('.week-tab.active');
@@ -1256,6 +1606,7 @@
       function applyStaffView(staffName) {
         var selected = normalise(staffName);
         var activePanel = document.querySelector('.week-panel.active');
+
         document.body.setAttribute('data-staff-view', selected ? 'on' : 'off');
 
         panels.forEach(function (panel) {
@@ -1268,7 +1619,10 @@
             staffCells.forEach(function (cell) {
               var isMatch = selected && normalise(cell.getAttribute('data-staff')) === selected;
               cell.classList.toggle('selected-staff', Boolean(isMatch));
-              if (isMatch) hasMatch = true;
+
+              if (isMatch) {
+                hasMatch = true;
+              }
             });
 
             row.classList.toggle('hide-for-staff', Boolean(selected && isActivePanel && !hasMatch));
@@ -1281,11 +1635,17 @@
         var staffName = staffSelect.value;
         var weekKey = getActiveWeek();
 
-        if (staffName) url.searchParams.set('staff', staffName);
-        else url.searchParams.delete('staff');
+        if (staffName) {
+          url.searchParams.set('staff', staffName);
+        } else {
+          url.searchParams.delete('staff');
+        }
 
-        if (weekKey && weekKey !== 'current') url.searchParams.set('week', weekKey);
-        else url.searchParams.delete('week');
+        if (weekKey && weekKey !== 'current') {
+          url.searchParams.set('week', weekKey);
+        } else {
+          url.searchParams.delete('week');
+        }
 
         return url.toString();
       }
@@ -1323,10 +1683,13 @@
 
       copyButton.addEventListener('click', function () {
         var url = updateUrl();
+
         copyText(url).then(function () {
           var original = copyButton.textContent;
           copyButton.textContent = 'Copied';
-          setTimeout(function () { copyButton.textContent = original; }, 1600);
+          setTimeout(function () {
+            copyButton.textContent = original;
+          }, 1600);
         });
       });
 
