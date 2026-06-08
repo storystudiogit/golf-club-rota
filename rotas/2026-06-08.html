@@ -814,6 +814,21 @@
       }
     }
 
+
+    /* V1 staff view simplification:
+       Hide the duplicate Staff Week View summary and use the lower filtered rota only. */
+    #staffSummary {
+      display: none !important;
+    }
+
+    body[data-staff-view="on"] .week-panel.active .week-panel-heading {
+      display: block !important;
+    }
+
+    body[data-staff-view="on"] .week-panel.active .table-wrap {
+      display: block !important;
+    }
+
     @media print {
       body {
         background: white;
@@ -848,7 +863,7 @@
         <h1>Golf Club Rota</h1>
       </div>
       <div class="updated-wrap">
-        <div class="updated">Last updated: Monday 8 June 2026, 11:54</div>
+        <div class="updated">Last updated: Monday 8 June 2026, 12:12</div>
         <a class="archive-link" href="archive.html">View previous rotas</a>
       </div>
     </header>
@@ -2837,7 +2852,7 @@
   <script>
     (function () {
       var staffSelect = document.getElementById('staffSelect');
-      var HOURS_REQUEST_ENDPOINT = '';
+      var HOURS_REQUEST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbylxAbtgSWdsCA0PuMP113PFb8q57I8XKDjUvEVJxTsviYRX_huyt1wdeTxqlc6rQtt/exec';
       var copyButton = document.getElementById('copyStaffLink');
       var resetButton = document.getElementById('resetStaffView');
       var tabButtons = document.querySelectorAll('[data-week-tab]');
@@ -2919,6 +2934,10 @@
       }
 
       function updateStaffSummary(staffName) {
+        if (staffSummary) {
+          staffSummary.hidden = true;
+        }
+
         var selected = normalise(staffName);
         var activePanel = document.querySelector('.week-panel.active');
 
@@ -2930,7 +2949,7 @@
           return;
         }
 
-        staffSummary.hidden = false;
+        staffSummary.hidden = true;
         staffSummaryName.textContent = staffSelect.value;
 
         var dayHeaders = Array.prototype.slice.call(activePanel.querySelectorAll('thead th')).slice(1);
