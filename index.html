@@ -433,30 +433,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .hours-request-link {
-      display: none;
-      margin-top: 7px;
-      color: var(--brand-dark);
-      font-size: 12px;
-      font-weight: 800;
-      text-decoration: underline;
-      white-space: normal;
-    }
-
-    body[data-staff-view="on"] .selected-staff .hours-request-link {
-      display: inline-block;
-    }
-
-    .staff-request-link {
-      display: inline-block;
-      margin-top: 5px;
-      color: var(--brand-dark);
-      font-size: 9px;
-      font-weight: 900;
-      line-height: 1.1;
-      text-decoration: underline;
-    }
-
     .shift-empty {
       color: #aeb6c2;
       background: #ffffff;
@@ -478,6 +454,122 @@
       background: var(--highlight);
       border-left-color: #b45309;
       box-shadow: inset 0 0 0 1px rgba(180, 83, 9, 0.18);
+    }
+
+    .shift-report-btn {
+      display: none;
+      margin-top: 8px;
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      background: var(--brand-dark);
+      color: #ffffff;
+      padding: 7px 8px;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    body[data-staff-view="on"] .selected-staff .shift-report-btn {
+      display: block;
+    }
+
+    .staff-report-btn {
+      margin-top: 6px;
+      width: 100%;
+      border: 0;
+      border-radius: 7px;
+      background: var(--brand-dark);
+      color: #ffffff;
+      padding: 5px 4px;
+      font: inherit;
+      font-size: 8px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.58);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-card {
+      width: min(460px, 100%);
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+    }
+
+    .modal-card h2 {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    .modal-summary {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .modal-card label {
+      display: block;
+      margin: 12px 0 5px;
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .modal-card input,
+    .modal-card textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 11px;
+      font: inherit;
+      font-size: 15px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .modal-actions button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    #hoursRequestCancel {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    #hoursRequestSubmit {
+      background: var(--brand-dark);
+      color: #ffffff;
+    }
+
+    .modal-status {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 18px;
     }
 
     footer {
@@ -684,6 +776,16 @@
         font-size: 9px;
       }
 
+      .staff-report-btn {
+        font-size: 8px;
+        padding: 5px 3px;
+      }
+
+      .modal-card {
+        border-radius: 14px;
+        padding: 14px;
+      }
+
 
     }
 
@@ -741,7 +843,7 @@
         <h1>Golf Club Rota</h1>
       </div>
       <div class="updated-wrap">
-        <div class="updated">Last updated: Monday 8 June 2026, 10:56</div>
+        <div class="updated">Last updated: Monday 8 June 2026, 11:31</div>
         <a class="archive-link" href="archive.html">View previous rotas</a>
       </div>
     </header>
@@ -824,7 +926,10 @@
     </section>
 
     
-      <section class="week-panel" data-week-panel="last">
+      <section class="week-panel"
+               data-week-panel="last"
+               data-week-label="Week commencing Monday 1 June 2026"
+               data-week-date="2026-06-01">
         <div class="week-panel-heading">
           <h2>Last week</h2>
           <div>Week commencing Monday 1 June 2026</div>
@@ -836,37 +941,37 @@
               <tr>
                 <th>Job</th>
                 
-      <th>
+      <th data-day-label="Mon 01 Jun" data-date-iso="2026-06-01">
         <span class="day-full">Mon 01 Jun</span>
         <span class="day-short">Mon 01</span>
       </th>
     
-      <th>
+      <th data-day-label="Tue 02 Jun" data-date-iso="2026-06-02">
         <span class="day-full">Tue 02 Jun</span>
         <span class="day-short">Tue 02</span>
       </th>
     
-      <th>
+      <th data-day-label="Wed 03 Jun" data-date-iso="2026-06-03">
         <span class="day-full">Wed 03 Jun</span>
         <span class="day-short">Wed 03</span>
       </th>
     
-      <th>
+      <th data-day-label="Thu 04 Jun" data-date-iso="2026-06-04">
         <span class="day-full">Thu 04 Jun</span>
         <span class="day-short">Thu 04</span>
       </th>
     
-      <th>
+      <th data-day-label="Fri 05 Jun" data-date-iso="2026-06-05">
         <span class="day-full">Fri 05 Jun</span>
         <span class="day-short">Fri 05</span>
       </th>
     
-      <th>
+      <th data-day-label="Sat 06 Jun" data-date-iso="2026-06-06">
         <span class="day-full">Sat 06 Jun</span>
         <span class="day-short">Sat 06</span>
       </th>
     
-      <th>
+      <th data-day-label="Sun 07 Jun" data-date-iso="2026-06-07">
         <span class="day-full">Sun 07 Jun</span>
         <span class="day-short">Sun 07</span>
       </th>
@@ -881,66 +986,115 @@
             <span class="job-label"><span class="job-label-line">SITE &amp;</span><span class="job-label-line">RANGE</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Mon 01 Jun"
+              data-date-iso="2026-06-01"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=01/06/2026&amp;entry.742191007=Mon+01+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Tue 02 Jun"
+              data-date-iso="2026-06-02"
+              data-shift-time="06:00-12:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-12:00</div>
               <div class="shift-hours">6 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=02/06/2026&amp;entry.742191007=Tue+02+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-12:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Wed 03 Jun"
+              data-date-iso="2026-06-03"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=03/06/2026&amp;entry.742191007=Wed+03+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Thu 04 Jun"
+              data-date-iso="2026-06-04"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=04/06/2026&amp;entry.742191007=Thu+04+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="DAVID C">
+          <td class="shift-cell"
+              data-staff="DAVID C"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Fri 05 Jun"
+              data-date-iso="2026-06-05"
+              data-shift-time="06:00-07:30">
             <div class="shift-card">
               <div class="shift-name">DAVID C</div>
               <div class="shift-time">06:00-07:30</div>
               <div class="shift-hours">1.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=DAVID+C&amp;entry.865693453=01/06/2026&amp;entry.1838895739=05/06/2026&amp;entry.742191007=Fri+05+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-07:30" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NELS">
+          <td class="shift-cell"
+              data-staff="NELS"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="06:00-09:00">
             <div class="shift-card">
               <div class="shift-name">NELS</div>
               <div class="shift-time">06:00-09:00</div>
               <div class="shift-hours">3 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NELS&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-09:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NELS">
+          <td class="shift-cell"
+              data-staff="NELS"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="06:00-09:00">
             <div class="shift-card">
               <div class="shift-name">NELS</div>
               <div class="shift-time">06:00-09:00</div>
               <div class="shift-hours">3 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NELS&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-09:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -952,21 +1106,35 @@
             <span class="job-label"><span class="job-label-line">STARTER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="PAUL">
+          <td class="shift-cell"
+              data-staff="PAUL"
+              data-job="STARTER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="05:30-14:30">
             <div class="shift-card">
               <div class="shift-name">PAUL</div>
               <div class="shift-time">05:30-14:30</div>
               <div class="shift-hours">9 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=PAUL&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=STARTER&amp;entry.1197624543=05:30-14:30" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="PAUL">
+          <td class="shift-cell"
+              data-staff="PAUL"
+              data-job="STARTER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="05:30-14:30">
             <div class="shift-card">
               <div class="shift-name">PAUL</div>
               <div class="shift-time">05:30-14:30</div>
               <div class="shift-hours">9 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=PAUL&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=STARTER&amp;entry.1197624543=05:30-14:30" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -978,66 +1146,115 @@
             <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 1</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Mon 01 Jun"
+              data-date-iso="2026-06-01"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=01/06/2026&amp;entry.1838895739=01/06/2026&amp;entry.742191007=Mon+01+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Tue 02 Jun"
+              data-date-iso="2026-06-02"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=01/06/2026&amp;entry.1838895739=02/06/2026&amp;entry.742191007=Tue+02+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Wed 03 Jun"
+              data-date-iso="2026-06-03"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=01/06/2026&amp;entry.1838895739=03/06/2026&amp;entry.742191007=Wed+03+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Thu 04 Jun"
+              data-date-iso="2026-06-04"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=01/06/2026&amp;entry.1838895739=04/06/2026&amp;entry.742191007=Thu+04+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Fri 05 Jun"
+              data-date-iso="2026-06-05"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=01/06/2026&amp;entry.1838895739=05/06/2026&amp;entry.742191007=Fri+05+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="JOSH">
+          <td class="shift-cell"
+              data-staff="JOSH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">JOSH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=JOSH&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="BOBBY">
+          <td class="shift-cell"
+              data-staff="BOBBY"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="05:30-10:00">
             <div class="shift-card">
               <div class="shift-name">BOBBY</div>
               <div class="shift-time">05:30-10:00</div>
               <div class="shift-hours">4.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=BOBBY&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-10:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1049,66 +1266,115 @@
             <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 2</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Mon 01 Jun"
+              data-date-iso="2026-06-01"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=01/06/2026&amp;entry.742191007=Mon+01+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="WILLIAM">
+          <td class="shift-cell"
+              data-staff="WILLIAM"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Tue 02 Jun"
+              data-date-iso="2026-06-02"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">WILLIAM</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=WILLIAM&amp;entry.865693453=01/06/2026&amp;entry.1838895739=02/06/2026&amp;entry.742191007=Tue+02+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Wed 03 Jun"
+              data-date-iso="2026-06-03"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=03/06/2026&amp;entry.742191007=Wed+03+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Thu 04 Jun"
+              data-date-iso="2026-06-04"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=01/06/2026&amp;entry.1838895739=04/06/2026&amp;entry.742191007=Thu+04+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="JOSH">
+          <td class="shift-cell"
+              data-staff="JOSH"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Fri 05 Jun"
+              data-date-iso="2026-06-05"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">JOSH</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=JOSH&amp;entry.865693453=01/06/2026&amp;entry.1838895739=05/06/2026&amp;entry.742191007=Fri+05+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1120,21 +1386,35 @@
             <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="S SEXTON">
+          <td class="shift-cell"
+              data-staff="S SEXTON"
+              data-job="GREEN FEES 3"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="08:00-18:00">
             <div class="shift-card">
               <div class="shift-name">S SEXTON</div>
               <div class="shift-time">08:00-18:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SEXTON&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=GREEN+FEES+3&amp;entry.1197624543=08:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SEXTON">
+          <td class="shift-cell"
+              data-staff="S SEXTON"
+              data-job="GREEN FEES 3"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="08:00-18:00">
             <div class="shift-card">
               <div class="shift-name">S SEXTON</div>
               <div class="shift-time">08:00-18:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SEXTON&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=GREEN+FEES+3&amp;entry.1197624543=08:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1146,66 +1426,115 @@
             <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">1</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="NATALIE">
+          <td class="shift-cell"
+              data-staff="NATALIE"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Mon 01 Jun"
+              data-date-iso="2026-06-01"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">NATALIE</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NATALIE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=01/06/2026&amp;entry.742191007=Mon+01+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Tue 02 Jun"
+              data-date-iso="2026-06-02"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=01/06/2026&amp;entry.1838895739=02/06/2026&amp;entry.742191007=Tue+02+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Wed 03 Jun"
+              data-date-iso="2026-06-03"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=01/06/2026&amp;entry.1838895739=03/06/2026&amp;entry.742191007=Wed+03+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Thu 04 Jun"
+              data-date-iso="2026-06-04"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=01/06/2026&amp;entry.1838895739=04/06/2026&amp;entry.742191007=Thu+04+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Fri 05 Jun"
+              data-date-iso="2026-06-05"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=01/06/2026&amp;entry.1838895739=05/06/2026&amp;entry.742191007=Fri+05+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NATALIE">
+          <td class="shift-cell"
+              data-staff="NATALIE"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">NATALIE</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NATALIE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NATALIE">
+          <td class="shift-cell"
+              data-staff="NATALIE"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">NATALIE</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NATALIE&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1217,12 +1546,19 @@
             <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">2</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="WILLIAM">
+          <td class="shift-cell"
+              data-staff="WILLIAM"
+              data-job="BAR 2"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Mon 01 Jun"
+              data-date-iso="2026-06-01"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">WILLIAM</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=WILLIAM&amp;entry.865693453=01/06/2026&amp;entry.1838895739=01/06/2026&amp;entry.742191007=Mon+01+Jun&amp;entry.1279528231=BAR+2&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
@@ -1234,12 +1570,19 @@
             <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="ELLEN">
+          <td class="shift-cell"
+              data-staff="ELLEN"
+              data-job="BAR 3"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="12:00-18:00">
             <div class="shift-card">
               <div class="shift-name">ELLEN</div>
               <div class="shift-time">12:00-18:00</div>
               <div class="shift-hours">6 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=ELLEN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=BAR+3&amp;entry.1197624543=12:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td>
@@ -1251,30 +1594,51 @@
             <span class="job-label"><span class="job-label-line">JUNGLE</span><span class="job-label-line">FALLS 1</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Fri 05 Jun"
+              data-date-iso="2026-06-05"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=05/06/2026&amp;entry.742191007=Fri+05+Jun&amp;entry.1279528231=JUNGLE+FALLS+1&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=JUNGLE+FALLS+1&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="BOBBY">
+          <td class="shift-cell"
+              data-staff="BOBBY"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">BOBBY</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=BOBBY&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=JUNGLE+FALLS+1&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1294,48 +1658,83 @@
             <span class="job-label"><span class="job-label-line">MANAGER</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Mon 01 Jun"
+              data-date-iso="2026-06-01"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=01/06/2026&amp;entry.742191007=Mon+01+Jun&amp;entry.1279528231=MANAGER" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Wed 03 Jun"
+              data-date-iso="2026-06-03"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=01/06/2026&amp;entry.1838895739=03/06/2026&amp;entry.742191007=Wed+03+Jun&amp;entry.1279528231=MANAGER" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Fri 05 Jun"
+              data-date-iso="2026-06-05"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=01/06/2026&amp;entry.1838895739=05/06/2026&amp;entry.742191007=Fri+05+Jun&amp;entry.1279528231=MANAGER" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sat 06 Jun"
+              data-date-iso="2026-06-06"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=01/06/2026&amp;entry.1838895739=06/06/2026&amp;entry.742191007=Sat+06+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 1 June 2026"
+              data-week-date="2026-06-01"
+              data-day-label="Sun 07 Jun"
+              data-date-iso="2026-06-07"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=01/06/2026&amp;entry.1838895739=07/06/2026&amp;entry.742191007=Sun+07+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1346,7 +1745,10 @@
         </section>
       </section>
     
-      <section class="week-panel" data-week-panel="current">
+      <section class="week-panel"
+               data-week-panel="current"
+               data-week-label="Week commencing Monday 8 June 2026"
+               data-week-date="2026-06-08">
         <div class="week-panel-heading">
           <h2>Current week</h2>
           <div>Week commencing Monday 8 June 2026</div>
@@ -1358,37 +1760,37 @@
               <tr>
                 <th>Job</th>
                 
-      <th>
+      <th data-day-label="Mon 08 Jun" data-date-iso="2026-06-08">
         <span class="day-full">Mon 08 Jun</span>
         <span class="day-short">Mon 08</span>
       </th>
     
-      <th>
+      <th data-day-label="Tue 09 Jun" data-date-iso="2026-06-09">
         <span class="day-full">Tue 09 Jun</span>
         <span class="day-short">Tue 09</span>
       </th>
     
-      <th>
+      <th data-day-label="Wed 10 Jun" data-date-iso="2026-06-10">
         <span class="day-full">Wed 10 Jun</span>
         <span class="day-short">Wed 10</span>
       </th>
     
-      <th>
+      <th data-day-label="Thu 11 Jun" data-date-iso="2026-06-11">
         <span class="day-full">Thu 11 Jun</span>
         <span class="day-short">Thu 11</span>
       </th>
     
-      <th>
+      <th data-day-label="Fri 12 Jun" data-date-iso="2026-06-12">
         <span class="day-full">Fri 12 Jun</span>
         <span class="day-short">Fri 12</span>
       </th>
     
-      <th>
+      <th data-day-label="Sat 13 Jun" data-date-iso="2026-06-13">
         <span class="day-full">Sat 13 Jun</span>
         <span class="day-short">Sat 13</span>
       </th>
     
-      <th>
+      <th data-day-label="Sun 14 Jun" data-date-iso="2026-06-14">
         <span class="day-full">Sun 14 Jun</span>
         <span class="day-short">Sun 14</span>
       </th>
@@ -1403,66 +1805,115 @@
             <span class="job-label"><span class="job-label-line">SITE &amp;</span><span class="job-label-line">RANGE</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Mon 08 Jun"
+              data-date-iso="2026-06-08"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=08/06/2026&amp;entry.742191007=Mon+08+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Tue 09 Jun"
+              data-date-iso="2026-06-09"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=09/06/2026&amp;entry.742191007=Tue+09+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="06:00-14:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">06:00-14:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="DAVID C">
+          <td class="shift-cell"
+              data-staff="DAVID C"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Fri 12 Jun"
+              data-date-iso="2026-06-12"
+              data-shift-time="06:00-08:00">
             <div class="shift-card">
               <div class="shift-name">DAVID C</div>
               <div class="shift-time">06:00-08:00</div>
               <div class="shift-hours">2 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=DAVID+C&amp;entry.865693453=08/06/2026&amp;entry.1838895739=12/06/2026&amp;entry.742191007=Fri+12+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-08:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NELS">
+          <td class="shift-cell"
+              data-staff="NELS"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="06:00-08:00">
             <div class="shift-card">
               <div class="shift-name">NELS</div>
               <div class="shift-time">06:00-08:00</div>
               <div class="shift-hours">2 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NELS&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-08:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NELS">
+          <td class="shift-cell"
+              data-staff="NELS"
+              data-job="SITE &amp; RANGE"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="06:00-08:00">
             <div class="shift-card">
               <div class="shift-name">NELS</div>
               <div class="shift-time">06:00-08:00</div>
               <div class="shift-hours">2 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NELS&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=SITE+%26+RANGE&amp;entry.1197624543=06:00-08:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1474,21 +1925,35 @@
             <span class="job-label"><span class="job-label-line">STARTER</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="PAUL">
+          <td class="shift-cell"
+              data-staff="PAUL"
+              data-job="STARTER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="05:30-14:30">
             <div class="shift-card">
               <div class="shift-name">PAUL</div>
               <div class="shift-time">05:30-14:30</div>
               <div class="shift-hours">9 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=PAUL&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=STARTER&amp;entry.1197624543=05:30-14:30" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="PAUL">
+          <td class="shift-cell"
+              data-staff="PAUL"
+              data-job="STARTER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="05:30-14:30">
             <div class="shift-card">
               <div class="shift-name">PAUL</div>
               <div class="shift-time">05:30-14:30</div>
               <div class="shift-hours">9 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=PAUL&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=STARTER&amp;entry.1197624543=05:30-14:30" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1500,66 +1965,115 @@
             <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 1</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Mon 08 Jun"
+              data-date-iso="2026-06-08"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=08/06/2026&amp;entry.1838895739=08/06/2026&amp;entry.742191007=Mon+08+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Tue 09 Jun"
+              data-date-iso="2026-06-09"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=08/06/2026&amp;entry.1838895739=09/06/2026&amp;entry.742191007=Tue+09+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LEE">
+          <td class="shift-cell"
+              data-staff="LEE"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="05:30-10:00">
             <div class="shift-card">
               <div class="shift-name">LEE</div>
               <div class="shift-time">05:30-10:00</div>
               <div class="shift-hours">4.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LEE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-10:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="HUGH">
+          <td class="shift-cell"
+              data-staff="HUGH"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Fri 12 Jun"
+              data-date-iso="2026-06-12"
+              data-shift-time="05:30-14:00">
             <div class="shift-card">
               <div class="shift-name">HUGH</div>
               <div class="shift-time">05:30-14:00</div>
               <div class="shift-hours">8.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=HUGH&amp;entry.865693453=08/06/2026&amp;entry.1838895739=12/06/2026&amp;entry.742191007=Fri+12+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SEXTON">
+          <td class="shift-cell"
+              data-staff="S SEXTON"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="05:30-14:30">
             <div class="shift-card">
               <div class="shift-name">S SEXTON</div>
               <div class="shift-time">05:30-14:30</div>
               <div class="shift-hours">9 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SEXTON&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-14:30" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="BOBBY">
+          <td class="shift-cell"
+              data-staff="BOBBY"
+              data-job="GREEN FEES 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="05:30-10:00">
             <div class="shift-card">
               <div class="shift-name">BOBBY</div>
               <div class="shift-time">05:30-10:00</div>
               <div class="shift-hours">4.5 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=BOBBY&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=GREEN+FEES+1&amp;entry.1197624543=05:30-10:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1571,66 +2085,115 @@
             <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 2</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Mon 08 Jun"
+              data-date-iso="2026-06-08"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=08/06/2026&amp;entry.742191007=Mon+08+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Tue 09 Jun"
+              data-date-iso="2026-06-09"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=08/06/2026&amp;entry.1838895739=09/06/2026&amp;entry.742191007=Tue+09+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="10:00-16:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">10:00-16:00</div>
               <div class="shift-hours">6 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=10:00-16:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SPICER">
+          <td class="shift-cell"
+              data-staff="S SPICER"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Fri 12 Jun"
+              data-date-iso="2026-06-12"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">S SPICER</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SPICER&amp;entry.865693453=08/06/2026&amp;entry.1838895739=12/06/2026&amp;entry.742191007=Fri+12+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="MONTY">
+          <td class="shift-cell"
+              data-staff="MONTY"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="08:00-18:00">
             <div class="shift-card">
               <div class="shift-name">MONTY</div>
               <div class="shift-time">08:00-18:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=MONTY&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=08:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="S SEXTON">
+          <td class="shift-cell"
+              data-staff="S SEXTON"
+              data-job="GREEN FEES 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="08:00-18:00">
             <div class="shift-card">
               <div class="shift-name">S SEXTON</div>
               <div class="shift-time">08:00-18:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=S+SEXTON&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=GREEN+FEES+2&amp;entry.1197624543=08:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1642,30 +2205,51 @@
             <span class="job-label"><span class="job-label-line">GREEN</span><span class="job-label-line">FEES 3</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="GREEN FEES 3"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="16:00-22:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">16:00-22:00</div>
               <div class="shift-hours">6 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=GREEN+FEES+3&amp;entry.1197624543=16:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="GREEN FEES 3"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=GREEN+FEES+3&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="GREEN FEES 3"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=GREEN+FEES+3&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1677,66 +2261,115 @@
             <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">1</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="NATALIE">
+          <td class="shift-cell"
+              data-staff="NATALIE"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Mon 08 Jun"
+              data-date-iso="2026-06-08"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">NATALIE</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NATALIE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=08/06/2026&amp;entry.742191007=Mon+08+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NATALIE">
+          <td class="shift-cell"
+              data-staff="NATALIE"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Tue 09 Jun"
+              data-date-iso="2026-06-09"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">NATALIE</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NATALIE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=09/06/2026&amp;entry.742191007=Tue+09+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Fri 12 Jun"
+              data-date-iso="2026-06-12"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=08/06/2026&amp;entry.1838895739=12/06/2026&amp;entry.742191007=Fri+12+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="LITSA">
+          <td class="shift-cell"
+              data-staff="LITSA"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="12:00-22:00">
             <div class="shift-card">
               <div class="shift-name">LITSA</div>
               <div class="shift-time">12:00-22:00</div>
               <div class="shift-hours">10 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=LITSA&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=12:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="NATALIE">
+          <td class="shift-cell"
+              data-staff="NATALIE"
+              data-job="BAR 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="10:00-22:00">
             <div class="shift-card">
               <div class="shift-name">NATALIE</div>
               <div class="shift-time">10:00-22:00</div>
               <div class="shift-hours">12 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=NATALIE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=BAR+1&amp;entry.1197624543=10:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1748,12 +2381,19 @@
             <span class="job-label"><span class="job-label-line">BAR</span><span class="job-label-line">2</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="ELLEN">
+          <td class="shift-cell"
+              data-staff="ELLEN"
+              data-job="BAR 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="13:00-19:00">
             <div class="shift-card">
               <div class="shift-name">ELLEN</div>
               <div class="shift-time">13:00-19:00</div>
               <div class="shift-hours">6 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=ELLEN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=BAR+2&amp;entry.1197624543=13:00-19:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td>
@@ -1773,48 +2413,83 @@
             <span class="job-label"><span class="job-label-line">JUNGLE</span><span class="job-label-line">FALLS 1</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Mon 08 Jun"
+              data-date-iso="2026-06-08"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=08/06/2026&amp;entry.742191007=Mon+08+Jun&amp;entry.1279528231=JUNGLE+FALLS+1" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Tue 09 Jun"
+              data-date-iso="2026-06-09"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=09/06/2026&amp;entry.742191007=Tue+09+Jun&amp;entry.1279528231=JUNGLE+FALLS+1" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=JUNGLE+FALLS+1" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time"></div>
               <div class="shift-hours"></div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=JUNGLE+FALLS+1" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="BOBBY">
+          <td class="shift-cell"
+              data-staff="BOBBY"
+              data-job="JUNGLE FALLS 1"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">BOBBY</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=BOBBY&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=JUNGLE+FALLS+1&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1826,12 +2501,19 @@
             <span class="job-label"><span class="job-label-line">JUNGLE</span><span class="job-label-line">FALLS 2</span></span>
           </th>
           <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
-          <td class="shift-cell" data-staff="BAY">
+          <td class="shift-cell"
+              data-staff="BAY"
+              data-job="JUNGLE FALLS 2"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="16:00-20:00">
             <div class="shift-card">
               <div class="shift-name">BAY</div>
               <div class="shift-time">16:00-20:00</div>
               <div class="shift-hours">4 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=BAY&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=JUNGLE+FALLS+2&amp;entry.1197624543=16:00-20:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         <td class="empty shift-empty">—</td><td class="empty shift-empty">—</td><td class="empty shift-empty">—</td>
@@ -1843,66 +2525,115 @@
             <span class="job-label"><span class="job-label-line">MANAGER</span></span>
           </th>
           
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Mon 08 Jun"
+              data-date-iso="2026-06-08"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=08/06/2026&amp;entry.742191007=Mon+08+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ OFF-SITE">
+          <td class="shift-cell"
+              data-staff="CAZ OFF-SITE"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Tue 09 Jun"
+              data-date-iso="2026-06-09"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">CAZ OFF-SITE</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ+OFF-SITE&amp;entry.865693453=08/06/2026&amp;entry.1838895739=09/06/2026&amp;entry.742191007=Tue+09+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="KIERAN">
+          <td class="shift-cell"
+              data-staff="KIERAN"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Wed 10 Jun"
+              data-date-iso="2026-06-10"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">KIERAN</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=KIERAN&amp;entry.865693453=08/06/2026&amp;entry.1838895739=10/06/2026&amp;entry.742191007=Wed+10+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Thu 11 Jun"
+              data-date-iso="2026-06-11"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=08/06/2026&amp;entry.1838895739=11/06/2026&amp;entry.742191007=Thu+11+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Fri 12 Jun"
+              data-date-iso="2026-06-12"
+              data-shift-time="10:00-18:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">10:00-18:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=08/06/2026&amp;entry.1838895739=12/06/2026&amp;entry.742191007=Fri+12+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=10:00-18:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sat 13 Jun"
+              data-date-iso="2026-06-13"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=08/06/2026&amp;entry.1838895739=13/06/2026&amp;entry.742191007=Sat+13+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
-          <td class="shift-cell" data-staff="CAZ">
+          <td class="shift-cell"
+              data-staff="CAZ"
+              data-job="MANAGER"
+              data-week-label="Week commencing Monday 8 June 2026"
+              data-week-date="2026-06-08"
+              data-day-label="Sun 14 Jun"
+              data-date-iso="2026-06-14"
+              data-shift-time="14:00-22:00">
             <div class="shift-card">
               <div class="shift-name">CAZ</div>
               <div class="shift-time">14:00-22:00</div>
               <div class="shift-hours">8 hrs</div>
-              <a class="hours-request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScq1TlG4FGBiRdpkHSuieJaNUNWMAsVA1pQCHeB6UwX-AOGVw/viewform?usp=pp_url&amp;entry.1722884562=CAZ&amp;entry.865693453=08/06/2026&amp;entry.1838895739=14/06/2026&amp;entry.742191007=Sun+14+Jun&amp;entry.1279528231=MANAGER&amp;entry.1197624543=14:00-22:00" target="_blank" rel="noopener">Submit hours change</a>
+              <button type="button" class="shift-report-btn" data-report-shift>Report hours change</button>
             </div>
           </td>
         
@@ -1913,7 +2644,10 @@
         </section>
       </section>
     
-      <section class="week-panel" data-week-panel="next">
+      <section class="week-panel"
+               data-week-panel="next"
+               data-week-label="Week commencing Monday 15 June 2026"
+               data-week-date="2026-06-15">
         <div class="week-panel-heading">
           <h2>Next week</h2>
           <div>Week commencing Monday 15 June 2026</div>
@@ -1925,37 +2659,37 @@
               <tr>
                 <th>Job</th>
                 
-      <th>
+      <th data-day-label="Mon 15 Jun" data-date-iso="2026-06-15">
         <span class="day-full">Mon 15 Jun</span>
         <span class="day-short">Mon 15</span>
       </th>
     
-      <th>
+      <th data-day-label="Tue 16 Jun" data-date-iso="2026-06-16">
         <span class="day-full">Tue 16 Jun</span>
         <span class="day-short">Tue 16</span>
       </th>
     
-      <th>
+      <th data-day-label="Wed 17 Jun" data-date-iso="2026-06-17">
         <span class="day-full">Wed 17 Jun</span>
         <span class="day-short">Wed 17</span>
       </th>
     
-      <th>
+      <th data-day-label="Thu 18 Jun" data-date-iso="2026-06-18">
         <span class="day-full">Thu 18 Jun</span>
         <span class="day-short">Thu 18</span>
       </th>
     
-      <th>
+      <th data-day-label="Fri 19 Jun" data-date-iso="2026-06-19">
         <span class="day-full">Fri 19 Jun</span>
         <span class="day-short">Fri 19</span>
       </th>
     
-      <th>
+      <th data-day-label="Sat 20 Jun" data-date-iso="2026-06-20">
         <span class="day-full">Sat 20 Jun</span>
         <span class="day-short">Sat 20</span>
       </th>
     
-      <th>
+      <th data-day-label="Sun 21 Jun" data-date-iso="2026-06-21">
         <span class="day-full">Sun 21 Jun</span>
         <span class="day-short">Sun 21</span>
       </th>
@@ -2058,6 +2792,38 @@
       </section>
     
 
+    <section id="hoursRequestModal" class="modal-backdrop" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="hoursRequestTitle">
+        <h2 id="hoursRequestTitle">Report hours change</h2>
+        <p id="hoursRequestSummary" class="modal-summary"></p>
+
+        <form id="hoursRequestForm" method="post" target="hoursRequestFrame">
+          <input type="hidden" name="weekCommencing" id="hrWeekCommencing">
+          <input type="hidden" name="staff" id="hrStaff">
+          <input type="hidden" name="dateWorked" id="hrDateWorked">
+          <input type="hidden" name="day" id="hrDay">
+          <input type="hidden" name="job" id="hrJob">
+          <input type="hidden" name="scheduledShift" id="hrScheduledShift">
+          <input type="hidden" name="sourceUrl" id="hrSourceUrl">
+          <input type="hidden" name="userAgent" id="hrUserAgent">
+
+          <label for="hrHours">Extra / reduced hours</label>
+          <input id="hrHours" name="hoursRequested" type="number" step="0.25" min="-24" max="24" placeholder="e.g. 1.5 or -0.5" required>
+
+          <label for="hrReason">Reason / note</label>
+          <textarea id="hrReason" name="reason" rows="4" maxlength="500" placeholder="Briefly explain the change" required></textarea>
+
+          <div class="modal-actions">
+            <button type="button" id="hoursRequestCancel">Cancel</button>
+            <button type="submit" id="hoursRequestSubmit">Submit request</button>
+          </div>
+          <div id="hoursRequestStatus" class="modal-status" aria-live="polite"></div>
+        </form>
+
+        <iframe name="hoursRequestFrame" id="hoursRequestFrame" hidden></iframe>
+      </div>
+    </section>
+
     <footer>
       Please check your shift before travelling.
     </footer>
@@ -2066,6 +2832,7 @@
   <script>
     (function () {
       var staffSelect = document.getElementById('staffSelect');
+      var HOURS_REQUEST_ENDPOINT = '';
       var copyButton = document.getElementById('copyStaffLink');
       var resetButton = document.getElementById('resetStaffView');
       var tabButtons = document.querySelectorAll('[data-week-tab]');
@@ -2074,6 +2841,11 @@
       var staffSummaryName = document.getElementById('staffSummaryName');
       var staffSummaryHours = document.getElementById('staffSummaryHours');
       var staffSummaryGrid = document.getElementById('staffSummaryGrid');
+      var hoursRequestModal = document.getElementById('hoursRequestModal');
+      var hoursRequestForm = document.getElementById('hoursRequestForm');
+      var hoursRequestSummary = document.getElementById('hoursRequestSummary');
+      var hoursRequestCancel = document.getElementById('hoursRequestCancel');
+      var hoursRequestStatus = document.getElementById('hoursRequestStatus');
 
       function normalise(value) {
         return String(value || '').trim().toLowerCase();
@@ -2157,6 +2929,8 @@
           var shortLabel = header.querySelector('.day-short');
           return {
             label: (shortLabel ? shortLabel.textContent : header.textContent).trim(),
+            fullLabel: header.getAttribute('data-day-label') || header.textContent.trim(),
+            dateIso: header.getAttribute('data-date-iso') || '',
             shifts: []
           };
         });
@@ -2175,10 +2949,8 @@
 
             var timeEl = cell.querySelector('.shift-time');
             var hoursEl = cell.querySelector('.shift-hours');
-            var requestEl = cell.querySelector('.hours-request-link');
             var time = timeEl ? timeEl.textContent.trim() : '';
             var hours = hoursEl ? hoursEl.textContent.trim() : '';
-            var requestUrl = requestEl ? requestEl.href : '';
             var hoursNumber = parseFloat(hours);
 
             if (!isNaN(hoursNumber)) {
@@ -2187,10 +2959,14 @@
 
             if (dayData[index]) {
               dayData[index].shifts.push({
+                staff: staffSelect.value,
+                weekLabel: activePanel.getAttribute('data-week-label') || '',
+                weekDate: activePanel.getAttribute('data-week-date') || '',
+                dayLabel: dayData[index].fullLabel,
+                dateIso: dayData[index].dateIso,
                 job: job,
                 time: time,
-                hours: hours,
-                requestUrl: requestUrl
+                hours: hours
               });
             }
           });
@@ -2203,15 +2979,20 @@
         staffSummaryGrid.innerHTML = dayData.map(function (day) {
           var shiftsHtml = day.shifts.length
             ? day.shifts.map(function (shift) {
-                var requestHtml = shift.requestUrl
-                  ? '<a class="staff-request-link" href="' + escapeHtmlClient(shift.requestUrl) + '" target="_blank" rel="noopener">Submit change</a>'
-                  : '';
-
                 return '<div class="staff-shift">' +
                   '<div class="staff-shift-job">' + escapeHtmlClient(shift.job) + '</div>' +
                   '<div class="staff-shift-time">' + escapeHtmlClient(shift.time) + '</div>' +
                   '<div class="staff-shift-hours">' + escapeHtmlClient(shift.hours) + '</div>' +
-                  requestHtml +
+                  '<button type="button" class="staff-report-btn" data-report-shift ' +
+                    'data-staff="' + escapeHtmlClient(shift.staff) + '" ' +
+                    'data-week-label="' + escapeHtmlClient(shift.weekLabel) + '" ' +
+                    'data-week-date="' + escapeHtmlClient(shift.weekDate) + '" ' +
+                    'data-day-label="' + escapeHtmlClient(shift.dayLabel) + '" ' +
+                    'data-date-iso="' + escapeHtmlClient(shift.dateIso) + '" ' +
+                    'data-job="' + escapeHtmlClient(shift.job) + '" ' +
+                    'data-shift-time="' + escapeHtmlClient(shift.time) + '">' +
+                    'Report change' +
+                  '</button>' +
                 '</div>';
               }).join('')
             : '<div class="staff-day-empty">–</div>';
@@ -2258,6 +3039,69 @@
         return url;
       }
 
+      function getReportDataFromButton(button) {
+        var cell = button.closest('td[data-staff]');
+
+        if (cell) {
+          return {
+            staff: cell.getAttribute('data-staff') || '',
+            weekLabel: cell.getAttribute('data-week-label') || '',
+            weekDate: cell.getAttribute('data-week-date') || '',
+            dayLabel: cell.getAttribute('data-day-label') || '',
+            dateIso: cell.getAttribute('data-date-iso') || '',
+            job: cell.getAttribute('data-job') || '',
+            shiftTime: cell.getAttribute('data-shift-time') || ''
+          };
+        }
+
+        return {
+          staff: button.getAttribute('data-staff') || '',
+          weekLabel: button.getAttribute('data-week-label') || '',
+          weekDate: button.getAttribute('data-week-date') || '',
+          dayLabel: button.getAttribute('data-day-label') || '',
+          dateIso: button.getAttribute('data-date-iso') || '',
+          job: button.getAttribute('data-job') || '',
+          shiftTime: button.getAttribute('data-shift-time') || ''
+        };
+      }
+
+      function openHoursRequest(button) {
+        if (!HOURS_REQUEST_ENDPOINT) {
+          window.alert('Hours change requests are not enabled yet.');
+          return;
+        }
+
+        var data = getReportDataFromButton(button);
+
+        hoursRequestForm.action = HOURS_REQUEST_ENDPOINT;
+        hoursRequestForm.reset();
+        hoursRequestStatus.textContent = '';
+
+        document.getElementById('hrWeekCommencing').value = data.weekDate;
+        document.getElementById('hrStaff').value = data.staff;
+        document.getElementById('hrDateWorked').value = data.dateIso;
+        document.getElementById('hrDay').value = data.dayLabel;
+        document.getElementById('hrJob').value = data.job;
+        document.getElementById('hrScheduledShift').value = data.shiftTime;
+        document.getElementById('hrSourceUrl').value = window.location.href;
+        document.getElementById('hrUserAgent').value = navigator.userAgent || '';
+
+        hoursRequestSummary.innerHTML =
+          '<strong>' + escapeHtmlClient(data.staff) + '</strong><br>' +
+          escapeHtmlClient(data.dayLabel) + '<br>' +
+          escapeHtmlClient(data.job) + '<br>' +
+          'Scheduled: ' + escapeHtmlClient(data.shiftTime);
+
+        hoursRequestModal.hidden = false;
+        setTimeout(function () {
+          document.getElementById('hrHours').focus();
+        }, 50);
+      }
+
+      function closeHoursRequest() {
+        hoursRequestModal.hidden = true;
+      }
+
       function copyText(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           return navigator.clipboard.writeText(text);
@@ -2301,6 +3145,29 @@
         updateUrl();
       });
 
+      document.addEventListener('click', function (event) {
+        var reportButton = event.target.closest('[data-report-shift]');
+
+        if (reportButton) {
+          openHoursRequest(reportButton);
+          return;
+        }
+
+        if (event.target === hoursRequestModal) {
+          closeHoursRequest();
+        }
+      });
+
+      hoursRequestCancel.addEventListener('click', closeHoursRequest);
+
+      hoursRequestForm.addEventListener('submit', function () {
+        hoursRequestStatus.textContent = 'Sending request...';
+        setTimeout(function () {
+          hoursRequestStatus.textContent = 'Request sent for manager review.';
+          setTimeout(closeHoursRequest, 900);
+        }, 700);
+      });
+
       var params = new URLSearchParams(window.location.search);
       var initialWeek = params.get('week') || 'current';
       var initialStaff = params.get('staff');
@@ -2315,6 +3182,12 @@
       }
 
       setActiveWeek(initialWeek);
+
+      if (!HOURS_REQUEST_ENDPOINT) {
+        document.querySelectorAll('[data-report-shift]').forEach(function (button) {
+          button.hidden = true;
+        });
+      }
     })();
   </script>
 </body>
