@@ -489,6 +489,11 @@
       cursor: pointer;
     }
 
+
+    .modal-backdrop[hidden] {
+      display: none !important;
+    }
+
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -843,7 +848,7 @@
         <h1>Golf Club Rota</h1>
       </div>
       <div class="updated-wrap">
-        <div class="updated">Last updated: Monday 8 June 2026, 11:31</div>
+        <div class="updated">Last updated: Monday 8 June 2026, 11:52</div>
         <a class="archive-link" href="archive.html">View previous rotas</a>
       </div>
     </header>
@@ -2847,6 +2852,10 @@
       var hoursRequestCancel = document.getElementById('hoursRequestCancel');
       var hoursRequestStatus = document.getElementById('hoursRequestStatus');
 
+      if (hoursRequestModal) {
+        hoursRequestModal.hidden = true;
+      }
+
       function normalise(value) {
         return String(value || '').trim().toLowerCase();
       }
@@ -3066,6 +3075,11 @@
       }
 
       function openHoursRequest(button) {
+        if (!hoursRequestModal || !hoursRequestForm) {
+          window.alert('Hours change requests are not available on this page.');
+          return;
+        }
+
         if (!HOURS_REQUEST_ENDPOINT) {
           window.alert('Hours change requests are not enabled yet.');
           return;
