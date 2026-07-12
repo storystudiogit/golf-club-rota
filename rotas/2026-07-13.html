@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Golf Club Rota</title>
+
+<style>
+:root {
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #d9e0ea;
+  --soft: #f8fafc;
+  --card: #ffffff;
+  --blue: #eaf0ff;
+  --dark: #111827;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f8fb;
+  color: var(--ink);
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 18px 14px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+.updated {
+  margin-top: 5px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 18px 40px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 8px 0 14px;
+}
+
+button,
+select,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 11px;
+  padding: 9px 13px;
+  cursor: pointer;
+  min-height: 40px;
+}
+
+button:hover { background: #f3f6fa; }
+
+button.active {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+
+select { min-width: 170px; }
+
+.hint {
+  margin: 6px 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.week-title {
+  margin: 18px 0 8px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.staff-summary {
+  margin: 4px 0 16px;
+  color: var(--muted);
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+table.rota {
+  width: 100%;
+  min-width: 1120px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.rota th,
+.rota td {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.rota th:last-child,
+.rota td:last-child {
+  border-right: 0;
+}
+
+.rota tr:last-child td {
+  border-bottom: 0;
+}
+
+.rota thead th {
+  background: #eaf0ff;
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.rota th.job-head {
+  width: 180px;
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  background: #eaf0ff;
+}
+
+.rota td.job-cell {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: #fff;
+  width: 180px;
+  padding: 10px;
+}
+
+.job-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.site-range { background: #e9d5ff; }
+.starter { background: #ffedd5; }
+.green { background: #bbf7d0; }
+.bar { background: #fed7aa; }
+.jungle { background: #dbeafe; }
+.manager { background: #e5e7eb; }
+
+.rota td.day-cell {
+  width: 135px;
+  min-width: 135px;
+  padding: 8px;
+  background: #fff;
+}
+
+.shift-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 94px;
+}
+
+.staff {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.time {
+  font-size: 14px;
+  color: #334155;
+}
+
+.hours {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.request-btn {
+  margin-top: auto;
+  font-size: 12px;
+  padding: 6px 8px;
+  min-height: auto;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.empty {
+  color: #cbd5e1;
+  text-align: center;
+  padding-top: 24px;
+  font-size: 18px;
+}
+
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.modal h2 { margin-top: 0; }
+
+.form-row {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input,
+textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  h1 { font-size: 25px; }
+
+  main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .toolbar { gap: 6px; }
+
+  button,
+  select {
+    padding: 8px 10px;
+  }
+
+  table.rota { min-width: 980px; }
+
+  .rota td.day-cell {
+    min-width: 125px;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>Golf Club Rota</h1>
+  <div class="updated">Last updated: Sunday 12 July 2026, 18:56</div>
+  <div class="updated"><a href="rotas/">View previous rotas</a></div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button id="tab-last" onclick="setWeek('last')">Last week</button>
+    <button id="tab-current" onclick="setWeek('current')">Current week</button>
+    <button id="tab-next" onclick="setWeek('next')">Next week</button>
+    <select id="staffSelect" onchange="setStaff(this.value)"></select>
+    <button onclick="clearStaff()">Show full rota</button>
+    <button onclick="copyStaffLink()">Copy staff link</button>
+    <button onclick="resetView()">Reset</button>
+    <button onclick="forceRefresh()">Refresh rota</button>
+  </div>
+
+  <div class="hint">↔ Swipe sideways to see the full week. Use “Report hours change” for extra or reduced hours.</div>
+
+  <section id="app"></section>
+</main>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2>Report hours change</h2>
+    <p id="shiftSummary" class="small"></p>
+
+    <form id="requestForm" method="POST" target="submitFrame" action="https://script.google.com/a/wearecutco.com/macros/s/AKfycbyYqspMVXKE-LveHDp5QxsYDVYOF9kWV11X2biza5ISZA4zPx4/exec">
+      <input type="hidden" name="staff" id="f_staff">
+      <input type="hidden" name="job" id="f_job">
+      <input type="hidden" name="weekStart" id="f_weekStart">
+      <input type="hidden" name="shiftDate" id="f_shiftDate">
+      <input type="hidden" name="dayLabel" id="f_dayLabel">
+      <input type="hidden" name="scheduledTime" id="f_scheduledTime">
+      <input type="hidden" name="scheduledHours" id="f_scheduledHours">
+
+      <div class="form-row">
+        <label>Extra / reduced hours</label>
+        <input name="hoursDelta" id="hoursDelta" type="number" step="0.25" required placeholder="Example: 1.5 or -2">
+        <div class="small">Use a minus number for reduced hours.</div>
+      </div>
+
+      <div class="form-row">
+        <label>Reason / note</label>
+        <textarea name="reason" rows="4" required></textarea>
+      </div>
+
+      <div class="toolbar">
+        <button type="button" onclick="closeModal()">Cancel</button>
+        <button type="submit">Submit request</button>
+      </div>
+
+      <div id="submitMsg" class="small"></div>
+    </form>
+
+    <iframe name="submitFrame" style="display:none"></iframe>
+  </div>
+</div>
+
+<script>
+window.ROTA_DATA = {"generatedAt":"Sunday 12 July 2026, 18:56","siteUrl":"https://storystudiogit.github.io/golf-club-rota/","webAppUrl":"https://script.google.com/a/wearecutco.com/macros/s/AKfycbyYqspMVXKE-LveHDp5QxsYDVYOF9kWV11X2biza5ISZA4zPx4/exec","weeks":{"last":{"label":"Last week","weekStartIso":"2026-07-06","weekStartDisplay":"Monday 6 July 2026","jobOrder":["SITE & RANGE","STARTER","MARSHALL","GREEN FEES 1","GREEN FEES 2","GREEN FEES 3","GREEN FEES 4","BAR 1","BAR 2","BAR 3","JUNGLE FALLS 1","JUNGLE FALLS 2","MANAGER"],"days":[{"label":"Mon 6 Jul","dateIso":"2026-07-06","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Mon 6 Jul","dateIso":"2026-07-06"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Mon 6 Jul","dateIso":"2026-07-06"},{"job":"GREEN FEES 2","staff":"MARIO","time":"14:00-22:00","hours":8,"dayLabel":"Mon 6 Jul","dateIso":"2026-07-06"},{"job":"BAR 1","staff":"LITSA","time":"12:00-22:00","hours":10,"dayLabel":"Mon 6 Jul","dateIso":"2026-07-06"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Mon 6 Jul","dateIso":"2026-07-06"},{"job":"MANAGER","staff":"CAZ","time":"10:00-18:00","hours":8,"dayLabel":"Mon 6 Jul","dateIso":"2026-07-06"}]},{"label":"Tue 7 Jul","dateIso":"2026-07-07","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"GREEN FEES 2","staff":"TIANA","time":"14:00-18:30","hours":4.5,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"GREEN FEES 3","staff":"MARIO","time":"18:30-22:00","hours":3.5,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"BAR 1","staff":"WILLIAM","time":"12:00-22:00","hours":10,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-14:00","hours":4,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"JUNGLE FALLS 2","staff":"MARIO","time":"14:00-18:30","hours":4.5,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"},{"job":"MANAGER","staff":"CAZ","time":"10:00-18:00","hours":8,"dayLabel":"Tue 7 Jul","dateIso":"2026-07-07"}]},{"label":"Wed 8 Jul","dateIso":"2026-07-08","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Wed 8 Jul","dateIso":"2026-07-08"},{"job":"GREEN FEES 1","staff":"TIANA","time":"05:30-14:00","hours":8.5,"dayLabel":"Wed 8 Jul","dateIso":"2026-07-08"},{"job":"GREEN FEES 2","staff":"MARIO","time":"14:00-22:00","hours":8,"dayLabel":"Wed 8 Jul","dateIso":"2026-07-08"},{"job":"BAR 1","staff":"LITSA","time":"14:00-22:00","hours":8,"dayLabel":"Wed 8 Jul","dateIso":"2026-07-08"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Wed 8 Jul","dateIso":"2026-07-08"},{"job":"MANAGER","staff":"CAZ","time":"10:00-18:00","hours":8,"dayLabel":"Wed 8 Jul","dateIso":"2026-07-08"}]},{"label":"Thu 9 Jul","dateIso":"2026-07-09","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"},{"job":"GREEN FEES 2","staff":"TIANA","time":"14:00-22:00","hours":8,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"},{"job":"BAR 1","staff":"LITSA","time":"12:00-22:00","hours":10,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"},{"job":"JUNGLE FALLS 2","staff":"MARY","time":"16:00-20:00","hours":4,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Thu 9 Jul","dateIso":"2026-07-09"}]},{"label":"Fri 10 Jul","dateIso":"2026-07-10","shifts":[{"job":"SITE & RANGE","staff":"MARCUS","time":"07:00-09:30","hours":2.5,"dayLabel":"Fri 10 Jul","dateIso":"2026-07-10"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Fri 10 Jul","dateIso":"2026-07-10"},{"job":"GREEN FEES 2","staff":"JOSH","time":"14:00-22:00","hours":8,"dayLabel":"Fri 10 Jul","dateIso":"2026-07-10"},{"job":"BAR 1","staff":"WILLIAM","time":"12:00-22:00","hours":10,"dayLabel":"Fri 10 Jul","dateIso":"2026-07-10"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Fri 10 Jul","dateIso":"2026-07-10"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Fri 10 Jul","dateIso":"2026-07-10"}]},{"label":"Sat 11 Jul","dateIso":"2026-07-11","shifts":[{"job":"SITE & RANGE","staff":"NELS","time":"06:00-08:00","hours":2,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"STARTER","staff":"PAUL","time":"05:30-14:30","hours":9,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"GREEN FEES 1","staff":"MARIO","time":"05:30-15:00","hours":9.5,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"GREEN FEES 2","staff":"MONTY","time":"08:00-18:00","hours":10,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"GREEN FEES 3","staff":"TIANA","time":"14:00-22:00","hours":8,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"BAR 1","staff":"MISH","time":"12:00-18:00","hours":6,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"BAR 2","staff":"ELLEN","time":"13:00-19:00","hours":6,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"BAR 3","staff":"LITSA","time":"18:00-22:00","hours":4,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Sat 11 Jul","dateIso":"2026-07-11"}]},{"label":"Sun 12 Jul","dateIso":"2026-07-12","shifts":[{"job":"SITE & RANGE","staff":"NELS","time":"06:00-08:00","hours":2,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"STARTER","staff":"PAUL","time":"05:30-14:30","hours":9,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"GREEN FEES 1","staff":"BOBBY","time":"05:30-09:30","hours":4,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"GREEN FEES 2","staff":"MARIO","time":"08:00-18:00","hours":10,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"GREEN FEES 3","staff":"MONTY","time":"10:00-18:00","hours":8,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"GREEN FEES 4","staff":"TIANA","time":"14:00-22:00","hours":8,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"BAR 1","staff":"LITSA","time":"12:00-22:00","hours":10,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Sun 12 Jul","dateIso":"2026-07-12"}]}]},"current":{"label":"Current week","weekStartIso":"2026-07-13","weekStartDisplay":"Monday 13 July 2026","jobOrder":["SITE & RANGE","STARTER","MARSHALL","GREEN FEES 1","GREEN FEES 2","GREEN FEES 3","GREEN FEES 4","BAR 1","BAR 2","BAR 3","JUNGLE FALLS 1","JUNGLE FALLS 2","MANAGER"],"days":[{"label":"Mon 13 Jul","dateIso":"2026-07-13","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Mon 13 Jul","dateIso":"2026-07-13"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Mon 13 Jul","dateIso":"2026-07-13"},{"job":"GREEN FEES 2","staff":"JOSH","time":"14:00-22:00","hours":8,"dayLabel":"Mon 13 Jul","dateIso":"2026-07-13"},{"job":"BAR 1","staff":"WILLIAM","time":"12:00-22:00","hours":10,"dayLabel":"Mon 13 Jul","dateIso":"2026-07-13"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Mon 13 Jul","dateIso":"2026-07-13"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Mon 13 Jul","dateIso":"2026-07-13"}]},{"label":"Tue 14 Jul","dateIso":"2026-07-14","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"},{"job":"GREEN FEES 2","staff":"MONTY","time":"14:00-22:00","hours":8,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"},{"job":"BAR 1","staff":"LITSA","time":"12:00-22:00","hours":10,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-14:00","hours":4,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"},{"job":"JUNGLE FALLS 2","staff":"MARIO","time":"14:00-18:00","hours":4,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-14:00","hours":4,"dayLabel":"Tue 14 Jul","dateIso":"2026-07-14"}]},{"label":"Wed 15 Jul","dateIso":"2026-07-15","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Wed 15 Jul","dateIso":"2026-07-15"},{"job":"GREEN FEES 1","staff":"TIANA","time":"05:30-14:00","hours":8.5,"dayLabel":"Wed 15 Jul","dateIso":"2026-07-15"},{"job":"GREEN FEES 2","staff":"MARIO","time":"14:00-22:00","hours":8,"dayLabel":"Wed 15 Jul","dateIso":"2026-07-15"},{"job":"BAR 1","staff":"LITSA","time":"14:00-22:00","hours":8,"dayLabel":"Wed 15 Jul","dateIso":"2026-07-15"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Wed 15 Jul","dateIso":"2026-07-15"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Wed 15 Jul","dateIso":"2026-07-15"}]},{"label":"Thu 16 Jul","dateIso":"2026-07-16","shifts":[{"job":"SITE & RANGE","staff":"LEE","time":"06:00-14:00","hours":8,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"},{"job":"GREEN FEES 2","staff":"TIANA","time":"14:00-22:00","hours":8,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"},{"job":"BAR 1","staff":"LITSA","time":"12:00-22:00","hours":10,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-14:00","hours":4,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"},{"job":"JUNGLE FALLS 2","staff":"MARIO","time":"14:00-18:00","hours":4,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"},{"job":"MANAGER","staff":"KIERAN","time":"10:00-14:00","hours":4,"dayLabel":"Thu 16 Jul","dateIso":"2026-07-16"}]},{"label":"Fri 17 Jul","dateIso":"2026-07-17","shifts":[{"job":"SITE & RANGE","staff":"MARCUS","time":"07:00-09:30","hours":2.5,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"},{"job":"GREEN FEES 1","staff":"HUGH","time":"05:30-14:00","hours":8.5,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"},{"job":"GREEN FEES 2","staff":"TIANA","time":"14:00-22:00","hours":8,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"},{"job":"BAR 1","staff":"LITSA","time":"12:00-18:00","hours":6,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"},{"job":"BAR 2","staff":"CAZ","time":"18:00-22:00","hours":4,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"},{"job":"MANAGER","staff":"CAZ","time":"14:00-22:00","hours":8,"dayLabel":"Fri 17 Jul","dateIso":"2026-07-17"}]},{"label":"Sat 18 Jul","dateIso":"2026-07-18","shifts":[{"job":"SITE & RANGE","staff":"NELS","time":"06:00-08:00","hours":2,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"STARTER","staff":"PAUL","time":"05:30-14:00","hours":8.5,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"MARSHALL","staff":"DAVE R","time":"11:00-18:00","hours":7,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"GREEN FEES 1","staff":"MARIO","time":"05:30-14:30","hours":9,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"GREEN FEES 2","staff":"TIANA","time":"09:30-17:30","hours":8,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"GREEN FEES 3","staff":"CAZ","time":"14:00-22:00","hours":8,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"BAR 1","staff":"LITSA","time":"12:00-22:00","hours":10,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"BAR 2","staff":"ELLEN","time":"13:00-19:00","hours":6,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"},{"job":"MANAGER","staff":"CAZ","time":"12:00-22:00","hours":10,"dayLabel":"Sat 18 Jul","dateIso":"2026-07-18"}]},{"label":"Sun 19 Jul","dateIso":"2026-07-19","shifts":[{"job":"SITE & RANGE","staff":"NELS","time":"06:00-08:00","hours":2,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"STARTER","staff":"PAUL","time":"05:30-14:00","hours":8.5,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"MARSHALL","staff":"DAVE R","time":"11:00-18:00","hours":7,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"GREEN FEES 1","staff":"BOBBY","time":"05:30-10:00","hours":4.5,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"GREEN FEES 2","staff":"MARIO","time":"09:30-17:30","hours":8,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"GREEN FEES 3","staff":"TIANA","time":"10:00-18:00","hours":8,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"GREEN FEES 4","staff":"OLLIE","time":"14:00-22:00","hours":8,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"BAR 1","staff":"CAZ","time":"12:00-18:00","hours":6,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"BAR 2","staff":"LITSA","time":"18:00-22:00","hours":4,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"JUNGLE FALLS 1","staff":"KIERAN","time":"10:00-18:00","hours":8,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"},{"job":"MANAGER","staff":"CAZ","time":"12:00-18:00","hours":6,"dayLabel":"Sun 19 Jul","dateIso":"2026-07-19"}]}]},"next":{"label":"Next week","weekStartIso":"2026-07-20","weekStartDisplay":"Monday 20 July 2026","jobOrder":["SITE & RANGE","STARTER","MARSHALL","GREEN FEES 1","GREEN FEES 2","GREEN FEES 3","GREEN FEES 4","BAR 1","BAR 2","BAR 3","JUNGLE FALLS 1","JUNGLE FALLS 2","MANAGER"],"days":[{"label":"Mon 20 Jul","dateIso":"2026-07-20","shifts":[]},{"label":"Tue 21 Jul","dateIso":"2026-07-21","shifts":[]},{"label":"Wed 22 Jul","dateIso":"2026-07-22","shifts":[]},{"label":"Thu 23 Jul","dateIso":"2026-07-23","shifts":[]},{"label":"Fri 24 Jul","dateIso":"2026-07-24","shifts":[]},{"label":"Sat 25 Jul","dateIso":"2026-07-25","shifts":[]},{"label":"Sun 26 Jul","dateIso":"2026-07-26","shifts":[]}]}},"staff":["BOBBY","CAZ","DAVE R","ELLEN","HUGH","JOSH","KIERAN","LEE","LITSA","MARCUS","MARIO","MARY","MISH","MONTY","NELS","OLLIE","PAUL","TIANA","WILLIAM"]};
+
+var selectedWeek = 'current';
+var selectedStaff = '';
+var flatShifts = [];
+
+function init() {
+  var params = new URLSearchParams(window.location.search);
+  selectedStaff = params.get('staff') || '';
+
+  var week = params.get('week');
+  if (week && ROTA_DATA.weeks[week]) {
+    selectedWeek = week;
+  }
+
+  var sel = document.getElementById('staffSelect');
+  sel.innerHTML = '';
+
+  var blank = document.createElement('option');
+  blank.value = '';
+  blank.textContent = 'Staff view';
+  sel.appendChild(blank);
+
+  ROTA_DATA.staff.forEach(function(name) {
+    var opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    sel.appendChild(opt);
+  });
+
+  sel.value = selectedStaff;
+  render();
+}
+
+function setWeek(key) {
+  selectedWeek = key;
+  render();
+}
+
+function setStaff(name) {
+  selectedStaff = name || '';
+  render();
+}
+
+function clearStaff() {
+  selectedStaff = '';
+  document.getElementById('staffSelect').value = '';
+  render();
+}
+
+function resetView() {
+  selectedWeek = 'current';
+  selectedStaff = '';
+  document.getElementById('staffSelect').value = '';
+  render();
+}
+
+function forceRefresh() {
+  var url = new URL(window.location.href);
+  url.searchParams.set('_fresh', Date.now().toString());
+  window.location.replace(url.toString());
+}
+
+function copyStaffLink() {
+  var url = new URL(window.location.href);
+
+  if (selectedStaff) {
+    url.searchParams.set('staff', selectedStaff);
+  } else {
+    url.searchParams.delete('staff');
+  }
+
+  url.searchParams.set('week', selectedWeek);
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url.toString());
+    alert('Staff link copied');
+  } else {
+    prompt('Copy this link', url.toString());
+  }
+}
+
+function render() {
+  ['last', 'current', 'next'].forEach(function(key) {
+    var btn = document.getElementById('tab-' + key);
+    if (btn) btn.className = key === selectedWeek ? 'active' : '';
+  });
+
+  var week = ROTA_DATA.weeks[selectedWeek];
+  var jobs = orderedJobs(week);
+
+  flatShifts = [];
+
+  var html = '';
+
+  html += '<h2 class="week-title">' + esc(week.label) + ': week commencing ' + esc(week.weekStartDisplay) + '</h2>';
+
+  if (selectedStaff) {
+    html += '<div class="staff-summary"><strong>Staff week view:</strong> ' + esc(selectedStaff) + ' · ' + staffHours(week, selectedStaff) + ' weekly hours</div>';
+  }
+
+  html += '<div class="table-wrap">';
+  html += '<table class="rota">';
+  html += '<thead><tr>';
+  html += '<th class="job-head">Job</th>';
+
+  week.days.forEach(function(day) {
+    html += '<th>' + esc(day.label) + '</th>';
+  });
+
+  html += '</tr></thead>';
+  html += '<tbody>';
+
+  jobs.forEach(function(job) {
+    var rowHasShift = false;
+    var cells = '';
+
+    week.days.forEach(function(day) {
+      var shifts = day.shifts.filter(function(s) {
+        if (norm(s.job) !== norm(job)) return false;
+        if (selectedStaff && norm(s.staff) !== norm(selectedStaff)) return false;
+        return true;
+      });
+
+      if (shifts.length) rowHasShift = true;
+
+      cells += '<td class="day-cell">';
+
+      if (!shifts.length) {
+        cells += '<div class="empty">—</div>';
+      } else {
+        shifts.forEach(function(s) {
+          var id = flatShifts.length;
+          flatShifts.push(s);
+
+          cells += '<div class="shift-card">';
+          cells += '<div class="staff">' + esc(s.staff) + '</div>';
+          cells += '<div class="time">' + esc(s.time) + '</div>';
+          cells += '<div class="hours">' + esc(String(s.hours)) + ' hrs</div>';
+          cells += '<button class="request-btn" onclick="openRequest(' + id + ')">Report hours change</button>';
+          cells += '</div>';
+        });
+      }
+
+      cells += '</td>';
+    });
+
+    if (selectedStaff && !rowHasShift) return;
+
+    html += '<tr>';
+    html += '<td class="job-cell"><span class="job-label ' + jobClass(job) + '">' + esc(job) + '</span></td>';
+    html += cells;
+    html += '</tr>';
+  });
+
+  html += '</tbody>';
+  html += '</table>';
+  html += '</div>';
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function orderedJobs(week) {
+  var present = collectJobs(week);
+
+  if (!week.jobOrder || !week.jobOrder.length) {
+    return present;
+  }
+
+  var presentMap = {};
+  present.forEach(function(job) {
+    presentMap[norm(job)] = job;
+  });
+
+  var ordered = [];
+
+  week.jobOrder.forEach(function(job) {
+    var key = norm(job);
+
+    if (presentMap[key]) {
+      ordered.push(presentMap[key]);
+      delete presentMap[key];
+    }
+  });
+
+  // Anything not in Setup is still shown, but placed at the end.
+  present.forEach(function(job) {
+    var key = norm(job);
+
+    if (presentMap[key]) {
+      ordered.push(job);
+      delete presentMap[key];
+    }
+  });
+
+  return ordered;
+}
+
+function collectJobs(week) {
+  var seen = {};
+  var jobs = [];
+
+  week.days.forEach(function(day) {
+    day.shifts.forEach(function(s) {
+      var key = norm(s.job);
+      if (!key || seen[key]) return;
+      seen[key] = true;
+      jobs.push(s.job);
+    });
+  });
+
+  return jobs;
+}
+
+function staffHours(week, staff) {
+  var total = 0;
+
+  week.days.forEach(function(day) {
+    day.shifts.forEach(function(s) {
+      if (norm(s.staff) === norm(staff)) {
+        total += Number(s.hours || 0);
+      }
+    });
+  });
+
+  return Math.round(total * 100) / 100;
+}
+
+function openRequest(id) {
+  if (!ROTA_DATA.webAppUrl) {
+    alert('Hours request form is not connected yet.');
+    return;
+  }
+
+  var s = flatShifts[id];
+
+  document.getElementById('f_staff').value = s.staff;
+  document.getElementById('f_job').value = s.job;
+  document.getElementById('f_weekStart').value = ROTA_DATA.weeks[selectedWeek].weekStartIso;
+  document.getElementById('f_shiftDate').value = s.dateIso;
+  document.getElementById('f_dayLabel').value = s.dayLabel;
+  document.getElementById('f_scheduledTime').value = s.time;
+  document.getElementById('f_scheduledHours').value = s.hours;
+
+  document.getElementById('shiftSummary').textContent =
+    s.staff + ' · ' + s.job + ' · ' + s.dayLabel + ' · ' + s.time;
+
+  document.getElementById('submitMsg').textContent = '';
+  document.getElementById('modalBg').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modalBg').style.display = 'none';
+}
+
+document.getElementById('requestForm').addEventListener('submit', function() {
+  document.getElementById('submitMsg').textContent = 'Submitting...';
+
+  setTimeout(function() {
+    document.getElementById('submitMsg').textContent = 'Submitted. Thank you.';
+  }, 900);
+});
+
+function jobClass(job) {
+  var j = norm(job);
+
+  if (j.indexOf('SITE') >= 0) return 'site-range';
+  if (j.indexOf('STARTER') >= 0) return 'starter';
+  if (j.indexOf('GREEN') >= 0) return 'green';
+  if (j.indexOf('BAR') >= 0) return 'bar';
+  if (j.indexOf('JUNGLE') >= 0) return 'jungle';
+  if (j.indexOf('MANAGER') >= 0) return 'manager';
+
+  return '';
+}
+
+function norm(v) {
+  return String(v || '').trim().toUpperCase();
+}
+
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, function(c) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[c];
+  });
+}
+
+init();
+</script>
+</body>
+</html>
