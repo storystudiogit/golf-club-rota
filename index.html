@@ -317,6 +317,9 @@ button:focus-visible,select:focus-visible {outline:3px solid #b49b65;outline-off
 [hidden] {display:none!important;}
 @media(max-width:760px){.toolbar select{width:100%;order:-1}.toolbar button{flex:1 1 auto}.personal-hero h2{font-size:23px}.personal-shift{align-items:flex-start}.hint{font-size:12px}}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-title" content="Trent Park Rota">
 </head>
 
 <body>
@@ -656,5 +659,7 @@ function esc(v) {
 
 init();
 </script>
+<div style="padding:8px 12px;text-align:center;background:#e8efe9;color:#193d2d;font-size:14px"><button id="pwaInstall" type="button">Install app</button> <span id="pwaStatus" role="status">Checking rota freshness…</span></div>
+<script src="pwa.js" defer></script>
 </body>
 </html>
